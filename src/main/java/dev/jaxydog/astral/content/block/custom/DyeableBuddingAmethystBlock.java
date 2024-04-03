@@ -15,7 +15,7 @@
 package dev.jaxydog.astral.content.block.custom;
 
 import dev.jaxydog.astral.Astral;
-import dev.jaxydog.astral.content.block.CustomBlocks;
+import dev.jaxydog.astral.content.block.AstralBlocks;
 import dev.jaxydog.astral.content.item.AstralBlockItem;
 import dev.jaxydog.astral.content.item.AstralItems;
 import dev.jaxydog.astral.datagen.*;
@@ -68,19 +68,19 @@ public class DyeableBuddingAmethystBlock extends DyeableAmethystBlock {
     }
 
     private Block getSmallBud() {
-        return CustomBlocks.DYEABLE_SMALL_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
+        return AstralBlocks.DYEABLE_SMALL_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
     }
 
     private Block getMediumBud() {
-        return CustomBlocks.DYEABLE_MEDIUM_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
+        return AstralBlocks.DYEABLE_MEDIUM_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
     }
 
     private Block getLargeBud() {
-        return CustomBlocks.DYEABLE_LARGE_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
+        return AstralBlocks.DYEABLE_LARGE_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
     }
 
     private Block getCluster() {
-        return CustomBlocks.DYEABLE_AMETHYST_CLUSTERS.get(this.getColor()).orElseThrow();
+        return AstralBlocks.DYEABLE_AMETHYST_CLUSTERS.get(this.getColor()).orElseThrow();
     }
 
     @Override

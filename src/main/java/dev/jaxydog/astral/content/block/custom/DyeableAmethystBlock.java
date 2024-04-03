@@ -15,7 +15,7 @@
 package dev.jaxydog.astral.content.block.custom;
 
 import dev.jaxydog.astral.Astral;
-import dev.jaxydog.astral.content.block.CustomBlock;
+import dev.jaxydog.astral.content.block.AstralBlock;
 import dev.jaxydog.astral.content.item.AstralBlockItem;
 import dev.jaxydog.astral.content.item.AstralItems;
 import dev.jaxydog.astral.datagen.*;
@@ -58,7 +58,7 @@ import java.util.Optional;
  *
  * @author Jaxydog
  */
-public class DyeableAmethystBlock extends CustomBlock implements Generated {
+public class DyeableAmethystBlock extends AstralBlock implements Generated {
 
     /** A block tag containing all amethyst blocks. */
     public static final TagKey<Block> AMETHYST_BLOCKS = TagKey.of(Registries.BLOCK.getKey(),
