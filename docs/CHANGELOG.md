@@ -25,6 +25,12 @@
 - Fixed positioning of August's anti-death protocol.
 - Fixed animation of Luma's lantern.
 
+## Patch 1.8.2
+
+### Content changes
+
+- *Actually* fixed the animation of Luma's lantern.
+
 # Release 1.7.0
 
 ### Internal changes
