@@ -4,6 +4,9 @@
 
 - Added cobbled sandstone.
     - Crafted using sandstone within a stone-cutter.
+- Added placeholder models. (Thank you Sol!)
+    - Added Luma's antennae.
+    - Added August's anti-death protocol.
 
 # Release 1.7.0
 
