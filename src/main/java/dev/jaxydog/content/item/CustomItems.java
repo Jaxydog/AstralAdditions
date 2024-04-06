@@ -124,10 +124,6 @@ public final class CustomItems extends ContentRegistrar {
         new Settings(),
         CustomItemGroups.STARMONEY_PLAZA::getRegistryKey
     );
-    public static final CustomItem APPY_SAUCE = new CustomItem("appy_sauce",
-        new Settings(),
-        CustomItemGroups.STARMONEY_PLAZA::getRegistryKey
-    );
     public static final CustomItem VOID_ESSENCE = new CustomItem("void_essence",
         new Settings().rarity(Rarity.EPIC),
         CustomItemGroups.STARMONEY_PLAZA::getRegistryKey
@@ -254,7 +250,7 @@ public final class CustomItems extends ContentRegistrar {
             .saturationModifier(0.25F)
             .build();
 
-        private FoodComponents() { }
+        private FoodComponents() {}
 
     }
 
@@ -268,7 +264,7 @@ public final class CustomItems extends ContentRegistrar {
             .setRepairIngredient(Ingredient.ofItems(CLOUDY_COTTON))
             .build();
 
-        private ArmorMaterials() { }
+        private ArmorMaterials() {}
 
     }
 

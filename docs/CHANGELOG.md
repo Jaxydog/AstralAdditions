@@ -7,6 +7,7 @@
 - Added placeholder models. (Thank you Sol!)
     - Added Luma's antennae.
     - Added August's anti-death protocol.
+- Removed appy sauce.
 
 # Release 1.7.0
 
