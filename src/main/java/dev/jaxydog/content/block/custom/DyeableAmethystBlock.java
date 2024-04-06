@@ -96,7 +96,7 @@ public class DyeableAmethystBlock extends CustomBlock implements Generated {
 
                 yield switch (color) {
                     // These specific colors hue rotate *and* have differing brightness / saturation values.
-                    case BROWN -> rotated.withBrightness(b - 0.25F);
+                    case BROWN -> rotated.withBrightness(b - 0.325F);
                     case GREEN -> rotated.withSaturation(s + 0.375F).withBrightness(b - 0.325F);
                     case PINK -> rotated.withSaturation(s - 0.1F).withBrightness(b + 0.1F);
                     case CYAN -> rotated.withSaturation(s + 0.25F).withBrightness(b - 0.25F);
