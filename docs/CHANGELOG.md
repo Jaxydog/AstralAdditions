@@ -4,10 +4,13 @@
 
 - Added cobbled sandstone.
     - Crafted using sandstone within a stone-cutter.
-- Added placeholder models. (Thank you Sol!)
+- Added placeholder models. (Thank you, Sol!)
     - Added Luma's antennae.
     - Added August's anti-death protocol.
 - Removed appy sauce.
+- Added custom lantern models. (Thank you again, Sol!)
+    - Added Luma's lantern (`glowstone_dust`).
+    - Added Uriel's lantern (`netherite_ingot`).
 
 # Release 1.7.0
 
