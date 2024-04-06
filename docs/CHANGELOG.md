@@ -12,6 +12,11 @@
     - Added Luma's lantern (`glowstone_dust`).
     - Added Uriel's lantern (`netherite_ingot`).
 - Darkened brown amethyst slightly.
+- Updated dependencies.
+    - Fabric loader 0.15.7
+    - Fabric API 0.92.0
+    - Pehkui 3.8.0
+    - Trinkets 3.7.2
 
 # Release 1.7.0
 
