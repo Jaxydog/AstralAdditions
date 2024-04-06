@@ -18,6 +18,13 @@
     - Pehkui 3.8.0
     - Trinkets 3.7.2
 
+## Patch 1.8.1
+
+### Content changes
+
+- Fixed positioning of August's anti-death protocol.
+- Fixed animation of Luma's lantern.
+
 # Release 1.7.0
 
 ### Internal changes
