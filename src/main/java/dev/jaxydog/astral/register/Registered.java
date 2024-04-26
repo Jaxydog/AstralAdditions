@@ -15,8 +15,6 @@
 package dev.jaxydog.astral.register;
 
 import dev.jaxydog.astral.Astral;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.util.Identifier;
 
 /**
@@ -95,7 +93,6 @@ public interface Registered {
      * @see Generated
      * @since 1.0.0
      */
-    @Environment(EnvType.CLIENT)
     interface Client extends Registered {
 
         /**
