@@ -166,12 +166,6 @@ public class DyedAmethystClusterBlock extends DyedAmethystBlock implements Clien
      * @since 2.0.0
      */
     private final Type type;
-    /**
-     * Maps different directions to their shapes.
-     *
-     * @since 2.0.0
-     */
-    private final Map<Direction, VoxelShape> shapes = new Object2ObjectArrayMap<>(Direction.values().length);
 
     /**
      * Creates a new block using the given settings.
