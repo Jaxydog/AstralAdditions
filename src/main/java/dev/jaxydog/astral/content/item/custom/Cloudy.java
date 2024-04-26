@@ -208,7 +208,7 @@ public interface Cloudy {
 
         // The base label is simply determined using the label translation key constant.
         // This will equate to something like 'Storminess: 50.0%'.
-        return Text.translatable(STORMINESS_LABEL_KEY).append(": %.0f%%".formatted(storminess));
+        return Text.translatable(STORMINESS_LABEL_KEY).append(": %.0f%%".formatted(percentage));
     }
 
     /**

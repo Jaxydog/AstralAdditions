@@ -9,3 +9,6 @@ accessible method net/minecraft/entity/LivingEntity applyFoodEffects (Lnet/minec
 accessible method net/minecraft/data/server/recipe/RecipeProvider conditionsFromTag (Lnet/minecraft/registry/tag/TagKey;)Lnet/minecraft/advancement/criterion/InventoryChangedCriterion$Conditions;
 accessible method net/minecraft/data/client/BlockStateModelGenerator registerAmethyst (Lnet/minecraft/block/Block;)V
 accessible field net/minecraft/data/client/ItemModelGenerator writer Ljava/util/function/BiConsumer;
+accessible method net/minecraft/client/item/ModelPredicateProviderRegistry register (Lnet/minecraft/item/Item;Lnet/minecraft/util/Identifier;Lnet/minecraft/client/item/ClampedModelPredicateProvider;)V
+accessible method net/minecraft/data/client/ItemModelGenerator register (Lnet/minecraft/item/Item;Lnet/minecraft/data/client/Model;)V
+accessible method net/minecraft/recipe/BrewingRecipeRegistry registerItemRecipe (Lnet/minecraft/item/Item;Lnet/minecraft/item/Item;Lnet/minecraft/item/Item;)V
