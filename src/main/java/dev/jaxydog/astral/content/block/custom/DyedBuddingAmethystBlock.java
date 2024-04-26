@@ -17,7 +17,6 @@ package dev.jaxydog.astral.content.block.custom;
 import dev.jaxydog.astral.Astral;
 import dev.jaxydog.astral.content.block.AstralBlocks;
 import dev.jaxydog.astral.content.item.AstralBlockItem;
-import dev.jaxydog.astral.content.item.AstralItems;
 import dev.jaxydog.astral.datagen.*;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.AmethystClusterBlock;
@@ -45,78 +44,123 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import org.apache.commons.lang3.StringUtils;
 
+import java.awt.image.BufferedImage;
 import java.util.Arrays;
+import java.util.Optional;
 
 /**
- * Implements dyeable budding amethyst blocks.
+ * Defines dyed budding amethyst blocks.
  *
  * @author Jaxydog
+ * @since 2.0.0
  */
-public class DyeableBuddingAmethystBlock extends DyeableAmethystBlock {
+@SuppressWarnings("deprecation")
+public class DyedBuddingAmethystBlock extends DyedAmethystBlock {
 
-    /** A block tag containing all amethyst blocks. */
+    /**
+     * A block tag containing all budding amethysts.
+     *
+     * @since 2.0.0
+     */
     public static final TagKey<Block> BUDDING_AMETHYSTS = TagKey.of(Registries.BLOCK.getKey(),
         Astral.getId("budding_amethysts")
     );
-    /** An item tag containing all amethyst blocks. */
+    /**
+     * An item tag containing all budding amethysts.
+     *
+     * @since 2.0.0
+     */
     public static final TagKey<Item> BUDDING_AMETHYST_ITEMS = TagKey.of(Registries.ITEM.getKey(),
         Astral.getId("budding_amethysts")
     );
 
-    public DyeableBuddingAmethystBlock(String rawId, Settings settings, DyeColor color) {
-        super(rawId, settings, color);
+    /**
+     * Creates a new block using the given settings.
+     *
+     * @param path The block's identifier path.
+     * @param settings The block's settings.
+     * @param color The block's color.
+     *
+     * @since 2.0.0
+     */
+    public DyedBuddingAmethystBlock(String path, Settings settings, DyeColor color) {
+        super(path, settings, color);
     }
 
-    private Block getSmallBud() {
-        return AstralBlocks.DYEABLE_SMALL_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
+    /**
+     * Returns the small amethyst bud generated from this block.
+     *
+     * @return The amethyst bud.
+     *
+     * @since 2.0.0
+     */
+    protected Block getSmallBudBlock() {
+        return AstralBlocks.DYED_SMALL_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
     }
 
-    private Block getMediumBud() {
-        return AstralBlocks.DYEABLE_MEDIUM_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
+    /**
+     * Returns the medium amethyst bud generated from this block.
+     *
+     * @return The amethyst bud.
+     *
+     * @since 2.0.0
+     */
+    protected Block getMediumBudBlock() {
+        return AstralBlocks.DYED_MEDIUM_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
     }
 
-    private Block getLargeBud() {
-        return AstralBlocks.DYEABLE_LARGE_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
+    /**
+     * Returns the large amethyst bud generated from this block.
+     *
+     * @return The amethyst bud.
+     *
+     * @since 2.0.0
+     */
+    protected Block getLargeBudBlock() {
+        return AstralBlocks.DYED_LARGE_AMETHYST_BUDS.get(this.getColor()).orElseThrow();
     }
 
-    private Block getCluster() {
-        return AstralBlocks.DYEABLE_AMETHYST_CLUSTERS.get(this.getColor()).orElseThrow();
+    /**
+     * Returns the amethyst cluster generated from this block.
+     *
+     * @return The amethyst cluster.
+     *
+     * @since 2.0.0
+     */
+    protected Block getClusterBlock() {
+        return AstralBlocks.DYED_AMETHYST_CLUSTERS.get(this.getColor()).orElseThrow();
     }
 
-    @Override
-    public AstralBlockItem getItem() {
-        return AstralItems.DYEABLE_BUDDING_AMETHYST_BLOCKS.get(this.getColor()).orElseThrow();
-    }
-
-    @SuppressWarnings("deprecation")
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (random.nextInt(BuddingAmethystBlock.GROW_CHANCE) != 0) return;
 
-        final Direction direction = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
+        final Direction direction = DIRECTIONS[0];
         final BlockPos blockPos = pos.offset(direction);
         final BlockState blockState = world.getBlockState(blockPos);
         final Block block;
 
-        // Step through various stages of growth.
         if (BuddingAmethystBlock.canGrowIn(blockState)) {
-            block = this.getSmallBud();
-        } else if (blockState.isOf(this.getSmallBud()) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-            block = this.getMediumBud();
-        } else if (blockState.isOf(this.getMediumBud()) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-            block = this.getLargeBud();
-        } else if (blockState.isOf(this.getLargeBud()) && blockState.get(AmethystClusterBlock.FACING) == direction) {
-            block = this.getCluster();
+            block = this.getSmallBudBlock();
+        } else if (blockState.isOf(this.getSmallBudBlock())) {
+            if (blockState.get(AmethystClusterBlock.FACING) != direction) return;
+
+            block = this.getMediumBudBlock();
+        } else if (blockState.isOf(this.getMediumBudBlock())) {
+            if (blockState.get(AmethystClusterBlock.FACING) != direction) return;
+
+            block = this.getLargeBudBlock();
+        } else if (blockState.isOf(this.getLargeBudBlock())) {
+            if (blockState.get(AmethystClusterBlock.FACING) != direction) return;
+
+            block = this.getClusterBlock();
         } else {
-            block = null;
+            return;
         }
 
-        if (block == null) return;
-
-        // Update the block state if non-null.
         final BlockState newState = block.getDefaultState()
-            .with(DyeableAmethystClusterBlock.FACING, direction)
-            .with(DyeableAmethystClusterBlock.WATERLOGGED, blockState.getFluidState().getFluid() == Fluids.WATER);
+            .with(AmethystClusterBlock.FACING, direction)
+            .with(AmethystClusterBlock.WATERLOGGED, blockState.getFluidState().getFluid() == Fluids.WATER);
 
         world.setBlockState(blockPos, newState);
     }
@@ -124,35 +168,46 @@ public class DyeableBuddingAmethystBlock extends DyeableAmethystBlock {
     @Override
     public void generate() {
         ModelGenerator.getInstance().generateBlock(g -> g.registerSimpleCubeAll(this));
-        TagGenerator.getInstance().generate(BUDDING_AMETHYSTS, b -> b.add(this));
-        TagGenerator.getInstance().generate(BUDDING_AMETHYST_ITEMS, b -> b.add(this.getItem()));
-        TagGenerator.getInstance().generate(BlockTags.PICKAXE_MINEABLE, b -> b.add(this));
-        TextureGenerator.getInstance().generate(Registries.BLOCK.getKey(),
-            i -> generateTexture(i, "budding_amethyst", this.getColor(), this.getRegistryId())
-        );
+
+        TagGenerator.getInstance().generate(BUDDING_AMETHYSTS, g -> g.add(this));
+        TagGenerator.getInstance().generate(BUDDING_AMETHYST_ITEMS, g -> g.add(this.asItem()));
+        TagGenerator.getInstance().generate(BlockTags.PICKAXE_MINEABLE, g -> g.add(this));
+
+        TextureGenerator.getInstance().generate(Registries.BLOCK.getKey(), instance -> {
+            final Optional<BufferedImage> maybeSource = instance.getImage("budding_amethyst");
+
+            if (maybeSource.isPresent()) {
+                final BufferedImage image = DYE_MAPPER.convert(maybeSource.get(), this.getColor());
+
+                instance.generate(this.getRegistryId(), image);
+            }
+        });
+
         LootTableGenerator.getInstance().generate(LootContextTypes.BLOCK,
-            this.lootTableId,
+            this.getLootTableId(),
             new Builder().pool(LootPool.builder()
-                .rolls(ConstantLootNumberProvider.create(1))
-                .with(ItemEntry.builder(this::getItem))
+                .rolls(ConstantLootNumberProvider.create(1F))
+                .with(ItemEntry.builder(this))
                 .conditionally(SurvivesExplosionLootCondition.builder().build())
                 .build())
         );
-        RecipeGenerator.getInstance().generate(this.getItem().getRegistryId(),
-            ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this.getItem())
+
+        RecipeGenerator.getInstance().generate(((AstralBlockItem) this.asItem()).getRegistryId(),
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this)
                 .group("dyeable_budding_amethysts")
                 .input(BUDDING_AMETHYST_ITEMS)
                 .input(DyeItem.byColor(this.getColor()))
                 .criterion("block", FabricRecipeProvider.conditionsFromTag(BUDDING_AMETHYST_ITEMS))
         );
+
         LanguageGenerator.getInstance().generate(builder -> {
             final String[] parts = this.getColor().getName().split("_");
             final String value = Arrays.stream(parts)
-                .map(s -> StringUtils.capitalize(s) + " ")
+                .map(StringUtils::capitalize)
                 .reduce(String::concat)
-                .orElse("Dyed ");
+                .orElse("Dyed");
 
-            builder.add(this, value + "Budding Amethyst");
+            builder.add(this, value + " Budding Amethyst");
         });
     }
 

@@ -5,6 +5,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 ### Internal changes
 
 - All code is now within `dev.jaxydog.astral`, instead of `dev.jaxydog`.
+- Updated access widener entries.
 - Updated mod entrypoints.
     - Added `isInitialized` methods for each environment.
     - Verified that each entrypoint is only initialized once.
@@ -31,6 +32,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Updated block content structure.
     - Rename all `Custom*Block` classes to `Astral*Block`.
     - Move `Colored` into `dev.jaxydog.astral.content.block`.
+    - Renamed "Dyeable" amethyst to "Dyed" amethyst.
+    - Simplify dyed amethyst colorization.
 - Updated sound content structure.
     - Added `SoundContext` record class.
 - Vastly improved color and image manipulation support.
@@ -43,6 +46,39 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 ### Content changes
 
 - Updated contribution guidelines.
+
+# Release 1.8.0
+
+### Content changes
+
+- Added cobbled sandstone.
+    - Crafted using sandstone within a stone-cutter.
+- Added placeholder models. (Thank you, Sol!)
+    - Added Luma's antennae.
+    - Added August's anti-death protocol.
+- Removed appy sauce.
+- Added custom lantern models. (Thank you again, Sol!)
+    - Added Luma's lantern (`glowstone_dust`).
+    - Added Uriel's lantern (`netherite_ingot`).
+- Darkened brown amethyst slightly.
+- Updated dependencies.
+    - Fabric loader 0.15.7
+    - Fabric API 0.92.0
+    - Pehkui 3.8.0
+    - Trinkets 3.7.2
+
+## Patch 1.8.1
+
+### Content changes
+
+- Fixed positioning of August's anti-death protocol.
+- Fixed animation of Luma's lantern.
+
+## Patch 1.8.2
+
+### Content changes
+
+- *Actually* fixed the animation of Luma's lantern.
 
 # Release 1.7.0
 

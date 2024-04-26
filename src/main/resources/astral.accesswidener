@@ -6,3 +6,6 @@ accessible method net/minecraft/item/ItemGroup <init> (Lnet/minecraft/item/ItemG
 accessible method net/minecraft/sound/SoundEvent <init> (Lnet/minecraft/util/Identifier;FZ)V
 accessible method net/minecraft/item/SuspiciousStewItem forEachEffect (Lnet/minecraft/item/ItemStack;Ljava/util/function/Consumer;)V
 accessible method net/minecraft/entity/LivingEntity applyFoodEffects (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;)V
+accessible method net/minecraft/data/server/recipe/RecipeProvider conditionsFromTag (Lnet/minecraft/registry/tag/TagKey;)Lnet/minecraft/advancement/criterion/InventoryChangedCriterion$Conditions;
+accessible method net/minecraft/data/client/BlockStateModelGenerator registerAmethyst (Lnet/minecraft/block/Block;)V
+accessible field net/minecraft/data/client/ItemModelGenerator writer Ljava/util/function/BiConsumer;

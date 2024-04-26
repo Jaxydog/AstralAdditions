@@ -1,9 +1,9 @@
 package dev.jaxydog.astral.content.item;
 
 import dev.jaxydog.astral.content.block.AstralBlocks;
-import dev.jaxydog.astral.content.block.custom.DyeableAmethystBlock;
-import dev.jaxydog.astral.content.block.custom.DyeableAmethystClusterBlock;
-import dev.jaxydog.astral.content.block.custom.DyeableBuddingAmethystBlock;
+import dev.jaxydog.astral.content.block.custom.DyedAmethystBlock;
+import dev.jaxydog.astral.content.block.custom.DyedAmethystClusterBlock;
+import dev.jaxydog.astral.content.block.custom.DyedBuddingAmethystBlock;
 import dev.jaxydog.astral.content.effect.CustomStatusEffects;
 import dev.jaxydog.astral.content.item.AstralArmorItem.Material;
 import dev.jaxydog.astral.content.item.custom.*;
@@ -41,46 +41,46 @@ public final class AstralItems extends ContentRegistrar {
         new Settings().fireproof().maxCount(1).rarity(Rarity.UNCOMMON)
     );
 
-    public static final DyeMap<AstralBlockItem> DYEABLE_AMETHYST_BLOCKS = new DyeMap<>("amethyst_block",
+    public static final DyeMap<AstralBlockItem> DYED_AMETHYST_BLOCKS = new DyeMap<>("amethyst_block",
         (rawId, color) -> new AstralBlockItem(rawId,
-            AstralBlocks.DYEABLE_AMETHYST_BLOCKS.getComputed(color),
+            AstralBlocks.DYED_AMETHYST_BLOCKS.getComputed(color),
             new Settings(),
-            AstralItemGroups.DYEABLE_AMETHYST::getRegistryKey
+            AstralItemGroups.DYED_AMETHYST::getRegistryKey
         )
     );
-    public static final DyeMap<AstralBlockItem> DYEABLE_BUDDING_AMETHYST_BLOCKS = new DyeMap<>("budding_amethyst",
+    public static final DyeMap<AstralBlockItem> DYED_BUDDING_AMETHYST_BLOCKS = new DyeMap<>("budding_amethyst",
         (rawId, color) -> new AstralBlockItem(rawId,
-            AstralBlocks.DYEABLE_BUDDING_AMETHYST_BLOCKS.getComputed(color),
+            AstralBlocks.DYED_BUDDING_AMETHYST_BLOCKS.getComputed(color),
             new Settings(),
-            AstralItemGroups.DYEABLE_AMETHYST::getRegistryKey
+            AstralItemGroups.DYED_AMETHYST::getRegistryKey
         )
     );
-    public static final DyeMap<AstralBlockItem> DYEABLE_AMETHYST_CLUSTERS = new DyeMap<>("amethyst_cluster",
+    public static final DyeMap<AstralBlockItem> DYED_AMETHYST_CLUSTERS = new DyeMap<>("amethyst_cluster",
         (rawId, color) -> new AstralBlockItem(rawId,
-            AstralBlocks.DYEABLE_AMETHYST_CLUSTERS.getComputed(color),
+            AstralBlocks.DYED_AMETHYST_CLUSTERS.getComputed(color),
             new Settings(),
-            AstralItemGroups.DYEABLE_AMETHYST::getRegistryKey
+            AstralItemGroups.DYED_AMETHYST::getRegistryKey
         )
     );
-    public static final DyeMap<AstralBlockItem> DYEABLE_LARGE_AMETHYST_BUDS = new DyeMap<>("large_amethyst_bud",
+    public static final DyeMap<AstralBlockItem> DYED_LARGE_AMETHYST_BUDS = new DyeMap<>("large_amethyst_bud",
         (rawId, color) -> new AstralBlockItem(rawId,
-            AstralBlocks.DYEABLE_LARGE_AMETHYST_BUDS.getComputed(color),
+            AstralBlocks.DYED_LARGE_AMETHYST_BUDS.getComputed(color),
             new Settings(),
-            AstralItemGroups.DYEABLE_AMETHYST::getRegistryKey
+            AstralItemGroups.DYED_AMETHYST::getRegistryKey
         )
     );
-    public static final DyeMap<AstralBlockItem> DYEABLE_MEDIUM_AMETHYST_BUDS = new DyeMap<>("medium_amethyst_bud",
+    public static final DyeMap<AstralBlockItem> DYED_MEDIUM_AMETHYST_BUDS = new DyeMap<>("medium_amethyst_bud",
         (rawId, color) -> new AstralBlockItem(rawId,
-            AstralBlocks.DYEABLE_MEDIUM_AMETHYST_BUDS.getComputed(color),
+            AstralBlocks.DYED_MEDIUM_AMETHYST_BUDS.getComputed(color),
             new Settings(),
-            AstralItemGroups.DYEABLE_AMETHYST::getRegistryKey
+            AstralItemGroups.DYED_AMETHYST::getRegistryKey
         )
     );
-    public static final DyeMap<AstralBlockItem> DYEABLE_SMALL_AMETHYST_BUDS = new DyeMap<>("small_amethyst_bud",
+    public static final DyeMap<AstralBlockItem> DYED_SMALL_AMETHYST_BUDS = new DyeMap<>("small_amethyst_bud",
         (rawId, color) -> new AstralBlockItem(rawId,
-            AstralBlocks.DYEABLE_SMALL_AMETHYST_BUDS.getComputed(color),
+            AstralBlocks.DYED_SMALL_AMETHYST_BUDS.getComputed(color),
             new Settings(),
-            AstralItemGroups.DYEABLE_AMETHYST::getRegistryKey
+            AstralItemGroups.DYED_AMETHYST::getRegistryKey
         )
     );
 
@@ -210,18 +210,17 @@ public final class AstralItems extends ContentRegistrar {
     public void generate() {
         super.generate();
 
+        TagGenerator.getInstance().generate(DyedAmethystBlock.AMETHYST_BLOCK_ITEMS, b -> b.add(Items.AMETHYST_BLOCK));
         TagGenerator.getInstance()
-            .generate(DyeableAmethystBlock.AMETHYST_BLOCK_ITEMS, b -> b.add(Items.AMETHYST_BLOCK));
+            .generate(DyedBuddingAmethystBlock.BUDDING_AMETHYST_ITEMS, b -> b.add(Items.BUDDING_AMETHYST));
         TagGenerator.getInstance()
-            .generate(DyeableBuddingAmethystBlock.BUDDING_AMETHYST_ITEMS, b -> b.add(Items.BUDDING_AMETHYST));
+            .generate(DyedAmethystClusterBlock.AMETHYST_CLUSTER_ITEMS, b -> b.add(Items.AMETHYST_CLUSTER));
         TagGenerator.getInstance()
-            .generate(DyeableAmethystClusterBlock.AMETHYST_CLUSTER_ITEMS, b -> b.add(Items.AMETHYST_CLUSTER));
+            .generate(DyedAmethystClusterBlock.LARGE_AMETHYST_BUD_ITEMS, b -> b.add(Items.LARGE_AMETHYST_BUD));
         TagGenerator.getInstance()
-            .generate(DyeableAmethystClusterBlock.LARGE_AMETHYST_BUD_ITEMS, b -> b.add(Items.LARGE_AMETHYST_BUD));
+            .generate(DyedAmethystClusterBlock.MEDIUM_AMETHYST_BUD_ITEMS, b -> b.add(Items.MEDIUM_AMETHYST_BUD));
         TagGenerator.getInstance()
-            .generate(DyeableAmethystClusterBlock.MEDIUM_AMETHYST_BUD_ITEMS, b -> b.add(Items.MEDIUM_AMETHYST_BUD));
-        TagGenerator.getInstance()
-            .generate(DyeableAmethystClusterBlock.SMALL_AMETHYST_BUD_ITEMS, b -> b.add(Items.SMALL_AMETHYST_BUD));
+            .generate(DyedAmethystClusterBlock.SMALL_AMETHYST_BUD_ITEMS, b -> b.add(Items.SMALL_AMETHYST_BUD));
     }
 
     private static final class FoodComponents {
@@ -250,7 +249,7 @@ public final class AstralItems extends ContentRegistrar {
             .saturationModifier(0.25F)
             .build();
 
-        private FoodComponents() {}
+        private FoodComponents() { }
 
     }
 
@@ -264,7 +263,7 @@ public final class AstralItems extends ContentRegistrar {
             .setRepairIngredient(Ingredient.ofItems(CLOUDY_COTTON))
             .build();
 
-        private ArmorMaterials() {}
+        private ArmorMaterials() { }
 
     }
 

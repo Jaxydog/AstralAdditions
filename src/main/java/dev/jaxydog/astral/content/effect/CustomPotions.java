@@ -14,7 +14,7 @@ public final class CustomPotions extends ContentRegistrar {
 
     public static final CustomPotion SINISTER = new CustomPotion(
         "sinister",
-        new Recipe(Potions.THICK, Ingredient.ofItems(AstralItems.DYEABLE_AMETHYST_CLUSTERS.getComputed(DyeColor.RED))),
+        new Recipe(Potions.THICK, Ingredient.ofItems(AstralItems.DYED_AMETHYST_CLUSTERS.getComputed(DyeColor.RED))),
         new StatusEffectInstance(CustomStatusEffects.SINISTER, 15 * 20, 0)
     );
 
