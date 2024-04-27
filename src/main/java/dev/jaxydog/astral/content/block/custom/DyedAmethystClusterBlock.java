@@ -324,7 +324,7 @@ public class DyedAmethystClusterBlock extends DyedAmethystBlock implements Clien
 
         RecipeGenerator.getInstance().generate(((AstralBlockItem) this.asItem()).getRegistryId(),
             ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this)
-                .group("dyeable_%ss".formatted(this.getType().getBasePath()))
+                .group("dyed_%ss".formatted(this.getType().getBasePath()))
                 .input(this.getType().getItemTagKey())
                 .input(DyeItem.byColor(this.getColor()))
                 .criterion("block", FabricRecipeProvider.conditionsFromTag(this.getType().getItemTagKey()))
@@ -333,11 +333,11 @@ public class DyedAmethystClusterBlock extends DyedAmethystBlock implements Clien
         LanguageGenerator.getInstance().generate(builder -> {
             final String[] parts = this.getColor().getName().split("_");
             final String value = Arrays.stream(parts)
-                .map(StringUtils::capitalize)
+                .map(s -> StringUtils.capitalize(s) + " ")
                 .reduce(String::concat)
-                .orElse("Dyed");
+                .orElse("Dyed ");
 
-            builder.add(this, "%s %s".formatted(value, switch (this.getType()) {
+            builder.add(this, "%s%s".formatted(value, switch (this.getType()) {
                 case CLUSTER -> "Amethyst Cluster";
                 case LARGE_BUD -> "Large Amethyst Bud";
                 case MEDIUM_BUD -> "Medium Amethyst Bud";
@@ -365,19 +365,19 @@ public class DyedAmethystClusterBlock extends DyedAmethystBlock implements Clien
          *
          * @since 2.0.0
          */
-        LARGE_BUD("amethyst_cluster", 3, 7, LARGE_AMETHYST_BUDS, LARGE_AMETHYST_BUD_ITEMS),
+        LARGE_BUD("large_amethyst_bud", 3, 7, LARGE_AMETHYST_BUDS, LARGE_AMETHYST_BUD_ITEMS),
         /**
          * Medium amethyst buds.
          *
          * @since 2.0.0
          */
-        MEDIUM_BUD("amethyst_cluster", 3, 7, MEDIUM_AMETHYST_BUDS, MEDIUM_AMETHYST_BUD_ITEMS),
+        MEDIUM_BUD("medium_amethyst_bud", 3, 7, MEDIUM_AMETHYST_BUDS, MEDIUM_AMETHYST_BUD_ITEMS),
         /**
          * Small amethyst buds.
          *
          * @since 2.0.0
          */
-        SMALL_BUD("amethyst_cluster", 3, 7, SMALL_AMETHYST_BUDS, SMALL_AMETHYST_BUD_ITEMS);
+        SMALL_BUD("small_amethyst_bud", 3, 7, SMALL_AMETHYST_BUDS, SMALL_AMETHYST_BUD_ITEMS);
 
         /**
          * The base identifier path.

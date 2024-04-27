@@ -19,8 +19,6 @@ import dev.jaxydog.astral.datagen.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
-import java.nio.file.Path;
-
 /**
  * The mod's data generation entrypoint.
  * <p>
@@ -54,11 +52,9 @@ public final class AstralDataGenerator implements DataGeneratorEntrypoint {
             new TextureGenerator(pack);
         }
 
-        final Path languagePath = generator.getModContainer()
+        generator.getModContainer()
             .findPath("assets/%s/lang/en_us.json".formatted(Astral.MOD_ID))
-            .orElseThrow();
-
-        LanguageGenerator.getInstance().combine(languagePath);
+            .ifPresent(path -> LanguageGenerator.getInstance().combine(path));
 
         CustomContent.INSTANCE.generate();
     }

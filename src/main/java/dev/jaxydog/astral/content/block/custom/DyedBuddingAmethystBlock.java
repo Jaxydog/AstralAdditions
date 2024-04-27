@@ -194,7 +194,7 @@ public class DyedBuddingAmethystBlock extends DyedAmethystBlock {
 
         RecipeGenerator.getInstance().generate(((AstralBlockItem) this.asItem()).getRegistryId(),
             ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this)
-                .group("dyeable_budding_amethysts")
+                .group("dyed_budding_amethysts")
                 .input(BUDDING_AMETHYST_ITEMS)
                 .input(DyeItem.byColor(this.getColor()))
                 .criterion("block", FabricRecipeProvider.conditionsFromTag(BUDDING_AMETHYST_ITEMS))
@@ -203,11 +203,11 @@ public class DyedBuddingAmethystBlock extends DyedAmethystBlock {
         LanguageGenerator.getInstance().generate(builder -> {
             final String[] parts = this.getColor().getName().split("_");
             final String value = Arrays.stream(parts)
-                .map(StringUtils::capitalize)
+                .map(s -> StringUtils.capitalize(s) + " ")
                 .reduce(String::concat)
-                .orElse("Dyed");
+                .orElse("Dyed ");
 
-            builder.add(this, value + " Budding Amethyst");
+            builder.add(this, value + "Budding Amethyst");
         });
     }
 

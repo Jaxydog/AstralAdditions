@@ -119,7 +119,7 @@ public class DyedAmethystBlock extends AstralBlock implements Generated {
                 // All other colors just hue rotate.
                 default -> {
                     final float[] components = dye.getColorComponents();
-                    final Rgba target = new Rgba(components[0], components[1], components[2], color.alphaScaled());
+                    final Rgba target = new Rgba(components[0], components[1], components[2], 1F);
                     final Rgba rotated = color.withHue(target.hue());
 
                     // Fine-tune some of the more problematic colors.
@@ -223,7 +223,7 @@ public class DyedAmethystBlock extends AstralBlock implements Generated {
 
         RecipeGenerator.getInstance().generate(((AstralBlockItem) this.asItem()).getRegistryId(),
             ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this)
-                .group("dyeable_amethyst_blocks")
+                .group("dyed_amethyst_blocks")
                 .input(AMETHYST_BLOCK_ITEMS)
                 .input(DyeItem.byColor(this.getColor()))
                 .criterion("block", FabricRecipeProvider.conditionsFromTag(AMETHYST_BLOCK_ITEMS))
@@ -232,11 +232,11 @@ public class DyedAmethystBlock extends AstralBlock implements Generated {
         LanguageGenerator.getInstance().generate(builder -> {
             final String[] parts = this.getColor().getName().split("_");
             final String value = Arrays.stream(parts)
-                .map(StringUtils::capitalize)
+                .map(s -> StringUtils.capitalize(s) + " ")
                 .reduce(String::concat)
-                .orElse("Dyed");
+                .orElse("Dyed ");
 
-            builder.add(this, value + " Amethyst Block");
+            builder.add(this, value + "Amethyst Block");
         });
     }
 

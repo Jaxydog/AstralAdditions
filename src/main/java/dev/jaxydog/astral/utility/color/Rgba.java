@@ -97,7 +97,7 @@ public class Rgba extends Rgb {
      * @since 2.0.0
      */
     public Rgba(Rgb rgb, int alpha) {
-        this(rgb.red(), rgb.green(), rgb.blue(), (byte) (MathHelper.clamp(alpha, 0, 255)));
+        this(rgb.red(), rgb.green(), rgb.blue(), alpha);
     }
 
     /**

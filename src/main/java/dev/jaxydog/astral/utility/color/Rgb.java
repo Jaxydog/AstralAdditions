@@ -372,10 +372,8 @@ public class Rgb {
      * @since 2.0.0
      */
     public Rgb withHue(float hue) {
-        this.ensureHsb();
-
         // Cycles the hue between 0 and 1.
-        return new Rgb(hue % 1F, this.saturation(), this.brightness());
+        return new Rgb(Color.HSBtoRGB(hue % 1F, this.saturation(), this.brightness()));
     }
 
     /**
@@ -390,10 +388,9 @@ public class Rgb {
      * @since 2.0.0
      */
     public Rgb withSaturation(float saturation) {
-        this.ensureHsb();
+        final float clamped = MathHelper.clamp(saturation, 0F, 1F);
 
-        // Cycles the saturation between 0 and 1.
-        return new Rgb(this.hue(), saturation % 1F, this.brightness());
+        return new Rgb(Color.HSBtoRGB(this.hue(), clamped, this.brightness()));
     }
 
     /**
@@ -408,10 +405,9 @@ public class Rgb {
      * @since 2.0.0
      */
     public Rgb withBrightness(float brightness) {
-        this.ensureHsb();
+        final float clamped = MathHelper.clamp(brightness, 0F, 1F);
 
-        // Cycles the brightness between 0 and 1.
-        return new Rgb(this.hue(), this.saturation(), brightness % 1F);
+        return new Rgb(Color.HSBtoRGB(this.hue(), this.saturation(), clamped));
     }
 
     /**
