@@ -6,6 +6,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 
 - All code is now within `dev.jaxydog.astral`, instead of `dev.jaxydog`.
 - Updated access widener entries.
+- Fixed some possible crashes.
 - Updated mod entrypoints.
     - Added `isInitialized` methods for each environment.
     - Verified that each entrypoint is only initialized once.
