@@ -42,7 +42,7 @@ public final class AstralItemGroups extends ContentRegistrar {
      *
      * @since 2.0.0
      */
-    public static final AstralCycledItemGroup DYED_AMETHYST = AstralCycledItemGroup.builder("dyeable_amethyst")
+    public static final AstralCycledItemGroup DYED_AMETHYST = AstralCycledItemGroup.builder("dyed_amethyst")
         .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.RED).orElseThrow().getDefaultStack())
         .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.ORANGE).orElseThrow().getDefaultStack())
         .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.YELLOW).orElseThrow().getDefaultStack())

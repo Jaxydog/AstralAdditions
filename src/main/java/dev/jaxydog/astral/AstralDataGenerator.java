@@ -48,9 +48,7 @@ public final class AstralDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(RecipeGenerator::new);
         pack.addProvider(LanguageGenerator::new);
 
-        if (JarAccess.canLoad()) {
-            new TextureGenerator(pack);
-        }
+        if (JarAccess.canLoad()) new TextureGenerator(pack);
 
         generator.getModContainer()
             .findPath("assets/%s/lang/en_us.json".formatted(Astral.MOD_ID))
