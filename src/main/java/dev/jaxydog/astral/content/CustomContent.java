@@ -2,7 +2,7 @@ package dev.jaxydog.astral.content;
 
 import dev.jaxydog.astral.content.block.AstralBlocks;
 import dev.jaxydog.astral.content.data.AstralData;
-import dev.jaxydog.astral.content.effect.CustomPotions;
+import dev.jaxydog.astral.content.effect.AstralPotions;
 import dev.jaxydog.astral.content.effect.CustomStatusEffects;
 import dev.jaxydog.astral.content.item.AstralItems;
 import dev.jaxydog.astral.content.item.group.AstralItemGroups;
@@ -38,7 +38,7 @@ public final class CustomContent extends ContentRegistrar {
     public static final AstralItemGroups ITEM_GROUPS = new AstralItemGroups();
     @RegistrationPriority(1)
     public static final AstralItems ITEMS = new AstralItems();
-    public static final CustomPotions POTIONS = new CustomPotions();
+    public static final AstralPotions POTIONS = new AstralPotions();
     public static final CustomSoundEvents SOUND_EVENTS = new CustomSoundEvents();
     @RegistrationPriority(1)
     public static final CustomStatusEffects STATUS_EFFECTS = new CustomStatusEffects();
