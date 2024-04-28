@@ -125,7 +125,7 @@ public class DyedAmethystBlock extends AstralBlock implements Generated {
                     // Fine-tune some of the more problematic colors.
                     yield switch (dye) {
                         // Small tweaks to make the colors more distinct and visually appealing.
-                        case BROWN -> rotated.withBrightness(brightness - 0.25F);
+                        case BROWN -> rotated.withBrightness(brightness - 0.325F);
                         case GREEN -> rotated.withSaturation(saturation + 0.375F).withBrightness(brightness - 0.325F);
                         case PINK -> rotated.withSaturation(saturation - 0.1F).withBrightness(brightness + 0.1F);
                         case CYAN -> rotated.withSaturation(saturation + 0.25F).withBrightness(brightness - 0.25F);
