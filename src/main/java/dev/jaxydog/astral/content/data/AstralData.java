@@ -8,7 +8,7 @@ import io.github.apace100.calio.data.SerializableDataType;
 import java.util.List;
 
 /** Contains shared mod data types */
-public final class CustomData extends ContentRegistrar {
+public final class AstralData extends ContentRegistrar {
 
     /** The moon phase data type */
     @IgnoreRegistration

@@ -1,7 +1,7 @@
 package dev.jaxydog.astral.content;
 
 import dev.jaxydog.astral.content.block.AstralBlocks;
-import dev.jaxydog.astral.content.data.CustomData;
+import dev.jaxydog.astral.content.data.AstralData;
 import dev.jaxydog.astral.content.effect.CustomPotions;
 import dev.jaxydog.astral.content.effect.CustomStatusEffects;
 import dev.jaxydog.astral.content.item.AstralItems;
@@ -27,7 +27,7 @@ public final class CustomContent extends ContentRegistrar {
     public static final CustomActions ACTIONS = new CustomActions();
     public static final CustomConditions CONDITIONS = new CustomConditions();
     @RegistrationPriority(1)
-    public static final CustomData DATA = new CustomData();
+    public static final AstralData DATA = new AstralData();
     public static final CustomPowers POWERS = new CustomPowers();
 
     // Vanilla extensions

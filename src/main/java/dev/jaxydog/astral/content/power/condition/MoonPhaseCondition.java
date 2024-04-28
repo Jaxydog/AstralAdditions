@@ -1,6 +1,6 @@
 package dev.jaxydog.astral.content.power.condition;
 
-import dev.jaxydog.astral.content.data.CustomData;
+import dev.jaxydog.astral.content.data.AstralData;
 import dev.jaxydog.astral.content.data.MoonPhase;
 import dev.jaxydog.astral.content.power.CustomCondition;
 import dev.jaxydog.astral.content.power.CustomConditionFactory;
@@ -37,8 +37,8 @@ public class MoonPhaseCondition extends CustomCondition<Entity> {
 
     @Override
     public CustomConditionFactory<Entity> factory() {
-        final SerializableData data = new SerializableData().add("phase", CustomData.MOON_PHASE, MoonPhase.NONE)
-            .add("phases", CustomData.MOON_PHASES, new ArrayList<>());
+        final SerializableData data = new SerializableData().add("phase", AstralData.MOON_PHASE, MoonPhase.NONE)
+            .add("phases", AstralData.MOON_PHASES, new ArrayList<>());
 
         return new CustomConditionFactory<>(this.getRegistryPath(), data, this::check);
     }
