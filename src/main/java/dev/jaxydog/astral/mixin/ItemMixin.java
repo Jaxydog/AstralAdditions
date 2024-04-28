@@ -2,9 +2,9 @@ package dev.jaxydog.astral.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.jaxydog.astral.utility.NbtUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,8 +19,10 @@ public abstract class ItemMixin {
 
     @ModifyReturnValue(method = "hasGlint", at = @At("RETURN"))
     private boolean forceGlint(boolean result, @Local(argsOnly = true) ItemStack stack) {
-        if (NbtUtil.contains(stack, SET_GLINT_KEY)) {
-            return NbtUtil.getBoolean(stack, SET_GLINT_KEY);
+        final NbtCompound compound = stack.getNbt();
+
+        if (compound != null && compound.contains(SET_GLINT_KEY)) {
+            return compound.getBoolean(SET_GLINT_KEY);
         } else {
             return result;
         }

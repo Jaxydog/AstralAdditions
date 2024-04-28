@@ -15,8 +15,8 @@
 package dev.jaxydog.astral.content.item.custom;
 
 import dev.jaxydog.astral.Astral;
-import dev.jaxydog.astral.utility.ColorUtil;
-import dev.jaxydog.astral.utility.ColorUtil.Rgb;
+import dev.jaxydog.astral.utility.color.ColorHelper;
+import dev.jaxydog.astral.utility.color.Rgb;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -108,7 +108,7 @@ public interface Cloudy {
         // `COLOR_MIN`. This also means, however, if the percentage is < 0D || > 1D, the color will be outside the
         // expected range.
         // Perhaps in the future a clamp will be added to prevent erroneous values.
-        return ColorUtil.transition(COLOR_MIN, COLOR_MAX, 1D - percentage).asInt();
+        return ColorHelper.transition(COLOR_MIN, COLOR_MAX, 1D - percentage).integer();
     }
 
     /**

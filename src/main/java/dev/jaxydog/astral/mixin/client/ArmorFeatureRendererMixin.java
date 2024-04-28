@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import dev.jaxydog.astral.content.item.AstralArmorItem;
 import dev.jaxydog.astral.content.item.Colored;
 import dev.jaxydog.astral.content.trinket.CustomTrinketPredicates;
-import dev.jaxydog.astral.utility.ColorUtil.Rgb;
+import dev.jaxydog.astral.utility.color.Rgb;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
@@ -32,8 +32,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @SuppressWarnings("unused")
 @Environment(EnvType.CLIENT)
 @Mixin(ArmorFeatureRenderer.class)
-public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extends BipedEntityModel<T>, A extends BipedEntityModel<T>>
-    extends FeatureRenderer<T, M> {
+public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extends BipedEntityModel<T>, A extends BipedEntityModel<T>> extends FeatureRenderer<T, M> {
 
     public ArmorFeatureRendererMixin(FeatureRendererContext<T, M> context) {
         super(context);
