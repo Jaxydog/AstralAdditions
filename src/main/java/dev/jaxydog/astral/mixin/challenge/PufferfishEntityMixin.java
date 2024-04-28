@@ -1,6 +1,6 @@
 package dev.jaxydog.astral.mixin.challenge;
 
-import dev.jaxydog.astral.utility.MobChallengeUtil;
+import dev.jaxydog.astral.utility.ChallengeHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.PufferfishEntity;
@@ -19,11 +19,11 @@ public abstract class PufferfishEntityMixin extends FishEntity {
 
     @Unique
     private float scale(float damage) {
-        if (!MobChallengeUtil.shouldScale(this)) return damage;
+        if (!ChallengeHelper.shouldScale(this)) return damage;
 
-        final double additive = MobChallengeUtil.getAttackAdditive(this.getWorld());
+        final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 
-        return damage + (float) MobChallengeUtil.getScaledAdditive(this, additive);
+        return damage + (float) ChallengeHelper.getScaledAdditive(this, additive);
     }
 
     @ModifyArg(

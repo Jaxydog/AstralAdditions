@@ -1,6 +1,6 @@
 package dev.jaxydog.astral.mixin.challenge;
 
-import dev.jaxydog.astral.utility.MobChallengeUtil;
+import dev.jaxydog.astral.utility.ChallengeHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -13,23 +13,23 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(TridentEntity.class)
 public abstract class TridentEntityMixin extends PersistentProjectileEntity {
 
-	protected TridentEntityMixin(
-		EntityType<? extends PersistentProjectileEntity> type, LivingEntity owner, World world
-	) {
-		super(type, owner, world);
-	}
+    protected TridentEntityMixin(
+        EntityType<? extends PersistentProjectileEntity> type, LivingEntity owner, World world
+    ) {
+        super(type, owner, world);
+    }
 
-	@ModifyArg(
-		method = "onEntityHit", at = @At(
-		value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"
-	), index = 1
-	)
-	private float onEntityHitArgsInject(float damage) {
-		if (this.getOwner() == null || !MobChallengeUtil.shouldScale(this.getOwner())) return damage;
+    @ModifyArg(
+        method = "onEntityHit", at = @At(
+        value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"
+    ), index = 1
+    )
+    private float onEntityHitArgsInject(float damage) {
+        if (this.getOwner() == null || !ChallengeHelper.shouldScale(this.getOwner())) return damage;
 
-		final double additive = MobChallengeUtil.getAttackAdditive(this.getWorld());
+        final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 
-		return damage + (float) MobChallengeUtil.getScaledAdditive(this.getOwner(), additive);
-	}
+        return damage + (float) ChallengeHelper.getScaledAdditive(this.getOwner(), additive);
+    }
 
 }

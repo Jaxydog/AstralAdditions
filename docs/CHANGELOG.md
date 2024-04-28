@@ -44,6 +44,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Created a new `Rgba` class for transparency support.
     - Created new Mapper classes for storing color manipulation methods as lambdas / records.
     - Created `ColorHelper`, which is based off of the old `ColorUtil` class.
+- Slightly refactored the mob challenge system.
+    - Renamed the utility interface to `ChallengeHelper`.
 
 ### Content changes
 

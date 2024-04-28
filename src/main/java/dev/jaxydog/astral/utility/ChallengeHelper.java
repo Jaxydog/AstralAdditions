@@ -15,7 +15,7 @@ import org.jetbrains.annotations.ApiStatus.NonExtendable;
 
 /** Provides utility methods for dealing with mod challenge scaling. */
 @NonExtendable
-public interface MobChallengeUtil {
+public interface ChallengeHelper {
 
     /** The block position used as the world origin. */
     BlockPos ORIGIN = new BlockPos(0, 63, 0);

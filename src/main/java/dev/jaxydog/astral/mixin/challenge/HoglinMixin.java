@@ -1,7 +1,7 @@
 package dev.jaxydog.astral.mixin.challenge;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.jaxydog.astral.utility.MobChallengeUtil;
+import dev.jaxydog.astral.utility.ChallengeHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.Hoglin;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,11 +18,11 @@ public interface HoglinMixin {
     )
     )
     private static float tryAttackArgsInject(float damage, @Local(ordinal = 1, argsOnly = true) LivingEntity entity) {
-        if (!MobChallengeUtil.shouldScale(entity)) return damage;
+        if (!ChallengeHelper.shouldScale(entity)) return damage;
 
-        final double additive = MobChallengeUtil.getAttackAdditive(entity.getWorld());
+        final double additive = ChallengeHelper.getAttackAdditive(entity.getWorld());
 
-        return damage + (float) MobChallengeUtil.getScaledAdditive(entity, additive);
+        return damage + (float) ChallengeHelper.getScaledAdditive(entity, additive);
     }
 
 }

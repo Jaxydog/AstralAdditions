@@ -1,7 +1,7 @@
 package dev.jaxydog.astral.mixin.challenge;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import dev.jaxydog.astral.utility.MobChallengeUtil;
+import dev.jaxydog.astral.utility.ChallengeHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
@@ -14,17 +14,17 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(SlimeEntity.class)
 public abstract class SlimeEntityMixin extends MobEntity implements Monster {
 
-	protected SlimeEntityMixin(EntityType<? extends MobEntity> entityType, World world) {
-		super(entityType, world);
-	}
+    protected SlimeEntityMixin(EntityType<? extends MobEntity> entityType, World world) {
+        super(entityType, world);
+    }
 
-	@ModifyReturnValue(method = "getDamageAmount", at = @At("RETURN"))
-	private float getDamageAmountMixin(float damage) {
-		if (!MobChallengeUtil.shouldScale(this)) return damage;
+    @ModifyReturnValue(method = "getDamageAmount", at = @At("RETURN"))
+    private float getDamageAmountMixin(float damage) {
+        if (!ChallengeHelper.shouldScale(this)) return damage;
 
-		final double additive = MobChallengeUtil.getAttackAdditive(this.getWorld());
+        final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 
-		return damage + (float) MobChallengeUtil.getScaledAdditive(this, additive);
-	}
+        return damage + (float) ChallengeHelper.getScaledAdditive(this, additive);
+    }
 
 }

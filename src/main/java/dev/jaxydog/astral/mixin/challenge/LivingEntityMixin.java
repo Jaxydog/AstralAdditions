@@ -1,7 +1,7 @@
 package dev.jaxydog.astral.mixin.challenge;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import dev.jaxydog.astral.utility.MobChallengeUtil;
+import dev.jaxydog.astral.utility.ChallengeHelper;
 import dev.jaxydog.astral.utility.injected.AstralLivingEntity;
 import net.minecraft.entity.Attackable;
 import net.minecraft.entity.Entity;
@@ -44,17 +44,17 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, As
      * Stores whether mob challenge was previously enabled to determine whether the entity's health should be updated
      */
     @Unique
-    private boolean lastEnableState = MobChallengeUtil.isEnabled(this.self().getWorld());
+    private boolean lastEnableState = ChallengeHelper.isEnabled(this.self().getWorld());
     /**
      * Stores the previously used health additive value to check whether the entity's health should be updated
      */
     @Unique
-    private double lastHealthAdditive = MobChallengeUtil.getHealthAdditive(this.self().getWorld());
+    private double lastHealthAdditive = ChallengeHelper.getHealthAdditive(this.self().getWorld());
     /**
      * Stores the previously used chunk step value to check whether the entity's health should be updated
      */
     @Unique
-    private double lastChunkStep = MobChallengeUtil.getChunkStep(this.self().getWorld());
+    private double lastChunkStep = ChallengeHelper.getChunkStep(this.self().getWorld());
 
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -73,24 +73,24 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, As
     /** Provides a scaled maximum health value if mob challenge scaling is enabled */
     @ModifyReturnValue(method = "getMaxHealth", at = @At("RETURN"))
     private float scaleHealth(float health) {
-        if (!MobChallengeUtil.shouldScale(this) || this.getWorld().isClient()) return health;
+        if (!ChallengeHelper.shouldScale(this) || this.getWorld().isClient()) return health;
 
         final World world = this.getWorld();
-        final double additive = MobChallengeUtil.getHealthAdditive(world);
+        final double additive = ChallengeHelper.getHealthAdditive(world);
 
         if (this.lastHealthAdditive != additive) {
             this.lastHealthAdditive = additive;
             this.shouldResetHealth = true;
         }
 
-        final int chunkStep = MobChallengeUtil.getChunkStep(world);
+        final int chunkStep = ChallengeHelper.getChunkStep(world);
 
         if (this.lastChunkStep != chunkStep) {
             this.shouldResetHealth = true;
             this.lastChunkStep = chunkStep;
         }
 
-        return health + (float) MobChallengeUtil.getScaledAdditive(this, additive);
+        return health + (float) ChallengeHelper.getScaledAdditive(this, additive);
     }
 
     /** Returns the mixin's 'this' instance */
@@ -102,9 +102,9 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, As
     /** Automatically updates an entity's maximum health if necessary */
     @Inject(method = "tick", at = @At("TAIL"))
     private void tickInject(CallbackInfo callbackInfo) {
-        if (!MobChallengeUtil.shouldScale(this) || this.getWorld().isClient()) return;
+        if (!ChallengeHelper.shouldScale(this) || this.getWorld().isClient()) return;
 
-        final boolean enabled = MobChallengeUtil.isEnabled(this.getWorld());
+        final boolean enabled = ChallengeHelper.isEnabled(this.getWorld());
         final float maxHealth = this.self().getMaxHealth();
 
         if (this.lastEnableState != enabled) {
@@ -129,11 +129,11 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, As
     /** Deserializes the `ignoreChallengeScaling` field. */
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     private void readCustomDataFromNbtInject(NbtCompound nbt, CallbackInfo callbackInfo) {
-        if (nbt.contains(MobChallengeUtil.IGNORE_KEY, NbtElement.BYTE_TYPE)) {
-            this.ignoreChallengeScaling = nbt.getBoolean(MobChallengeUtil.IGNORE_KEY);
+        if (nbt.contains(ChallengeHelper.IGNORE_KEY, NbtElement.BYTE_TYPE)) {
+            this.ignoreChallengeScaling = nbt.getBoolean(ChallengeHelper.IGNORE_KEY);
         }
-        if (nbt.contains(MobChallengeUtil.FORCE_KEY, NbtElement.BYTE_TYPE)) {
-            this.forceChallengeScaling = nbt.getBoolean(MobChallengeUtil.IGNORE_KEY);
+        if (nbt.contains(ChallengeHelper.FORCE_KEY, NbtElement.BYTE_TYPE)) {
+            this.forceChallengeScaling = nbt.getBoolean(ChallengeHelper.IGNORE_KEY);
         }
     }
 
@@ -141,10 +141,10 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, As
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     private void writeCustomDataToNbtInject(NbtCompound nbt, CallbackInfo callbackInfo) {
         if (this.ignoreChallengeScaling) {
-            nbt.putBoolean(MobChallengeUtil.IGNORE_KEY, true);
+            nbt.putBoolean(ChallengeHelper.IGNORE_KEY, true);
         }
         if (this.forceChallengeScaling) {
-            nbt.putBoolean(MobChallengeUtil.IGNORE_KEY, true);
+            nbt.putBoolean(ChallengeHelper.IGNORE_KEY, true);
         }
     }
 
