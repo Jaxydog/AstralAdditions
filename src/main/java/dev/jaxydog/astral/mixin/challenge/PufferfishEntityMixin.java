@@ -19,7 +19,7 @@ public abstract class PufferfishEntityMixin extends FishEntity {
 
     @Unique
     private float scale(float damage) {
-        if (!ChallengeHelper.shouldScale(this)) return damage;
+        if (!ChallengeHelper.shouldApplyScaling(this)) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 

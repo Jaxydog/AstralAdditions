@@ -24,7 +24,7 @@ public abstract class MobEntityMixin extends LivingEntity implements Targeter {
     ), index = 1
     )
     private float tryAttackArgsInject(float damage) {
-        if (!ChallengeHelper.shouldScale(this)) return damage;
+        if (!ChallengeHelper.shouldApplyScaling(this)) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 

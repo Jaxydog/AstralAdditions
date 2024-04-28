@@ -23,7 +23,7 @@ public abstract class EnderDragonEntityMixin extends MobEntity implements Monste
     ), index = 1
     )
     private float launchLivingEntitiesArgsInject(float damage) {
-        if (!ChallengeHelper.shouldScale(this)) return damage;
+        if (!ChallengeHelper.shouldApplyScaling(this)) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 
@@ -36,7 +36,7 @@ public abstract class EnderDragonEntityMixin extends MobEntity implements Monste
     ), index = 1
     )
     private float damageLivingEntitiesArgsInject(float damage) {
-        if (!ChallengeHelper.shouldScale(this)) return damage;
+        if (!ChallengeHelper.shouldApplyScaling(this)) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 

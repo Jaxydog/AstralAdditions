@@ -20,7 +20,7 @@ public abstract class SlimeEntityMixin extends MobEntity implements Monster {
 
     @ModifyReturnValue(method = "getDamageAmount", at = @At("RETURN"))
     private float getDamageAmountMixin(float damage) {
-        if (!ChallengeHelper.shouldScale(this)) return damage;
+        if (!ChallengeHelper.shouldApplyScaling(this)) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 

@@ -30,7 +30,7 @@ public abstract class SonicBoomTaskMixin extends MultiTickTask<WardenEntity> {
         )
     )
     private static float scaleDamage(float damage, @Local(argsOnly = true) WardenEntity entity) {
-        if (!ChallengeHelper.shouldScale(entity)) return damage;
+        if (!ChallengeHelper.shouldApplyScaling(entity)) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(entity.getWorld());
 

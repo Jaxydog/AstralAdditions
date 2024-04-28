@@ -73,7 +73,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, As
     /** Provides a scaled maximum health value if mob challenge scaling is enabled */
     @ModifyReturnValue(method = "getMaxHealth", at = @At("RETURN"))
     private float scaleHealth(float health) {
-        if (!ChallengeHelper.shouldScale(this) || this.getWorld().isClient()) return health;
+        if (!ChallengeHelper.shouldApplyScaling(this) || this.getWorld().isClient()) return health;
 
         final World world = this.getWorld();
         final double additive = ChallengeHelper.getHealthAdditive(world);
@@ -102,7 +102,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable, As
     /** Automatically updates an entity's maximum health if necessary */
     @Inject(method = "tick", at = @At("TAIL"))
     private void tickInject(CallbackInfo callbackInfo) {
-        if (!ChallengeHelper.shouldScale(this) || this.getWorld().isClient()) return;
+        if (!ChallengeHelper.shouldApplyScaling(this) || this.getWorld().isClient()) return;
 
         final boolean enabled = ChallengeHelper.isEnabled(this.getWorld());
         final float maxHealth = this.self().getMaxHealth();

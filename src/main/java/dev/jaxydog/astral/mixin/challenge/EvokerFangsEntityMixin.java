@@ -26,7 +26,7 @@ public abstract class EvokerFangsEntityMixin extends Entity implements Ownable {
     private float damageArgsInject(float damage) {
         final Entity entity = this.getOwner() != null ? this.getOwner() : this;
 
-        if (!ChallengeHelper.shouldScale(entity)) return damage;
+        if (!ChallengeHelper.shouldApplyScaling(entity)) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(entity.getWorld());
 

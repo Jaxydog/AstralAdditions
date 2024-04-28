@@ -22,7 +22,7 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
     ), index = 1
     )
     private float onEntityHitArgsInject(float damage) {
-        if (this.getOwner() == null || !ChallengeHelper.shouldScale(this.getOwner())) return damage;
+        if (this.getOwner() == null || !ChallengeHelper.shouldApplyScaling(this.getOwner())) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
 

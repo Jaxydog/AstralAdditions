@@ -46,6 +46,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Created `ColorHelper`, which is based off of the old `ColorUtil` class.
 - Slightly refactored the mob challenge system.
     - Renamed the utility interface to `ChallengeHelper`.
+    - Distance calculations now ignore height differences.
 
 ### Content changes
 
