@@ -166,11 +166,15 @@ public interface ChallengeHelper {
         if (entity == null || entity.getWorld() == null) return additive;
 
         final int step = getChunkStep(entity.getWorld());
+
+        if (step == 0) return 0; // Prevent divisions by zero.
+
         final double distance = getSpawnDistance(entity);
-        // Scale by chunks, not blocks.
+        // Scales by chunks, not blocks.
         final double modifier = Math.max(0D, additive) * ((distance / 16D) / step);
         final boolean overworld = entity.getWorld().getRegistryKey().equals(World.OVERWORLD);
 
+        // Halve the scaling rate outside the overworld.
         return overworld ? modifier : modifier / 2D;
     }
 
@@ -203,7 +207,7 @@ public interface ChallengeHelper {
      * @since 1.1.0
      */
     static double getSpawnDistance(Entity entity) {
-        if (entity == null || entity.getWorld() == null) return 1D;
+        if (entity == null || entity.getWorld() == null) return 0D;
 
         final World world = entity.getWorld();
         final BlockPos center = useWorldSpawn(world) ? world.getSpawnPos() : ORIGIN;
