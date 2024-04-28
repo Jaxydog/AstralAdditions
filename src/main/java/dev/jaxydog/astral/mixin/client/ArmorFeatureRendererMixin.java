@@ -125,9 +125,9 @@ public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extend
             if (armorItem instanceof final Colored colored) {
                 final Rgb color = new Rgb(colored.getStackColor(stack, layer));
 
-                final float r = ((float) color.r()) / 255F;
-                final float g = ((float) color.g()) / 255F;
-                final float b = ((float) color.b()) / 255F;
+                final float r = (float) color.redScaled();
+                final float g = (float) color.greenScaled();
+                final float b = (float) color.blueScaled();
 
                 this.renderArmorParts(matrices, vertexConsumers, light, armorItem, model, useInner, r, g, b, overlay);
             } else {
