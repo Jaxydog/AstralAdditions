@@ -39,7 +39,11 @@ import net.minecraft.world.World;
 @SuppressWarnings("unused")
 public record SoundContext(SoundEvent event, SoundCategory category, float volume, float pitch, float pitchVariance) {
 
-    /** A player's burping sound. */
+    /**
+     * A player's burping sound.
+     *
+     * @since 2.0.0
+     */
     public static final SoundContext BURP = new SoundContext(SoundEvents.ENTITY_PLAYER_BURP,
         SoundCategory.PLAYERS,
         0.5F,
