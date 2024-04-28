@@ -49,6 +49,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Distance calculations now ignore height differences.
 - Updated power content structure.
     - Removed deprecated powers.
+- Updated data structure.
+    - Renamed some fields and methods within the `MoonPhase` data type.
 
 ### Content changes
 
