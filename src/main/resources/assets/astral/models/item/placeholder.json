@@ -1,31 +1,39 @@
 {
-	"parent": "minecraft:item/generated",
-	"textures": { "layer0": "minecraft:item/gray_dye" },
+    "parent": "minecraft:item/generated",
+    "textures": { "layer0": "minecraft:item/gray_dye" },
 
-	"overrides": [
-		{
-			"predicate": { "custom_model_data": 1 },
-			"model": "astral:item/placeholder/enderman_plush"
-		},
-		{
-			"predicate": { "custom_model_data": 2 },
-			"model": "astral:item/placeholder/kiwi_plush"
-		},
-		{
-			"predicate": { "custom_model_data": 3 },
-			"model": "astral:item/placeholder/handmade_mirror"
-		},
-		{
-			"predicate": { "custom_model_data": 4 },
-			"model": "astral:item/placeholder/miku_funkopop"
-		},
-		{
-			"predicate": { "custom_model_data": 5 },
-			"model": "astral:item/placeholder/coil_head"
-		},
-		{
-			"predicate": { "custom_model_data": 6 },
-			"model": "astral:item/placeholder/biblically_accurate_spiral_plush"
-		}
-	]
+    "overrides": [
+        {
+            "predicate": { "custom_model_data": 1 },
+            "model": "astral:item/placeholder/enderman_plush"
+        },
+        {
+            "predicate": { "custom_model_data": 2 },
+            "model": "astral:item/placeholder/kiwi_plush"
+        },
+        {
+            "predicate": { "custom_model_data": 3 },
+            "model": "astral:item/placeholder/handmade_mirror"
+        },
+        {
+            "predicate": { "custom_model_data": 4 },
+            "model": "astral:item/placeholder/miku_funkopop"
+        },
+        {
+            "predicate": { "custom_model_data": 5 },
+            "model": "astral:item/placeholder/coil_head"
+        },
+        {
+            "predicate": { "custom_model_data": 6 },
+            "model": "astral:item/placeholder/biblically_accurate_spiral_plush"
+        },
+        {
+            "predicate": { "custom_model_data": 7 },
+            "model": "astral:item/placeholder/luma_antennae"
+        },
+        {
+            "predicate": { "custom_model_data": 8 },
+            "model": "astral:item/placeholder/august_anti_death_protocol"
+        }
+    ]
 }
