@@ -47,6 +47,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Slightly refactored the mob challenge system.
     - Renamed the utility interface to `ChallengeHelper`.
     - Distance calculations now ignore height differences.
+- Updated power content structure.
+    - Removed deprecated powers.
 
 ### Content changes
 
