@@ -20,7 +20,7 @@ import dev.jaxydog.astral.content.block.AstralBlocks;
 import dev.jaxydog.astral.content.block.custom.DyedAmethystBlock;
 import dev.jaxydog.astral.content.block.custom.DyedAmethystClusterBlock;
 import dev.jaxydog.astral.content.block.custom.DyedBuddingAmethystBlock;
-import dev.jaxydog.astral.content.effect.CustomStatusEffects;
+import dev.jaxydog.astral.content.effect.AstralStatusEffects;
 import dev.jaxydog.astral.content.item.AstralArmorItem.Material;
 import dev.jaxydog.astral.content.item.custom.*;
 import dev.jaxydog.astral.content.item.group.AstralItemGroups;
@@ -57,7 +57,7 @@ public final class AstralItems extends ContentRegistrar {
         new Settings().maxCount(1).rarity(Rarity.RARE),
         AstralItemGroups.STARMONEY_PLAZA::getRegistryKey,
         0.0005F,
-        CustomStatusEffects.SINISTER
+        AstralStatusEffects.SINISTER
     );
 
     /**

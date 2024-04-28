@@ -14,7 +14,7 @@
 
 package dev.jaxydog.astral.content.effect;
 
-import dev.jaxydog.astral.content.effect.CustomPotion.Recipe;
+import dev.jaxydog.astral.content.effect.AstralPotion.Recipe;
 import dev.jaxydog.astral.content.item.AstralItems;
 import dev.jaxydog.astral.register.ContentRegistrar;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -27,7 +27,7 @@ import net.minecraft.util.DyeColor;
  * Contains definitions of all modded-in potions.
  *
  * @author Jaxydog
- * @since 1.7.0
+ * @since 2.0.0
  */
 @SuppressWarnings("unused")
 public final class AstralPotions extends ContentRegistrar {
@@ -35,34 +35,34 @@ public final class AstralPotions extends ContentRegistrar {
     /**
      * The sinister potion.
      *
-     * @since 1.7.0
+     * @since 2.0.0
      */
-    public static final CustomPotion SINISTER = new CustomPotion(
+    public static final AstralPotion SINISTER = new AstralPotion(
         "sinister",
         new Recipe(Potions.THICK, Ingredient.ofItems(AstralItems.DYED_AMETHYST_CLUSTERS.getComputed(DyeColor.RED))),
-        new StatusEffectInstance(CustomStatusEffects.SINISTER, 15 * 20, 0)
+        new StatusEffectInstance(AstralStatusEffects.SINISTER, 15 * 20, 0)
     );
 
     /**
      * The sinister potion with a longer duration.
      *
-     * @since 1.7.0
+     * @since 2.0.0
      */
-    public static final CustomPotion LONG_SINISTER = new CustomPotion(
+    public static final AstralPotion LONG_SINISTER = new AstralPotion(
         "long_sinister",
         new Recipe(AstralPotions.SINISTER, Ingredient.ofItems(Items.REDSTONE)),
-        new StatusEffectInstance(CustomStatusEffects.SINISTER, 30 * 20, 0)
+        new StatusEffectInstance(AstralStatusEffects.SINISTER, 30 * 20, 0)
     );
 
     /**
      * The sinister potion with a stronger amplifier.
      *
-     * @since 1.7.0
+     * @since 2.0.0
      */
-    public static final CustomPotion STRONG_SINISTER = new CustomPotion(
+    public static final AstralPotion STRONG_SINISTER = new AstralPotion(
         "strong_sinister",
         new Recipe(AstralPotions.SINISTER, Ingredient.ofItems(Items.GLOWSTONE_DUST)),
-        new StatusEffectInstance(CustomStatusEffects.SINISTER, 10 * 20, 1)
+        new StatusEffectInstance(AstralStatusEffects.SINISTER, 10 * 20, 1)
     );
 
 }

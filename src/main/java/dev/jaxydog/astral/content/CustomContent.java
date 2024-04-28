@@ -3,7 +3,7 @@ package dev.jaxydog.astral.content;
 import dev.jaxydog.astral.content.block.AstralBlocks;
 import dev.jaxydog.astral.content.data.AstralData;
 import dev.jaxydog.astral.content.effect.AstralPotions;
-import dev.jaxydog.astral.content.effect.CustomStatusEffects;
+import dev.jaxydog.astral.content.effect.AstralStatusEffects;
 import dev.jaxydog.astral.content.item.AstralItems;
 import dev.jaxydog.astral.content.item.group.AstralItemGroups;
 import dev.jaxydog.astral.content.power.CustomActions;
@@ -41,7 +41,7 @@ public final class CustomContent extends ContentRegistrar {
     public static final AstralPotions POTIONS = new AstralPotions();
     public static final CustomSoundEvents SOUND_EVENTS = new CustomSoundEvents();
     @RegistrationPriority(1)
-    public static final CustomStatusEffects STATUS_EFFECTS = new CustomStatusEffects();
+    public static final AstralStatusEffects STATUS_EFFECTS = new AstralStatusEffects();
 
     // Miscellaneous
     public static final CustomTrinketPredicates TRINKET_SLOTS = new CustomTrinketPredicates();
