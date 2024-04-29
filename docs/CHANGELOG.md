@@ -32,7 +32,6 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Rewrote the entire `Sprayable` interface into the new `Sprayed` interface.
     - Instances of `Sprayable` have undergone major refactors.
     - Renamed cloud armor to cloudy armor.
-    - Spray bottle block interactions now retain block state where able.
 - Updated block content structure.
     - Rename all `Custom*Block` classes to `Astral*Block`.
     - Move `Colored` into `dev.jaxydog.astral.content.block`.
@@ -48,7 +47,6 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Created `ColorHelper`, which is based off of the old `ColorUtil` class.
 - Slightly refactored the mob challenge system.
     - Renamed the utility interface to `ChallengeHelper`.
-    - Distance calculations now ignore height differences.
 - Updated power content structure.
     - Removed deprecated powers.
 - Updated data structure.
@@ -59,6 +57,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 ### Content changes
 
 - Updated contribution guidelines.
+- Spray bottle block interactions now retain block state where able.
+- Challenge scaling distance calculations now ignore height differences.
 
 # Release 1.8.0
 
