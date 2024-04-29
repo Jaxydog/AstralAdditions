@@ -45,6 +45,7 @@ import net.minecraft.world.event.GameEvent.Emitter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -618,13 +619,22 @@ public interface Sprayed extends Client, Custom {
             REFILL_SOUND.play(context.world(), source.position());
 
             final BlockPos pos = BlockPos.ofFloored(source.position());
-            final BlockState state = context.world().getBlockState(pos);
 
-            context.world().emitGameEvent(GameEvent.FLUID_PICKUP, source.position(), Emitter.of(state));
+            try (final World world = context.world()) {
+                final BlockState state = world.getBlockState(pos);
+
+                world.emitGameEvent(GameEvent.FLUID_PICKUP, source.position(), Emitter.of(state));
+            } catch (IOException exception) {
+                Astral.LOGGER.warn("Unable to emit sound event from block: {}", exception.getLocalizedMessage());
+            }
         } else if (!source.actor().isSilent()) {
             REFILL_SOUND.play(context.world(), source.actor());
 
-            context.world().emitGameEvent(source.actor(), GameEvent.FLUID_PICKUP, source.position());
+            try (final World world = context.world()) {
+                world.emitGameEvent(source.actor(), GameEvent.FLUID_PICKUP, source.position());
+            } catch (IOException exception) {
+                Astral.LOGGER.warn("Unable to emit sound event from entity: {}", exception.getLocalizedMessage());
+            }
         }
     }
 
@@ -719,7 +729,7 @@ public interface Sprayed extends Client, Custom {
          * @since 2.0.0
          */
         public BlockState state() {
-            return this.world().getBlockState(this.pos());
+            return this.world.getBlockState(this.pos());
         }
 
         @Override
