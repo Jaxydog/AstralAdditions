@@ -9,7 +9,7 @@ import dev.jaxydog.astral.content.item.group.AstralItemGroups;
 import dev.jaxydog.astral.content.power.CustomActions;
 import dev.jaxydog.astral.content.power.CustomConditions;
 import dev.jaxydog.astral.content.power.CustomPowers;
-import dev.jaxydog.astral.content.sound.CustomSoundEvents;
+import dev.jaxydog.astral.content.sound.AstralSoundEvents;
 import dev.jaxydog.astral.content.trinket.CustomTrinketPredicates;
 import dev.jaxydog.astral.register.ContentRegistrar;
 import dev.jaxydog.astral.register.IgnoreRegistration;
@@ -39,7 +39,7 @@ public final class CustomContent extends ContentRegistrar {
     @RegistrationPriority(1)
     public static final AstralItems ITEMS = new AstralItems();
     public static final AstralPotions POTIONS = new AstralPotions();
-    public static final CustomSoundEvents SOUND_EVENTS = new CustomSoundEvents();
+    public static final AstralSoundEvents SOUND_EVENTS = new AstralSoundEvents();
     @RegistrationPriority(1)
     public static final AstralStatusEffects STATUS_EFFECTS = new AstralStatusEffects();
 

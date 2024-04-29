@@ -52,6 +52,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Updated data structure.
     - Renamed some fields and methods within the `MoonPhase` data type.
 - Updated effect content structure.
+- Updated sound content structure.
 
 ### Content changes
 

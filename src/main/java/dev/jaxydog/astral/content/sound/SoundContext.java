@@ -36,7 +36,6 @@ import net.minecraft.world.World;
  *
  * @since 2.0.0
  */
-@SuppressWarnings("unused")
 public record SoundContext(SoundEvent event, SoundCategory category, float volume, float pitch, float pitchVariance) {
 
     /**

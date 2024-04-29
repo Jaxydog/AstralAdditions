@@ -18,7 +18,7 @@ import dev.jaxydog.astral.Astral;
 import dev.jaxydog.astral.content.item.Custom;
 import dev.jaxydog.astral.content.power.custom.ActionOnSprayPower;
 import dev.jaxydog.astral.content.power.custom.ActionWhenSprayedPower;
-import dev.jaxydog.astral.content.sound.CustomSoundEvents;
+import dev.jaxydog.astral.content.sound.AstralSoundEvents;
 import dev.jaxydog.astral.content.sound.SoundContext;
 import dev.jaxydog.astral.register.Registered.Client;
 import dev.jaxydog.astral.utility.injected.SprayableEntity;
@@ -75,7 +75,7 @@ public interface Sprayed extends Client, Custom {
      *
      * @since 2.0.0
      */
-    SoundContext SPRAY_SOUND = new SoundContext(CustomSoundEvents.SPRAY_BOTTLE_USE, SoundCategory.NEUTRAL);
+    SoundContext SPRAY_SOUND = new SoundContext(AstralSoundEvents.SPRAY_BOTTLE_USE, SoundCategory.NEUTRAL);
     /**
      * The sound played when refilling a spray item.
      *
@@ -818,6 +818,6 @@ public interface Sprayed extends Client, Custom {
      * @author Jaxydog
      * @since 2.0.0
      */
-    record RefillContext(World world, BlockPos pos, int charges) {}
+    record RefillContext(World world, BlockPos pos, int charges) { }
 
 }
