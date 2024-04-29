@@ -31,6 +31,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Rewrote the entire `Sprayable` interface into the new `Sprayed` interface.
     - Instances of `Sprayable` have undergone major refactors.
     - Renamed cloud armor to cloudy armor.
+    - Spray bottle block interactions now retain block state where able.
 - Updated block content structure.
     - Rename all `Custom*Block` classes to `Astral*Block`.
     - Move `Colored` into `dev.jaxydog.astral.content.block`.
