@@ -2,13 +2,13 @@ accessWidener v2 named
 accessible class net/minecraft/entity/passive/MooshroomEntity$Type
 accessible class net/minecraft/network/NetworkState$PacketHandlerInitializer
 accessible class net/minecraft/network/NetworkState$PacketHandler
-accessible method net/minecraft/item/ItemGroup <init> (Lnet/minecraft/item/ItemGroup$Row;ILnet/minecraft/item/ItemGroup$Type;Lnet/minecraft/text/Text;Ljava/util/function/Supplier;Lnet/minecraft/item/ItemGroup$EntryCollector;)V
-accessible method net/minecraft/sound/SoundEvent <init> (Lnet/minecraft/util/Identifier;FZ)V
-accessible method net/minecraft/item/SuspiciousStewItem forEachEffect (Lnet/minecraft/item/ItemStack;Ljava/util/function/Consumer;)V
-accessible method net/minecraft/entity/LivingEntity applyFoodEffects (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;)V
-accessible method net/minecraft/data/server/recipe/RecipeProvider conditionsFromTag (Lnet/minecraft/registry/tag/TagKey;)Lnet/minecraft/advancement/criterion/InventoryChangedCriterion$Conditions;
-accessible method net/minecraft/data/client/BlockStateModelGenerator registerAmethyst (Lnet/minecraft/block/Block;)V
 accessible field net/minecraft/data/client/ItemModelGenerator writer Ljava/util/function/BiConsumer;
 accessible method net/minecraft/client/item/ModelPredicateProviderRegistry register (Lnet/minecraft/item/Item;Lnet/minecraft/util/Identifier;Lnet/minecraft/client/item/ClampedModelPredicateProvider;)V
+accessible method net/minecraft/data/client/BlockStateModelGenerator registerAmethyst (Lnet/minecraft/block/Block;)V
 accessible method net/minecraft/data/client/ItemModelGenerator register (Lnet/minecraft/item/Item;Lnet/minecraft/data/client/Model;)V
+accessible method net/minecraft/data/server/recipe/RecipeProvider conditionsFromTag (Lnet/minecraft/registry/tag/TagKey;)Lnet/minecraft/advancement/criterion/InventoryChangedCriterion$Conditions;
+accessible method net/minecraft/entity/LivingEntity applyFoodEffects (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;)V
+accessible method net/minecraft/item/ItemGroup <init> (Lnet/minecraft/item/ItemGroup$Row;ILnet/minecraft/item/ItemGroup$Type;Lnet/minecraft/text/Text;Ljava/util/function/Supplier;Lnet/minecraft/item/ItemGroup$EntryCollector;)V
+accessible method net/minecraft/item/SuspiciousStewItem forEachEffect (Lnet/minecraft/item/ItemStack;Ljava/util/function/Consumer;)V
 accessible method net/minecraft/recipe/BrewingRecipeRegistry registerItemRecipe (Lnet/minecraft/item/Item;Lnet/minecraft/item/Item;Lnet/minecraft/item/Item;)V
+accessible method net/minecraft/sound/SoundEvent <init> (Lnet/minecraft/util/Identifier;FZ)V
