@@ -1,7 +1,7 @@
 package dev.jaxydog.astral.mixin.client;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.jaxydog.astral.content.trinket.CustomTrinketPredicates;
+import dev.jaxydog.astral.content.trinket.AstralTrinketPredicates;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.feature.HeadFeatureRenderer;
@@ -14,8 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(HeadFeatureRenderer.class)
-public abstract class HeadFeatureRendererMixin<T extends LivingEntity, M extends EntityModel<T> & ModelWithHead>
-    extends FeatureRenderer<T, M> {
+public abstract class HeadFeatureRendererMixin<T extends LivingEntity, M extends EntityModel<T> & ModelWithHead> extends FeatureRenderer<T, M> {
 
     public HeadFeatureRendererMixin(FeatureRendererContext<T, M> context) {
         super(context);
@@ -26,9 +25,9 @@ public abstract class HeadFeatureRendererMixin<T extends LivingEntity, M extends
         at = @At("STORE")
     )
     private ItemStack cosmeticReplacer(ItemStack equippedStack, @Local(argsOnly = true) T entity) {
-        final ItemStack cosmeticStack = CustomTrinketPredicates.getCosmeticHelmet(entity);
+        final ItemStack cosmeticStack = AstralTrinketPredicates.getCosmeticHelmet(entity);
 
-        if (cosmeticStack.isEmpty() || equippedStack.isIn(CustomTrinketPredicates.COSMETIC_HELMET_UNHIDEABLE)) {
+        if (cosmeticStack.isEmpty() || equippedStack.isIn(AstralTrinketPredicates.COSMETIC_HELMET_UNHIDEABLE)) {
             return equippedStack;
         } else {
             return cosmeticStack;

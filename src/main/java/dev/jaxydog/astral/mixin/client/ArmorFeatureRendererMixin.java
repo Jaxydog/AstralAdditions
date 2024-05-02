@@ -3,7 +3,7 @@ package dev.jaxydog.astral.mixin.client;
 import com.llamalad7.mixinextras.sugar.Local;
 import dev.jaxydog.astral.content.item.AstralArmorItem;
 import dev.jaxydog.astral.content.item.Colored;
-import dev.jaxydog.astral.content.trinket.CustomTrinketPredicates;
+import dev.jaxydog.astral.content.trinket.AstralTrinketPredicates;
 import dev.jaxydog.astral.utility.color.Rgb;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -76,9 +76,9 @@ public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extend
 
     @ModifyVariable(method = "renderArmor", at = @At("STORE"))
     private ItemStack cosmeticReplacer(ItemStack equippedStack, @Local(argsOnly = true) T entity) {
-        final ItemStack cosmeticStack = CustomTrinketPredicates.getCosmeticHelmet(entity);
+        final ItemStack cosmeticStack = AstralTrinketPredicates.getCosmeticHelmet(entity);
 
-        if (cosmeticStack.isEmpty() || equippedStack.isIn(CustomTrinketPredicates.COSMETIC_HELMET_UNHIDEABLE)) {
+        if (cosmeticStack.isEmpty() || equippedStack.isIn(AstralTrinketPredicates.COSMETIC_HELMET_UNHIDEABLE)) {
             return equippedStack;
         } else {
             return cosmeticStack;

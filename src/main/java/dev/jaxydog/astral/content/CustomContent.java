@@ -10,7 +10,7 @@ import dev.jaxydog.astral.content.power.CustomActions;
 import dev.jaxydog.astral.content.power.CustomConditions;
 import dev.jaxydog.astral.content.power.CustomPowers;
 import dev.jaxydog.astral.content.sound.AstralSoundEvents;
-import dev.jaxydog.astral.content.trinket.CustomTrinketPredicates;
+import dev.jaxydog.astral.content.trinket.AstralTrinketPredicates;
 import dev.jaxydog.astral.register.ContentRegistrar;
 import dev.jaxydog.astral.register.IgnoreRegistration;
 import dev.jaxydog.astral.register.RegistrationPriority;
@@ -44,6 +44,6 @@ public final class CustomContent extends ContentRegistrar {
     public static final AstralStatusEffects STATUS_EFFECTS = new AstralStatusEffects();
 
     // Miscellaneous
-    public static final CustomTrinketPredicates TRINKET_SLOTS = new CustomTrinketPredicates();
+    public static final AstralTrinketPredicates TRINKET_SLOTS = new AstralTrinketPredicates();
 
 }
