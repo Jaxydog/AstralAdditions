@@ -46,13 +46,13 @@ public class AstralTrinketPredicate implements Registered.Common {
     /**
      * Creates a new predicate wrapper.
      *
-     * @param rawId The predicate's identifier path.
+     * @param path The predicate's identifier path.
      * @param predicate The predicate.
      *
      * @since 2.0.0
      */
-    public AstralTrinketPredicate(String rawId, Function3<ItemStack, SlotReference, LivingEntity, TriState> predicate) {
-        this.path = rawId;
+    public AstralTrinketPredicate(String path, Function3<ItemStack, SlotReference, LivingEntity, TriState> predicate) {
+        this.path = path;
         this.predicate = predicate;
     }
 
