@@ -39,22 +39,36 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 /**
- * Extension of {@code origins:block_in_radius} that ensures that the detected block is not obstructed from the player's
+ * An analog of {@code origins:block_in_radius} that ensures that the detected block is not obstructed from the player's
  * current position.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public class UnobstructedBlockInRadiusCondition extends AstralCondition<Entity> {
 
-    // Should be reasonably accurate while not being too small.
+    /**
+     * The default ray-cast step size.
+     * <p>
+     * This is chosen to be reasonably accurate, while not being so small as to hinder performance.
+     *
+     * @since 1.7.0
+     */
     private static final double DEFAULT_STEP_SIZE = 0.125D;
 
-    public UnobstructedBlockInRadiusCondition(String rawId) {
-        super(rawId);
+    /**
+     * Creates a new unobstructed block in radius condition.
+     *
+     * @param path The condition's identifier path.
+     *
+     * @since 1.7.0
+     */
+    public UnobstructedBlockInRadiusCondition(String path) {
+        super(path);
     }
 
     /**
-     * Performs a simple raycast between two start and end block positions, returning whether a block is within the
+     * Performs a simple ray-cast between two start and end block positions, returning whether a block is within the
      * path.
      *
      * @param world The current world.
@@ -63,6 +77,8 @@ public class UnobstructedBlockInRadiusCondition extends AstralCondition<Entity> 
      * @param stepSize The size of a single step along the ray.
      *
      * @return Whether a block is within the path.
+     *
+     * @since 1.7.0
      */
     private boolean simpleRaycast(World world, BlockPos start, BlockPos end, double stepSize) {
         final Vec3d startCenter = start.toCenterPos();
@@ -103,7 +119,7 @@ public class UnobstructedBlockInRadiusCondition extends AstralCondition<Entity> 
     }
 
     @Override
-    public boolean check(Instance data, Entity entity) {
+    public boolean test(Instance data, Entity entity) {
         final Shape shape = data.get("shape");
         final int radius = data.getInt("radius");
         final double stepSize = data.getDouble("step_size");
@@ -147,7 +163,7 @@ public class UnobstructedBlockInRadiusCondition extends AstralCondition<Entity> 
                 .add("step_size", SerializableDataTypes.DOUBLE, DEFAULT_STEP_SIZE)
                 .add("comparison", ApoliDataTypes.COMPARISON, Comparison.GREATER_THAN_OR_EQUAL)
                 .add("compare_to", SerializableDataTypes.INT, 1),
-            this::check
+            this::test
         );
     }
 

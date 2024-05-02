@@ -1,3 +1,17 @@
+/*
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ *
+ * Copyright © 2023–2024 Jaxydog
+ *
+ * This file is part of Astral.
+ *
+ * Astral is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * Astral is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Astral. If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package dev.jaxydog.astral.content.power.condition;
 
 import dev.jaxydog.astral.Astral;
@@ -16,14 +30,29 @@ import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
 
+/**
+ * The distance condition.
+ * <p>
+ * This exists because the vanilla Origins implementation causes a crash on our server.
+ *
+ * @author Jaxydog
+ * @since 1.1.0
+ */
 public class DistanceCondition extends AstralCondition<Entity> {
 
-    public DistanceCondition(String rawId) {
-        super(rawId);
+    /**
+     * Creates a new distance condition.
+     *
+     * @param path The condition's identifier path.
+     *
+     * @since 1.1.0
+     */
+    public DistanceCondition(String path) {
+        super(path);
     }
 
     @Override
-    public boolean check(Instance data, Entity entity) {
+    public boolean test(Instance data, Entity entity) {
         final List<Double> targetList = data.get("position");
 
         if (targetList.size() < 3) {
@@ -44,7 +73,7 @@ public class DistanceCondition extends AstralCondition<Entity> {
             .add("comparison", ApoliDataTypes.COMPARISON)
             .add("compare_to", SerializableDataTypes.DOUBLE);
 
-        return new AstralConditionFactory<>(this.getRegistryPath(), data, this::check);
+        return new AstralConditionFactory<>(this.getRegistryPath(), data, this::test);
     }
 
     @Override
