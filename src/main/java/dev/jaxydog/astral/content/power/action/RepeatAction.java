@@ -14,8 +14,8 @@
 
 package dev.jaxydog.astral.content.power.action;
 
-import dev.jaxydog.astral.content.power.CustomActionFactory;
-import dev.jaxydog.astral.content.power.CustomMetaAction;
+import dev.jaxydog.astral.content.power.AstralActionFactory;
+import dev.jaxydog.astral.content.power.AstralMetaAction;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableData.Instance;
@@ -23,7 +23,7 @@ import io.github.apace100.calio.data.SerializableDataType;
 import io.github.apace100.calio.data.SerializableDataTypes;
 
 /** The repeat meta-action */
-public class RepeatAction extends CustomMetaAction {
+public class RepeatAction extends AstralMetaAction {
 
     public RepeatAction(String rawId) {
         super(rawId);
@@ -38,11 +38,11 @@ public class RepeatAction extends CustomMetaAction {
     }
 
     @Override
-    public <T> CustomActionFactory<T> factory(SerializableDataType<ActionFactory<T>.Instance> type) {
+    public <T> AstralActionFactory<T> factory(SerializableDataType<ActionFactory<T>.Instance> type) {
         final SerializableData data = new SerializableData().add("repeat", SerializableDataTypes.INT)
             .add("action", type);
 
-        return new CustomActionFactory<>(this.getRegistryPath(), data, this::execute);
+        return new AstralActionFactory<>(this.getRegistryPath(), data, this::execute);
     }
 
 }

@@ -8,12 +8,12 @@ import io.github.apace100.calio.data.SerializableData.Instance;
 import io.github.apace100.calio.data.SerializableDataType;
 
 /** Abstract class for implementing actions with multiple data types */
-public abstract class CustomMetaAction implements Registered.Common {
+public abstract class AstralMetaAction implements Registered.Common {
 
     /** The custom meta action's inner identifier */
     private final String RAW_ID;
 
-    public CustomMetaAction(String rawId) {
+    public AstralMetaAction(String rawId) {
         this.RAW_ID = rawId;
     }
 
@@ -34,6 +34,6 @@ public abstract class CustomMetaAction implements Registered.Common {
     }
 
     /** Returns the action's factory */
-    public abstract <T> CustomActionFactory<T> factory(SerializableDataType<ActionFactory<T>.Instance> type);
+    public abstract <T> AstralActionFactory<T> factory(SerializableDataType<ActionFactory<T>.Instance> type);
 
 }

@@ -10,12 +10,12 @@ import net.minecraft.util.Identifier;
 import java.util.function.BiConsumer;
 
 /** An extension of a regular action factory that provides additional functionality */
-public class CustomActionFactory<T> extends ActionFactory<T> implements Registered {
+public class AstralActionFactory<T> extends ActionFactory<T> implements Registered {
 
     /** The custom action factory's inner raw identifier */
     private final String RAW_ID;
 
-    public CustomActionFactory(String rawId, SerializableData data, BiConsumer<SerializableData.Instance, T> effect) {
+    public AstralActionFactory(String rawId, SerializableData data, BiConsumer<SerializableData.Instance, T> effect) {
         super(Astral.getId(rawId), data, effect);
 
         this.RAW_ID = rawId;

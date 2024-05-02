@@ -7,12 +7,12 @@ import net.minecraft.registry.Registry;
 
 /** Abstract class for implementing actions */
 @SuppressWarnings("unused")
-public abstract class CustomAction<T> implements Registered.Common {
+public abstract class AstralAction<T> implements Registered.Common {
 
     /** The custom action's inner raw identifier */
     private final String RAW_ID;
 
-    public CustomAction(String rawId) {
+    public AstralAction(String rawId) {
         this.RAW_ID = rawId;
     }
 
@@ -30,7 +30,7 @@ public abstract class CustomAction<T> implements Registered.Common {
     }
 
     /** Returns the action's factory */
-    public abstract CustomActionFactory<T> factory();
+    public abstract AstralActionFactory<T> factory();
 
     /** Returns the action's registry */
     public abstract Registry<ActionFactory<T>> registry();

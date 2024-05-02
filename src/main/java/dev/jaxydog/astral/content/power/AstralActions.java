@@ -5,7 +5,7 @@ import dev.jaxydog.astral.register.ContentRegistrar;
 
 /** Contains definitions for all custom actions */
 @SuppressWarnings("unused")
-public final class CustomActions extends ContentRegistrar {
+public final class AstralActions extends ContentRegistrar {
 
     public static final RepeatAction REPEAT = new RepeatAction("repeat");
 

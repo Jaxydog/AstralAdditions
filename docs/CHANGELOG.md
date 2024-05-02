@@ -54,6 +54,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Updated effect content structure.
 - Updated sound content structure.
 - Updated trinkets content structure.
+- Updated powers content structure.
 
 ### Content changes
 
