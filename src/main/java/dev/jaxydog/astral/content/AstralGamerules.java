@@ -14,14 +14,14 @@ import net.minecraft.world.GameRules.Key;
  * Contains definitions of all modded-in gamerules.
  *
  * @author Jaxydog
- * @since 1.1.0
+ * @since 2.0.0
  */
 public final class AstralGamerules extends ContentRegistrar {
 
     /**
      * The gamerule that toggles challenge scaling on or off.
      *
-     * @since 1.1.0
+     * @since 2.0.0
      */
     @IgnoreRegistration
     public static final Key<BooleanRule> CHALLENGE_ENABLED = GameRuleRegistry.register("challengeEnabled",
@@ -32,7 +32,7 @@ public final class AstralGamerules extends ContentRegistrar {
     /**
      * The gamerule that configures the challenge scaling chunk step size.
      *
-     * @since 1.1.0
+     * @since 2.0.0
      */
     @IgnoreRegistration
     public static final Key<IntRule> CHALLENGE_CHUNK_STEP = GameRuleRegistry.register("challengeChunkStep",
@@ -43,7 +43,7 @@ public final class AstralGamerules extends ContentRegistrar {
     /**
      * The gamerule that configures the amount of attack points that are added for each chunk step.
      *
-     * @since 1.1.0
+     * @since 2.0.0
      */
     @IgnoreRegistration
     public static final Key<DoubleRule> CHALLENGE_ATTACK_ADDITIVE = GameRuleRegistry.register("challengeAttackAdditive",
@@ -54,7 +54,7 @@ public final class AstralGamerules extends ContentRegistrar {
     /**
      * The gamerule that configures the amount of health points that are added for each chunk step.
      *
-     * @since 1.1.0
+     * @since 2.0.0
      */
     @IgnoreRegistration
     public static final Key<DoubleRule> CHALLENGE_HEALTH_ADDITIVE = GameRuleRegistry.register("challengeHealthAdditive",
@@ -65,7 +65,7 @@ public final class AstralGamerules extends ContentRegistrar {
     /**
      * The gamerule that determines whether challenge scaling uses the world's spawn or 0, 0.
      *
-     * @since 1.1.0
+     * @since 2.0.0
      */
     @IgnoreRegistration
     public static final Key<BooleanRule> CHALLENGE_USE_WORLDSPAWN = GameRuleRegistry.register("challengeUseWorldspawn",
@@ -76,7 +76,7 @@ public final class AstralGamerules extends ContentRegistrar {
     /**
      * The gamerule that configures the chance of receiving a reward from currency conversions.
      *
-     * @since 1.1.0
+     * @since 2.0.0
      */
     @IgnoreRegistration
     public static final Key<DoubleRule> CURRENCY_REWARD_CHANCE = GameRuleRegistry.register("currencyRewardChance",
