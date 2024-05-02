@@ -1,6 +1,6 @@
 package dev.jaxydog.astral.content.power;
 
-import dev.jaxydog.astral.register.Registered;
+import dev.jaxydog.astral.register.Registered.Common;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
@@ -15,7 +15,7 @@ import io.github.apace100.calio.data.SerializableDataType;
  * @author Jaxydog
  * @since 2.0.0
  */
-public abstract class AstralMetaAction implements Registered.Common {
+public abstract class AstralMetaAction implements Common {
 
     /**
      * The action's identifier path used within the registration system.
