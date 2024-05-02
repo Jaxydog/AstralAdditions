@@ -18,17 +18,39 @@ import net.minecraft.util.Pair;
 
 import java.util.Optional;
 
+/**
+ * Contains definitions of all modded-in trinket predicates.
+ *
+ * @author Jaxydog
+ * @since 2.0.0
+ */
 public final class AstralTrinketPredicates extends ContentRegistrar {
 
+    /**
+     * The tag containing all items that may not be worn in the cosmetic helmet slot.
+     *
+     * @since 2.0.0
+     */
     @IgnoreRegistration
     public static final TagKey<Item> COSMETIC_HELMET_BLACKLIST = TagKey.of(Registries.ITEM.getKey(),
         Astral.getId("cosmetic_helmet_blacklist")
     );
+
+    /**
+     * The tag containing all items that may not be obscured by the cosmetic helmet slot.
+     *
+     * @since 2.0.0
+     */
     @IgnoreRegistration
     public static final TagKey<Item> COSMETIC_HELMET_UNHIDEABLE = TagKey.of(Registries.ITEM.getKey(),
         Astral.getId("cosmetic_helmet_unhideable")
     );
 
+    /**
+     * The cosmetic helmet predicate.
+     *
+     * @since 2.0.0
+     */
     public static final AstralTrinketPredicate COSMETIC_HELMET = new AstralTrinketPredicate("cosmetic_helmet",
         (stack, slot, entity) -> {
             if (stack.isIn(COSMETIC_HELMET_BLACKLIST)) return TriState.FALSE;
@@ -38,6 +60,15 @@ public final class AstralTrinketPredicates extends ContentRegistrar {
         }
     );
 
+    /**
+     * Returns the given entity's equipped cosmetic helmet item.
+     *
+     * @param entity The target entity.
+     *
+     * @return The given entity's equipped cosmetic helmet item.
+     *
+     * @since 2.0.0
+     */
     public static ItemStack getCosmeticHelmet(LivingEntity entity) {
         final Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(entity);
 
