@@ -14,12 +14,44 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+/**
+ * A custom action-on-key power, that allows for extra features when compared to
+ * {@link io.github.apace100.apoli.power.ActiveCooldownPower}.
+ *
+ * @author Jaxydog
+ * @since 1.7.0
+ */
 public class ActionOnKeyPower extends TickingCooldownPower implements Active {
 
+    /**
+     * An action run on the holding entity when a key is pressed.
+     *
+     * @since 1.7.0
+     */
     private final Consumer<Entity> activeFunction;
 
+    /**
+     * The key to be pressed.
+     *
+     * @since 1.7.0
+     */
     private Key key;
 
+    /**
+     * Creates a new ticking cooldown power.
+     *
+     * @param type The power's type.
+     * @param entity The holding entity.
+     * @param duration The duration of the cooldown.
+     * @param hudRender The power's HUD render.
+     * @param tickCondition The condition that allows this cooldown to update.
+     * @param minAction An action run when the cooldown is set.
+     * @param setAction An action run when the cooldown is changed.
+     * @param maxAction An action run when the cooldown is recharged.
+     * @param activeFunction An action run when the key is pressed.
+     *
+     * @since 1.7.0
+     */
     public ActionOnKeyPower(
         PowerType<?> type,
         LivingEntity entity,
@@ -36,7 +68,14 @@ public class ActionOnKeyPower extends TickingCooldownPower implements Active {
         this.activeFunction = activeFunction;
     }
 
-    public static AstralPowerFactory<ActionOnKeyPower> getActionFactory() {
+    /**
+     * Returns this power's default factory.
+     *
+     * @return This power's default factory.
+     *
+     * @since 1.7.0
+     */
+    public static AstralPowerFactory<ActionOnKeyPower> getKeyFactory() {
         return new AstralPowerFactory<ActionOnKeyPower>(
             "action_on_key",
             new SerializableData().add("cooldown", SerializableDataTypes.INT)
@@ -69,10 +108,10 @@ public class ActionOnKeyPower extends TickingCooldownPower implements Active {
 
     @Override
     public void onUse() {
-        if (this.canUse()) {
-            this.activeFunction.accept(this.entity);
-            this.use();
-        }
+        if (!this.canUse()) return;
+
+        this.activeFunction.accept(this.entity);
+        this.use();
     }
 
     @Override

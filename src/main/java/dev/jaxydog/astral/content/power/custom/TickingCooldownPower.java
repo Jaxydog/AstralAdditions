@@ -18,15 +18,61 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+/**
+ * A custom ticking cooldown power, that allows for extra features compared to {@link CooldownPower}.
+ *
+ * @author Jaxydog
+ * @since 1.7.0
+ */
 public class TickingCooldownPower extends CooldownPower {
 
+    /**
+     * A predicate that determines whether the cooldown may update.
+     *
+     * @since 1.7.0
+     */
     private final @Nullable Predicate<Entity> tickCondition;
+
+    /**
+     * An action run on the holding entity when the cooldown is emptied.
+     *
+     * @since 1.7.0
+     */
     private final @Nullable Consumer<Entity> minAction;
+    /**
+     * An action run on the holding entity when the cooldown is changed.
+     *
+     * @since 1.7.0
+     */
     private final @Nullable Consumer<Entity> setAction;
+    /**
+     * An action run on the holding entity when the cooldown is recharged.
+     *
+     * @since 1.7.0
+     */
     private final @Nullable Consumer<Entity> maxAction;
 
+    /**
+     * The current cooldown progress.
+     *
+     * @since 1.7.0
+     */
     protected int progress;
 
+    /**
+     * Creates a new ticking cooldown power.
+     *
+     * @param type The power's type.
+     * @param entity The holding entity.
+     * @param duration The duration of the cooldown.
+     * @param hudRender The power's HUD render.
+     * @param tickCondition The condition that allows this cooldown to update.
+     * @param minAction An action run when the cooldown is set.
+     * @param setAction An action run when the cooldown is changed.
+     * @param maxAction An action run when the cooldown is recharged.
+     *
+     * @since 1.7.0
+     */
     public TickingCooldownPower(
         PowerType<?> type,
         LivingEntity entity,
@@ -48,7 +94,14 @@ public class TickingCooldownPower extends CooldownPower {
         this.setTicking(true);
     }
 
-    public static AstralPowerFactory<TickingCooldownPower> getCooldownFactory() {
+    /**
+     * Returns this power's default factory.
+     *
+     * @return This power's default factory.
+     *
+     * @since 1.7.0
+     */
+    public static AstralPowerFactory<TickingCooldownPower> getFactory() {
         return new AstralPowerFactory<>(
             "ticking_cooldown",
             new SerializableData().add("cooldown", SerializableDataTypes.INT)

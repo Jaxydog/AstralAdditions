@@ -37,21 +37,57 @@ import java.util.Set;
  * A power that applies modifiers to various scale types.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public class ModifyScalePower extends AstralPower {
 
-    /** A list of modified scale types */
+    /**
+     * The list of modified scale types.
+     *
+     * @since 1.7.0
+     */
     private final Set<ScaleType> scaleTypes = new ObjectArraySet<>();
-    // Assume there's at least one modifier.
-    /** A list of scale modifiers */
+    /**
+     * The list of scale modifiers.
+     * <p>
+     * This is created with a capacity of 1, assuming there will be at least one modifier.
+     *
+     * @since 1.7.0
+     */
     private final List<Modifier> modifiers = new ObjectArrayList<>(1);
-    /** The duration of the transition period. */
+
+    /**
+     * The duration of the scale transition period in ticks.
+     *
+     * @since 1.7.0
+     */
     private final int transition;
-    /** The tick interval at which to update the power. */
+    /**
+     * The interval at which to update the power in ticks.
+     *
+     * @since 1.7.0
+     */
     private final int tickRate;
-    /** Whether the entity's scale should be reset when the power is lost. */
+
+    /**
+     * Whether the entity's scale should be reset when the power is lost.
+     *
+     * @since 1.7.0
+     */
     private final boolean resetOnLoss;
 
+    /**
+     * Creates a new modify scale power.
+     *
+     * @param type The power's type.
+     * @param entity The holding entity.
+     * @param scaleTypes A collection of scale types.
+     * @param transition The tick duration of the transition period.
+     * @param tickRate The tick interval at which to update.
+     * @param resetOnLoss Whether scales are reset when the power is lost.
+     *
+     * @since 1.7.0
+     */
     public ModifyScalePower(
         PowerType<?> type,
         LivingEntity entity,
@@ -73,7 +109,9 @@ public class ModifyScalePower extends AstralPower {
     /**
      * Returns the power factory associated with this power type.
      *
-     * @return The power factory.
+     * @return The power factory associated with this power type.
+     *
+     * @since 1.7.0
      */
     public static AstralPowerFactory<ModifyScalePower> getFactory() {
         return new AstralPowerFactory<ModifyScalePower>(
@@ -113,26 +151,33 @@ public class ModifyScalePower extends AstralPower {
      * Adds a scale modifier to the power.
      *
      * @param modifier A scale modifier.
+     *
+     * @since 1.7.0
      */
     public void addModifier(Modifier modifier) {
         this.modifiers.add(modifier);
 
     }
 
-    /** Applies all modifiers to the entity. */
+    /**
+     * Applies all modifiers to the entity.
+     *
+     * @since 1.7.0
+     */
     private void applyModifiers() {
-        for (final ScaleType type : this.scaleTypes) {
-            this.applyModifiers(type);
-        }
+        this.scaleTypes.forEach(this::applyModifiers);
     }
 
     /**
      * Applies all modifiers to the entity for the provided scale type.
      *
      * @param type The target scale type.
+     *
+     * @since 1.7.0
      */
     private void applyModifiers(ScaleType type) {
         final ScaleData scale = ScaleData.Builder.create().entity(this.entity).type(type).build();
+
         double target = 1D;
 
         for (final Modifier modifier : this.modifiers) {
@@ -145,19 +190,21 @@ public class ModifyScalePower extends AstralPower {
         }
     }
 
-    /** Removes all modifiers from the entity. */
+    /**
+     * Removes all modifiers from the entity.
+     *
+     * @since 1.7.0
+     */
     private void removeModifiers() {
-        if (!this.resetOnLoss) return;
-
-        for (final ScaleType type : this.scaleTypes) {
-            this.removeModifiers(type);
-        }
+        this.scaleTypes.forEach(this::removeModifiers);
     }
 
     /**
      * Removes all modifiers from the entity for the provided scale type.
      *
      * @param type The target scale type.
+     *
+     * @since 1.7.0
      */
     private void removeModifiers(ScaleType type) {
         final ScaleData scale = ScaleData.Builder.create().entity(this.entity).type(type).build();
@@ -174,14 +221,14 @@ public class ModifyScalePower extends AstralPower {
 
         if (this.isActive()) {
             this.applyModifiers();
-        } else {
+        } else if (this.resetOnLoss) {
             this.removeModifiers();
         }
     }
 
     @Override
     public void onRemoved() {
-        this.removeModifiers();
+        if (this.resetOnLoss) this.removeModifiers();
     }
 
 }
