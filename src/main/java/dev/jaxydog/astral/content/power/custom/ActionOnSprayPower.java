@@ -1,7 +1,7 @@
 package dev.jaxydog.astral.content.power.custom;
 
-import dev.jaxydog.astral.content.power.CustomPower;
-import dev.jaxydog.astral.content.power.CustomPowerFactory;
+import dev.jaxydog.astral.content.power.AstralPower;
+import dev.jaxydog.astral.content.power.AstralPowerFactory;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.calio.data.SerializableData;
@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class ActionOnSprayPower extends CustomPower {
+public class ActionOnSprayPower extends AstralPower {
 
     private final int priority;
     private final int charges;
@@ -56,8 +56,8 @@ public class ActionOnSprayPower extends CustomPower {
         this.blockCondition = blockCondition;
     }
 
-    public static CustomPowerFactory<ActionOnSprayPower> getFactory() {
-        return new CustomPowerFactory<ActionOnSprayPower>(
+    public static AstralPowerFactory<ActionOnSprayPower> getFactory() {
+        return new AstralPowerFactory<ActionOnSprayPower>(
             "action_on_spray",
             new SerializableData().add("priority", SerializableDataTypes.INT, 0)
                 .add("charges", SerializableDataTypes.INT, 1)

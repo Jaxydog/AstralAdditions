@@ -1,6 +1,6 @@
 package dev.jaxydog.astral.content.power.custom;
 
-import dev.jaxydog.astral.content.power.CustomPowerFactory;
+import dev.jaxydog.astral.content.power.AstralPowerFactory;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.CooldownPower;
@@ -48,8 +48,8 @@ public class TickingCooldownPower extends CooldownPower {
         this.setTicking(true);
     }
 
-    public static CustomPowerFactory<TickingCooldownPower> getCooldownFactory() {
-        return new CustomPowerFactory<>(
+    public static AstralPowerFactory<TickingCooldownPower> getCooldownFactory() {
+        return new AstralPowerFactory<>(
             "ticking_cooldown",
             new SerializableData().add("cooldown", SerializableDataTypes.INT)
                 .add("hud_render", ApoliDataTypes.HUD_RENDER, HudRender.DONT_RENDER)

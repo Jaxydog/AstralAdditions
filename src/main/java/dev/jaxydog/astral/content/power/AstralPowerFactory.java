@@ -15,12 +15,12 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /** An extension of a regular power factory that provides additional functionality */
-public class CustomPowerFactory<P extends Power> extends PowerFactory<P> implements Registered.Common {
+public class AstralPowerFactory<P extends Power> extends PowerFactory<P> implements Registered.Common {
 
     /** The custom power factory's inner raw identifier */
     private final String RAW_ID;
 
-    public CustomPowerFactory(
+    public AstralPowerFactory(
         String rawId,
         SerializableData data,
         Function<SerializableData.Instance, BiFunction<PowerType<P>, LivingEntity, P>> factoryConstructor
@@ -46,8 +46,8 @@ public class CustomPowerFactory<P extends Power> extends PowerFactory<P> impleme
     }
 
     @Override
-    public CustomPowerFactory<P> allowCondition() {
-        return (CustomPowerFactory<P>) super.allowCondition();
+    public AstralPowerFactory<P> allowCondition() {
+        return (AstralPowerFactory<P>) super.allowCondition();
     }
 
 }

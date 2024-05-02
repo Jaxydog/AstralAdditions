@@ -14,8 +14,8 @@
 
 package dev.jaxydog.astral.content.power.custom;
 
-import dev.jaxydog.astral.content.power.CustomPower;
-import dev.jaxydog.astral.content.power.CustomPowerFactory;
+import dev.jaxydog.astral.content.power.AstralPower;
+import dev.jaxydog.astral.content.power.AstralPowerFactory;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.util.modifier.Modifier;
 import io.github.apace100.calio.data.SerializableData;
@@ -38,7 +38,7 @@ import java.util.Set;
  *
  * @author Jaxydog
  */
-public class ModifyScalePower extends CustomPower {
+public class ModifyScalePower extends AstralPower {
 
     /** A list of modified scale types */
     private final Set<ScaleType> scaleTypes = new ObjectArraySet<>();
@@ -75,8 +75,8 @@ public class ModifyScalePower extends CustomPower {
      *
      * @return The power factory.
      */
-    public static CustomPowerFactory<ModifyScalePower> getFactory() {
-        return new CustomPowerFactory<ModifyScalePower>(
+    public static AstralPowerFactory<ModifyScalePower> getFactory() {
+        return new AstralPowerFactory<ModifyScalePower>(
             "modify_scale",
             new SerializableData().add("scale_types", SerializableDataTypes.IDENTIFIERS)
                 .add("transition", SerializableDataTypes.INT, 0)

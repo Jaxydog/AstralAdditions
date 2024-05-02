@@ -1,6 +1,6 @@
 package dev.jaxydog.astral.content.power.custom;
 
-import dev.jaxydog.astral.content.power.CustomPowerFactory;
+import dev.jaxydog.astral.content.power.AstralPowerFactory;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.Active;
 import io.github.apace100.apoli.power.PowerType;
@@ -36,8 +36,8 @@ public class ActionOnKeyPower extends TickingCooldownPower implements Active {
         this.activeFunction = activeFunction;
     }
 
-    public static CustomPowerFactory<ActionOnKeyPower> getActionFactory() {
-        return new CustomPowerFactory<ActionOnKeyPower>(
+    public static AstralPowerFactory<ActionOnKeyPower> getActionFactory() {
+        return new AstralPowerFactory<ActionOnKeyPower>(
             "action_on_key",
             new SerializableData().add("cooldown", SerializableDataTypes.INT)
                 .add("hud_render", ApoliDataTypes.HUD_RENDER, HudRender.DONT_RENDER)
