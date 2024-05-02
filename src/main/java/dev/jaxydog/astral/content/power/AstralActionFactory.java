@@ -25,8 +25,6 @@ import java.util.function.BiConsumer;
 
 /**
  * An extension of an {@link ActionFactory} that provides additional functionality.
- * <p>
- * This type is automatically registered.
  *
  * @author Jaxydog
  * @since 2.0.0

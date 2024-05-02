@@ -23,6 +23,8 @@ import io.github.apace100.calio.data.SerializableDataType;
 
 /**
  * An abstract class for easily implementing custom Origins conditions with multiple data types.
+ * <p>
+ * This type is automatically registered.
  *
  * @author Jaxydog
  * @since 2.0.0

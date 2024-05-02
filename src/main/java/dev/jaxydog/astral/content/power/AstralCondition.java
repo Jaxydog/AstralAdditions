@@ -21,6 +21,8 @@ import net.minecraft.registry.Registry;
 
 /**
  * An abstract class for easily implementing custom Origins conditions.
+ * <p>
+ * This type is automatically registered.
  *
  * @author Jaxydog
  * @since 2.0.0
