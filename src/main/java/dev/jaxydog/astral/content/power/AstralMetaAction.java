@@ -7,22 +7,56 @@ import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.SerializableData.Instance;
 import io.github.apace100.calio.data.SerializableDataType;
 
-/** Abstract class for implementing actions with multiple data types */
+/**
+ * An abstract class for easily implementing custom Origins actions with multiple expected data types.
+ * <p>
+ * This type is automatically registered.
+ *
+ * @author Jaxydog
+ * @since 2.0.0
+ */
 public abstract class AstralMetaAction implements Registered.Common {
 
-    /** The custom meta action's inner identifier */
-    private final String RAW_ID;
+    /**
+     * The action's identifier path used within the registration system.
+     *
+     * @since 2.0.0
+     */
+    private final String path;
 
-    public AstralMetaAction(String rawId) {
-        this.RAW_ID = rawId;
+    /**
+     * Creates a new action.
+     *
+     * @param path The action's identifier path.
+     *
+     * @since 2.0.0
+     */
+    public AstralMetaAction(String path) {
+        this.path = path;
     }
 
-    /** Executes the action */
+    /**
+     * Executes the action.
+     *
+     * @param data The action's associated data.
+     * @param value The value to execute the action on.
+     *
+     * @since 2.0.0
+     */
     public abstract <T> void execute(Instance data, T value);
+
+    /**
+     * Returns the action's associated factory.
+     *
+     * @return The action's associated factory.
+     *
+     * @since 2.0.0
+     */
+    public abstract <T> AstralActionFactory<T> factory(SerializableDataType<ActionFactory<T>.Instance> type);
 
     @Override
     public String getRegistryPath() {
-        return this.RAW_ID;
+        return this.path;
     }
 
     @Override
@@ -32,8 +66,5 @@ public abstract class AstralMetaAction implements Registered.Common {
         this.factory(ApoliDataTypes.ENTITY_ACTION).register(ApoliRegistries.ENTITY_ACTION);
         this.factory(ApoliDataTypes.ITEM_ACTION).register(ApoliRegistries.ITEM_ACTION);
     }
-
-    /** Returns the action's factory */
-    public abstract <T> AstralActionFactory<T> factory(SerializableDataType<ActionFactory<T>.Instance> type);
 
 }

@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
- * Copyright © 2024 Name
+ * Copyright © 2023–2024 Jaxydog
  *
  * This file is part of Astral.
  *
@@ -22,11 +22,23 @@ import io.github.apace100.calio.data.SerializableData.Instance;
 import io.github.apace100.calio.data.SerializableDataType;
 import io.github.apace100.calio.data.SerializableDataTypes;
 
-/** The repeat meta-action */
+/**
+ * The repeat meta-action.
+ *
+ * @author Jaxydog
+ * @since 1.1.0
+ */
 public class RepeatAction extends AstralMetaAction {
 
-    public RepeatAction(String rawId) {
-        super(rawId);
+    /**
+     * Creates a new repeat action.
+     *
+     * @param path The action's identifier path.
+     *
+     * @since 1.1.0
+     */
+    public RepeatAction(String path) {
+        super(path);
     }
 
     @Override
