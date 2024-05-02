@@ -43,7 +43,6 @@ import net.minecraft.util.Rarity;
  * @author Jaxydog
  * @since 2.0.0
  */
-@SuppressWarnings("unused")
 public final class AstralItems extends ContentRegistrar {
 
     /**

@@ -29,7 +29,6 @@ import net.minecraft.util.DyeColor;
  * @author Jaxydog
  * @since 2.0.0
  */
-@SuppressWarnings("unused")
 public final class AstralPotions extends ContentRegistrar {
 
     /**
