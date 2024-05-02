@@ -1,8 +1,8 @@
 package dev.jaxydog.astral.content.power.condition;
 
 import dev.jaxydog.astral.Astral;
-import dev.jaxydog.astral.content.power.CustomCondition;
-import dev.jaxydog.astral.content.power.CustomConditionFactory;
+import dev.jaxydog.astral.content.power.AstralCondition;
+import dev.jaxydog.astral.content.power.AstralConditionFactory;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
@@ -16,7 +16,7 @@ import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
 
-public class DistanceCondition extends CustomCondition<Entity> {
+public class DistanceCondition extends AstralCondition<Entity> {
 
     public DistanceCondition(String rawId) {
         super(rawId);
@@ -39,12 +39,12 @@ public class DistanceCondition extends CustomCondition<Entity> {
     }
 
     @Override
-    public CustomConditionFactory<Entity> factory() {
+    public AstralConditionFactory<Entity> factory() {
         final SerializableData data = new SerializableData().add("position", SerializableDataTypes.DOUBLES)
             .add("comparison", ApoliDataTypes.COMPARISON)
             .add("compare_to", SerializableDataTypes.DOUBLE);
 
-        return new CustomConditionFactory<>(this.getRegistryPath(), data, this::check);
+        return new AstralConditionFactory<>(this.getRegistryPath(), data, this::check);
     }
 
     @Override

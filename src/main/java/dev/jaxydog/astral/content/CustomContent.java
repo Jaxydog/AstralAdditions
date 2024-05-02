@@ -7,7 +7,7 @@ import dev.jaxydog.astral.content.effect.AstralStatusEffects;
 import dev.jaxydog.astral.content.item.AstralItems;
 import dev.jaxydog.astral.content.item.group.AstralItemGroups;
 import dev.jaxydog.astral.content.power.AstralActions;
-import dev.jaxydog.astral.content.power.CustomConditions;
+import dev.jaxydog.astral.content.power.AstralConditions;
 import dev.jaxydog.astral.content.power.CustomPowers;
 import dev.jaxydog.astral.content.sound.AstralSoundEvents;
 import dev.jaxydog.astral.content.trinket.AstralTrinketPredicates;
@@ -25,7 +25,7 @@ public final class CustomContent extends ContentRegistrar {
 
     // Origins extensions
     public static final AstralActions ACTIONS = new AstralActions();
-    public static final CustomConditions CONDITIONS = new CustomConditions();
+    public static final AstralConditions CONDITIONS = new AstralConditions();
     @RegistrationPriority(1)
     public static final AstralData DATA = new AstralData();
     public static final CustomPowers POWERS = new CustomPowers();

@@ -2,8 +2,8 @@ package dev.jaxydog.astral.content.power.condition;
 
 import dev.jaxydog.astral.content.data.AstralData;
 import dev.jaxydog.astral.content.data.MoonPhase;
-import dev.jaxydog.astral.content.power.CustomCondition;
-import dev.jaxydog.astral.content.power.CustomConditionFactory;
+import dev.jaxydog.astral.content.power.AstralCondition;
+import dev.jaxydog.astral.content.power.AstralConditionFactory;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.SerializableData;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** The moon phase condition */
-public class MoonPhaseCondition extends CustomCondition<Entity> {
+public class MoonPhaseCondition extends AstralCondition<Entity> {
 
     public MoonPhaseCondition(String rawId) {
         super(rawId);
@@ -36,11 +36,11 @@ public class MoonPhaseCondition extends CustomCondition<Entity> {
     }
 
     @Override
-    public CustomConditionFactory<Entity> factory() {
+    public AstralConditionFactory<Entity> factory() {
         final SerializableData data = new SerializableData().add("phase", AstralData.MOON_PHASE, MoonPhase.NONE)
             .add("phases", AstralData.MOON_PHASES, new ArrayList<>());
 
-        return new CustomConditionFactory<>(this.getRegistryPath(), data, this::check);
+        return new AstralConditionFactory<>(this.getRegistryPath(), data, this::check);
     }
 
     @Override

@@ -14,8 +14,8 @@
 
 package dev.jaxydog.astral.content.power.condition;
 
-import dev.jaxydog.astral.content.power.CustomCondition;
-import dev.jaxydog.astral.content.power.CustomConditionFactory;
+import dev.jaxydog.astral.content.power.AstralCondition;
+import dev.jaxydog.astral.content.power.AstralConditionFactory;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
@@ -44,7 +44,7 @@ import java.util.function.Predicate;
  *
  * @author Jaxydog
  */
-public class UnobstructedBlockInRadiusCondition extends CustomCondition<Entity> {
+public class UnobstructedBlockInRadiusCondition extends AstralCondition<Entity> {
 
     // Should be reasonably accurate while not being too small.
     private static final double DEFAULT_STEP_SIZE = 0.125D;
@@ -138,8 +138,8 @@ public class UnobstructedBlockInRadiusCondition extends CustomCondition<Entity> 
     }
 
     @Override
-    public CustomConditionFactory<Entity> factory() {
-        return new CustomConditionFactory<>(
+    public AstralConditionFactory<Entity> factory() {
+        return new AstralConditionFactory<>(
             "unobstructed_block_in_radius",
             new SerializableData().add("block_condition", ApoliDataTypes.BLOCK_CONDITION)
                 .add("shape", SerializableDataType.enumValue(Shape.class), Shape.CUBE)

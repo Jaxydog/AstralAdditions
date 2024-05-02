@@ -6,12 +6,12 @@ import io.github.apace100.calio.data.SerializableData.Instance;
 import net.minecraft.registry.Registry;
 
 /** Abstract class for implementing conditions */
-public abstract class CustomCondition<T> implements Registered.Common {
+public abstract class AstralCondition<T> implements Registered.Common {
 
     /** The custom condition's inner raw identifier */
     private final String RAW_ID;
 
-    public CustomCondition(String rawId) {
+    public AstralCondition(String rawId) {
         this.RAW_ID = rawId;
     }
 
@@ -29,7 +29,7 @@ public abstract class CustomCondition<T> implements Registered.Common {
     }
 
     /** Returns the condition's factory */
-    public abstract CustomConditionFactory<T> factory();
+    public abstract AstralConditionFactory<T> factory();
 
     /** Returns the action's registry */
     public abstract Registry<ConditionFactory<T>> registry();

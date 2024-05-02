@@ -7,7 +7,7 @@ import dev.jaxydog.astral.register.ContentRegistrar;
 
 /** Contains definitions for all custom conditions */
 @SuppressWarnings("unused")
-public final class CustomConditions extends ContentRegistrar {
+public final class AstralConditions extends ContentRegistrar {
 
     public static final DistanceCondition DISTANCE = new DistanceCondition("distance");
 

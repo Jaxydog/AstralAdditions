@@ -10,12 +10,12 @@ import net.minecraft.util.Identifier;
 import java.util.function.BiFunction;
 
 /** An extension of a regular condition factory that provides additional functionality */
-public class CustomConditionFactory<T> extends ConditionFactory<T> implements Registered {
+public class AstralConditionFactory<T> extends ConditionFactory<T> implements Registered {
 
     /** The custom condition factory's inner raw identifier */
     private final String RAW_ID;
 
-    public CustomConditionFactory(
+    public AstralConditionFactory(
         String rawId, SerializableData data, BiFunction<SerializableData.Instance, T, Boolean> condition
     ) {
         super(Astral.getId(rawId), data, condition);

@@ -9,12 +9,12 @@ import io.github.apace100.calio.data.SerializableDataType;
 
 /** Abstract class for implementing conditions with multiple data types */
 @SuppressWarnings("unused")
-public abstract class CustomMetaCondition implements Registered.Common {
+public abstract class AstralMetaCondition implements Registered.Common {
 
     /** The custom meta condition's inner raw identifier */
     private final String RAW_ID;
 
-    public CustomMetaCondition(String rawId) {
+    public AstralMetaCondition(String rawId) {
         this.RAW_ID = rawId;
     }
 
@@ -35,6 +35,6 @@ public abstract class CustomMetaCondition implements Registered.Common {
     }
 
     /** Returns the condition's factory */
-    public abstract <T> CustomConditionFactory<T> factory(SerializableDataType<ConditionFactory<T>.Instance> type);
+    public abstract <T> AstralConditionFactory<T> factory(SerializableDataType<ConditionFactory<T>.Instance> type);
 
 }
