@@ -48,6 +48,9 @@ public abstract class AstralMetaAction implements Common {
     /**
      * Returns the action's associated factory.
      *
+     * @param type The action's type.
+     * @param <T> The type of the expected value.
+     *
      * @return The action's associated factory.
      *
      * @since 2.0.0
