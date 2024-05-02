@@ -33,7 +33,7 @@ public final class CustomContent extends ContentRegistrar {
     // Vanilla extensions
     @RegistrationPriority(2)
     public static final AstralBlocks BLOCKS = new AstralBlocks();
-    public static final CustomGamerules GAMERULES = new CustomGamerules();
+    public static final AstralGamerules GAMERULES = new AstralGamerules();
     @RegistrationPriority(1)
     public static final AstralItemGroups ITEM_GROUPS = new AstralItemGroups();
     @RegistrationPriority(1)

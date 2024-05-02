@@ -16,7 +16,7 @@ package dev.jaxydog.astral.utility;
 
 import com.google.gson.*;
 import dev.jaxydog.astral.Astral;
-import dev.jaxydog.astral.content.CustomGamerules;
+import dev.jaxydog.astral.content.AstralGamerules;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
@@ -83,7 +83,7 @@ public interface CurrencyUtil {
         if (Reward.REWARDS.isEmpty()) return;
 
         final Random random = player.getRandom();
-        final double rewardChance = player.getWorld().getGameRules().get(CustomGamerules.CURRENCY_REWARD_CHANCE).get();
+        final double rewardChance = player.getWorld().getGameRules().get(AstralGamerules.CURRENCY_REWARD_CHANCE).get();
 
         int count = 0;
 
@@ -192,8 +192,7 @@ public interface CurrencyUtil {
             if (total == 0) return;
 
             // Remove all consumed unit items.
-            inventory.remove(
-                s -> s.getItem().equals(unit.getItem()) && canExchange(s),
+            inventory.remove(s -> s.getItem().equals(unit.getItem()) && canExchange(s),
                 total * price,
                 player.playerScreenHandler.getCraftingInput()
             );
@@ -262,8 +261,8 @@ public interface CurrencyUtil {
         }
 
         // Remove all skeleton ingredients.
-        removedCounts.forEach(((reward, count) -> inventory.remove(
-            s -> s.getItem().equals(reward.getItem()) && canExchange(s),
+        removedCounts.forEach(((reward, count) -> inventory.remove(s -> s.getItem().equals(reward.getItem())
+                && canExchange(s),
             count,
             player.playerScreenHandler.getCraftingInput()
         )));
@@ -431,8 +430,12 @@ public interface CurrencyUtil {
      *
      * @author Jaxydog
      */
-    record Unit(Identifier itemIdentifier, int value, boolean hasDrops, Map<String, Integer> exchanges)
-        implements ItemRepresenting, Comparable<Unit> {
+    record Unit(
+        Identifier itemIdentifier,
+        int value,
+        boolean hasDrops,
+        Map<String, Integer> exchanges
+    ) implements ItemRepresenting, Comparable<Unit> {
 
         public static final ItemMap<Unit> UNITS = new ItemMap<>();
         private static final Comparator<Unit> COMPARATOR = Comparator.comparingInt(Unit::value);

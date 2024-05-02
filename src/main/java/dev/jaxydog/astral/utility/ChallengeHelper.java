@@ -15,7 +15,7 @@
 package dev.jaxydog.astral.utility;
 
 import dev.jaxydog.astral.Astral;
-import dev.jaxydog.astral.content.CustomGamerules;
+import dev.jaxydog.astral.content.AstralGamerules;
 import dev.jaxydog.astral.utility.injected.AstralLivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -106,7 +106,7 @@ public interface ChallengeHelper {
      * @since 1.1.0
      */
     static boolean isEnabled(World world) {
-        return world.getGameRules().getBoolean(CustomGamerules.CHALLENGE_ENABLED);
+        return world.getGameRules().getBoolean(AstralGamerules.CHALLENGE_ENABLED);
     }
 
     /**
@@ -119,7 +119,7 @@ public interface ChallengeHelper {
      * @since 2.0.0
      */
     static boolean useWorldSpawn(World world) {
-        return world.getGameRules().getBoolean(CustomGamerules.CHALLENGE_USE_WORLDSPAWN);
+        return world.getGameRules().getBoolean(AstralGamerules.CHALLENGE_USE_WORLDSPAWN);
     }
 
     /**
@@ -134,7 +134,7 @@ public interface ChallengeHelper {
      * @since 1.1.0
      */
     static double getAttackAdditive(World world) {
-        return world.getGameRules().get(CustomGamerules.CHALLENGE_ATTACK_ADDITIVE).get();
+        return world.getGameRules().get(AstralGamerules.CHALLENGE_ATTACK_ADDITIVE).get();
     }
 
     /**
@@ -149,7 +149,7 @@ public interface ChallengeHelper {
      * @since 1.1.0
      */
     static double getHealthAdditive(World world) {
-        return world.getGameRules().get(CustomGamerules.CHALLENGE_HEALTH_ADDITIVE).get();
+        return world.getGameRules().get(AstralGamerules.CHALLENGE_HEALTH_ADDITIVE).get();
     }
 
     /**
@@ -190,7 +190,7 @@ public interface ChallengeHelper {
      * @since 1.1.0
      */
     static int getChunkStep(World world) {
-        return Math.max(world.getGameRules().getInt(CustomGamerules.CHALLENGE_CHUNK_STEP), 1);
+        return Math.max(world.getGameRules().getInt(AstralGamerules.CHALLENGE_CHUNK_STEP), 1);
     }
 
     /**
