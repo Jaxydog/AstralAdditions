@@ -36,16 +36,62 @@ import java.util.function.Predicate;
  * This is the inverse of {@link ActionOnSprayPower}.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public class ActionWhenSprayedPower extends AstralPower {
 
+    /**
+     * The power's execution priority; higher means this power is run first.
+     *
+     * @since 1.7.0
+     */
     private final int priority;
+    /**
+     * The number of charges consumed when executing the action.
+     *
+     * @since 1.7.0
+     */
     private final int charges;
+
+    /**
+     * An action run on both entities when spraying.
+     *
+     * @since 1.7.0
+     */
     private final @Nullable Consumer<Pair<Entity, Entity>> bientityAction;
+    /**
+     * A predicate that only allows the action to be run if it resolves to {@code true}.
+     *
+     * @since 1.7.0
+     */
     private final @Nullable Predicate<Pair<Entity, Entity>> bientityCondition;
+    /**
+     * An action run on the held item when spraying.
+     *
+     * @since 1.7.0
+     */
     private final @Nullable Consumer<Pair<World, ItemStack>> itemAction;
+    /**
+     * A predicate that only allows the action to be run if it resolves to {@code true}.
+     *
+     * @since 1.7.0
+     */
     private final @Nullable Predicate<ItemStack> itemCondition;
 
+    /**
+     * Creates a new action when sprayed power.
+     *
+     * @param type The power type.
+     * @param entity The holding entity.
+     * @param priority The execution priority.
+     * @param charges The charges consumed when the action is run.
+     * @param bientityAction An action run on both entities when spraying.
+     * @param bientityCondition A predicate that only allows the action to be run if it resolves to {@code true}.
+     * @param itemAction An action run on the held item when spraying.
+     * @param itemCondition A predicate that only allows the action to be run if it resolves to {@code true}.
+     *
+     * @since 1.7.0
+     */
     public ActionWhenSprayedPower(
         PowerType<?> type,
         LivingEntity entity,
@@ -67,9 +113,11 @@ public class ActionWhenSprayedPower extends AstralPower {
     }
 
     /**
-     * Returns the power factory associated with this power type.
+     * Returns this power's default factory.
      *
-     * @return The power factory.
+     * @return This power's default factory.
+     *
+     * @since 1.7.0
      */
     public static AstralPowerFactory<ActionWhenSprayedPower> getFactory() {
         return new AstralPowerFactory<ActionWhenSprayedPower>(
@@ -98,6 +146,8 @@ public class ActionWhenSprayedPower extends AstralPower {
      * held powers.
      *
      * @return The execution priority.
+     *
+     * @since 1.7.0
      */
     public int getPriority() {
         return this.priority;
@@ -107,20 +157,11 @@ public class ActionWhenSprayedPower extends AstralPower {
      * Returns the total number of charges to consume when a spray is successful.
      *
      * @return The expended charges.
+     *
+     * @since 1.7.0
      */
     public int getCharges() {
         return this.charges;
-    }
-
-    /**
-     * Returns whether the provided item stack is considered valid for spraying through this power.
-     *
-     * @param stack The item stack.
-     *
-     * @return The validity of the stack.
-     */
-    public boolean canUseItem(ItemStack stack) {
-        return this.itemCondition == null || this.itemCondition.test(stack);
     }
 
     /**
@@ -130,11 +171,16 @@ public class ActionWhenSprayedPower extends AstralPower {
      * @param stack The item stack.
      *
      * @return Whether this entity may be sprayed.
+     *
+     * @since 1.7.0
      */
-    public boolean canBeSprayed(Entity actor, ItemStack stack) {
-        if (!this.canUseItem(stack)) return false;
-
-        return this.bientityCondition == null || this.bientityCondition.test(new Pair<>(actor, this.entity));
+    public boolean canSpray(Entity actor, ItemStack stack) {
+        // Test the item condition.
+        return (this.itemCondition == null || this.itemCondition.test(stack))
+            // Then test the bientity condition.
+            && (this.bientityCondition == null || this.bientityCondition.test(new Pair<>(actor, this.entity)))
+            // Then ensure that there is an action to run.
+            && (this.bientityAction != null || this.itemAction != null);
     }
 
     /**
@@ -143,18 +189,15 @@ public class ActionWhenSprayedPower extends AstralPower {
      * @param actor The actor entity.
      * @param stack The item stack.
      *
-     * @return Whether the entity was sprayed.
+     * @since 1.7.0
      */
-    public boolean onSprayed(Entity actor, ItemStack stack) {
-        if (this.bientityAction == null) return false;
-
-        this.bientityAction.accept(new Pair<>(actor, this.entity));
-
+    public void onSpray(Entity actor, ItemStack stack) {
+        if (this.bientityAction != null) {
+            this.bientityAction.accept(new Pair<>(actor, this.entity));
+        }
         if (this.itemAction != null) {
             this.itemAction.accept(new Pair<>(this.entity.getWorld(), stack));
         }
-
-        return true;
     }
 
 }

@@ -337,7 +337,7 @@ public interface Sprayed extends Client, Custom {
         // Return true if the target has any valid `astral:action_when_sprayed` powers.
         if (PowerHolderComponent.getPowers(target.target(), ActionWhenSprayedPower.class)
             .stream()
-            .anyMatch(p -> p.canBeSprayed(source.actor(), source.stack()))) {
+            .anyMatch(p -> p.canSpray(source.actor(), source.stack()))) {
             return true;
         }
 
@@ -413,9 +413,9 @@ public interface Sprayed extends Client, Custom {
         targetPowers.sort(Comparator.comparingInt(ActionWhenSprayedPower::getPriority).reversed());
 
         for (final ActionWhenSprayedPower power : targetPowers) {
-            if (!power.canBeSprayed(source.actor(), source.stack())) continue;
+            if (!power.canSpray(source.actor(), source.stack())) continue;
 
-            actions.add(() -> power.onSprayed(source.actor(), source.stack()));
+            actions.add(() -> power.onSpray(source.actor(), source.stack()));
             charges = Math.max(charges, power.getCharges());
         }
 
