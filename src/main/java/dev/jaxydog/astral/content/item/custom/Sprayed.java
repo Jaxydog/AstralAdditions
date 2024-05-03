@@ -344,7 +344,7 @@ public interface Sprayed extends Client, Custom {
         // Return true if the entity has any valid `astral:action_on_sprayed` powers.
         if (PowerHolderComponent.getPowers(source.actor(), ActionOnSprayPower.class)
             .stream()
-            .anyMatch(p -> p.canSprayEntity(source.stack(), target.target()))) {
+            .anyMatch(p -> p.canSpray(target.target(), source.stack()))) {
             return true;
         }
 
@@ -368,7 +368,7 @@ public interface Sprayed extends Client, Custom {
         // Return true if the entity has any valid `astral:action_on_sprayed` powers.
         if (PowerHolderComponent.getPowers(source.actor(), ActionOnSprayPower.class)
             .stream()
-            .anyMatch(p -> p.canSprayBlock(source.stack(), target.world(), target.pos()))) {
+            .anyMatch(p -> p.canSpray(target.world(), target.pos(), source.stack()))) {
             return true;
         }
 
@@ -427,9 +427,9 @@ public interface Sprayed extends Client, Custom {
         actorPowers.sort(Comparator.comparingInt(ActionOnSprayPower::getPriority).reversed());
 
         for (final ActionOnSprayPower power : actorPowers) {
-            if (!power.canSprayEntity(source.stack(), target.target())) continue;
+            if (!power.canSpray(target.target(), source.stack())) continue;
 
-            actions.add(() -> power.onSprayEntity(source.stack(), target.target()));
+            actions.add(() -> power.onSpray(target.target(), source.stack()));
             charges = Math.max(charges, power.getCharges());
         }
 
@@ -484,9 +484,9 @@ public interface Sprayed extends Client, Custom {
         powers.sort(Comparator.comparingInt(ActionOnSprayPower::getPriority).reversed());
 
         for (final ActionOnSprayPower power : powers) {
-            if (!power.canSprayBlock(source.stack(), target.world(), target.pos())) continue;
+            if (!power.canSpray(target.world(), target.pos(), source.stack())) continue;
 
-            actions.add(() -> power.onSprayBlock(source.stack(), target.world(), target.pos(), target.side()));
+            actions.add(() -> power.onSpray(target.world(), target.pos(), target.side(), source.stack()));
             charges = Math.max(charges, power.getCharges());
         }
 

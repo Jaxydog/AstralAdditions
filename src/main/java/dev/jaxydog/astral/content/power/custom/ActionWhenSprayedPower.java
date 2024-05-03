@@ -184,7 +184,7 @@ public class ActionWhenSprayedPower extends AstralPower {
     }
 
     /**
-     * Attempts to spray the entity that holds this power, returning whether the attempt was successful.
+     * Attempts to spray the entity that holds this power.
      *
      * @param actor The actor entity.
      * @param stack The item stack.

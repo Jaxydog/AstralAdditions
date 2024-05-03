@@ -35,17 +35,82 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+/**
+ * Runs an action when a block or entity is sprayed.
+ * <p>
+ * This is the inverse of {@link ActionWhenSprayedPower}.
+ *
+ * @author Jaxydog
+ * @since 1.6.0
+ */
 public class ActionOnSprayPower extends AstralPower {
 
+    /**
+     * The power's execution priority; higher means this power is run first.
+     *
+     * @since 1.6.0
+     */
     private final int priority;
+    /**
+     * The number of charges consumed when executing the action.
+     *
+     * @since 1.6.0
+     */
     private final int charges;
+
+    /**
+     * An action run on the held item when spraying.
+     *
+     * @since 1.6.0
+     */
     private final @Nullable Consumer<Pair<World, ItemStack>> itemAction;
+    /**
+     * A predicate that only allows the action to be run if it resolves to {@code true}.
+     *
+     * @since 1.6.0
+     */
     private final @Nullable Predicate<ItemStack> itemCondition;
+    /**
+     * An action run on both entities when spraying.
+     *
+     * @since 1.6.0
+     */
     private final @Nullable Consumer<Pair<Entity, Entity>> bientityAction;
+    /**
+     * A predicate that only allows the action to be run if it resolves to {@code true}.
+     *
+     * @since 1.6.0
+     */
     private final @Nullable Predicate<Pair<Entity, Entity>> bientityCondition;
+    /**
+     * An action run on the targeted block when spraying.
+     *
+     * @since 1.6.0
+     */
     private final @Nullable Consumer<Triple<World, BlockPos, Direction>> blockAction;
+    /**
+     * A predicate that only allows the action to be run if it resolves to {@code true}.
+     *
+     * @since 1.6.0
+     */
     private final @Nullable Predicate<CachedBlockPosition> blockCondition;
 
+    /**
+     * Creates a new action on sprayed power.
+     *
+     * @param type The power type.
+     * @param entity The holding entity.
+     * @param priority The execution priority.
+     * @param charges The charges consumed when the action is run.
+     * @param bientityAction An action run on both entities when spraying.
+     * @param bientityCondition A predicate that only allows the action to be run if it resolves to {@code true}.
+     * @param itemAction An action run on the held item when spraying.
+     * @param itemCondition A predicate that only allows the action to be run if it resolves to {@code true}.
+     * @param blockAction An action run on the targeted block when spraying.
+     * @param blockCondition A predicate that only allows the action to be run if it resolves to {@code true}.
+     *
+     * @since 1.6.0
+     */
     public ActionOnSprayPower(
         PowerType<?> type,
         LivingEntity entity,
@@ -70,6 +135,13 @@ public class ActionOnSprayPower extends AstralPower {
         this.blockCondition = blockCondition;
     }
 
+    /**
+     * Returns this power's default factory.
+     *
+     * @return This power's default factory.
+     *
+     * @since 1.6.0
+     */
     public static AstralPowerFactory<ActionOnSprayPower> getFactory() {
         return new AstralPowerFactory<ActionOnSprayPower>(
             "action_on_spray",
@@ -96,55 +168,104 @@ public class ActionOnSprayPower extends AstralPower {
         ).allowCondition();
     }
 
+    /**
+     * Returns the power's execution priority, which is used to determine when this power is triggered compared to other
+     * held powers.
+     *
+     * @return The execution priority.
+     *
+     * @since 1.6.0
+     */
     public int getPriority() {
         return this.priority;
     }
 
+    /**
+     * Returns the total number of charges to consume when a spray is successful.
+     *
+     * @return The expended charges.
+     *
+     * @since 1.6.0
+     */
     public int getCharges() {
         return this.charges;
     }
 
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public boolean canUseItem(ItemStack stack) {
-        return this.itemCondition == null || this.itemCondition.test(stack);
+    /**
+     * Returns whether the given entity may be sprayed using the given stack.
+     *
+     * @param target The target entity.
+     * @param stack The item stack.
+     *
+     * @return Whether the entity may be sprayed.
+     *
+     * @since 1.6.0
+     */
+    public boolean canSpray(Entity target, ItemStack stack) {
+        // Then ensure that there is an action to run.
+        return this.bientityAction != null
+            // Test the item condition.
+            && (this.itemCondition == null || this.itemCondition.test(stack))
+            // Then test the bientity condition.
+            && (this.bientityCondition == null || this.bientityCondition.test(new Pair<>(this.entity, target)));
     }
 
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public boolean canSprayEntity(ItemStack stack, Entity target) {
-        if (!this.canUseItem(stack) || this.bientityAction == null) return false;
-
-        return this.bientityCondition == null || this.bientityCondition.test(new Pair<>(this.entity, target));
+    /**
+     * Returns whether the given entity may be sprayed using the given stack.
+     *
+     * @param world The current world.
+     * @param pos The block's position.
+     * @param stack The item stack.
+     *
+     * @return Whether the block may be sprayed.
+     *
+     * @since 1.6.0
+     */
+    public boolean canSpray(World world, BlockPos pos, ItemStack stack) {
+        // Then ensure that there is an action to run.
+        return this.blockAction != null
+            // Test the item condition.
+            && (this.itemCondition == null || this.itemCondition.test(stack))
+            // Then test the bientity condition.
+            && (this.blockCondition == null || this.blockCondition.test(new CachedBlockPosition(world, pos, true)));
     }
 
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public boolean canSprayBlock(ItemStack stack, World world, BlockPos pos) {
-        if (!this.canUseItem(stack) || this.blockAction == null) return false;
-
-        return this.blockCondition == null || this.blockCondition.test(new CachedBlockPosition(world, pos, true));
-    }
-
-    public boolean onSprayEntity(ItemStack stack, Entity target) {
-        if (this.bientityAction == null) return false;
+    /**
+     * Attempts to spray the target entity.
+     *
+     * @param target The target entity.
+     * @param stack The item stack.
+     *
+     * @since 1.6.0
+     */
+    public void onSpray(Entity target, ItemStack stack) {
+        if (this.bientityAction == null) return;
 
         this.bientityAction.accept(new Pair<>(this.entity, target));
 
         if (this.itemAction != null) {
             this.itemAction.accept(new Pair<>(this.entity.getWorld(), stack));
         }
-
-        return true;
     }
 
-    public boolean onSprayBlock(ItemStack stack, World world, BlockPos pos, Direction direction) {
-        if (this.blockAction == null) return false;
+    /**
+     * Attempts to spray the target block.
+     *
+     * @param world The current world.
+     * @param pos The block's position.
+     * @param direction The side of the block that was sprayed.
+     * @param stack The item stack.
+     *
+     * @since 1.6.0
+     */
+    public void onSpray(World world, BlockPos pos, Direction direction, ItemStack stack) {
+        if (this.blockAction == null) return;
 
         this.blockAction.accept(new ImmutableTriple<>(world, pos, direction));
 
         if (this.itemAction != null) {
             this.itemAction.accept(new Pair<>(world, stack));
         }
-
-        return true;
     }
 
 }
