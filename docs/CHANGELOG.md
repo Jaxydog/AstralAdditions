@@ -51,6 +51,9 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Removed deprecated powers.
 - Updated data structure.
     - Renamed some fields and methods within the `MoonPhase` data type.
+    - Moved custom classes into the `custom` package.
+    - Added support for automatically registered data loaders.
+    - Refactored currency implementation to better match other implementations within the mod.
 - Updated effect content structure.
 - Updated sound content structure.
 - Updated trinkets content structure.

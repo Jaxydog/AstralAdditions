@@ -14,6 +14,7 @@
 
 package dev.jaxydog.astral.content.data;
 
+import dev.jaxydog.astral.content.data.custom.MoonPhase;
 import dev.jaxydog.astral.register.ContentRegistrar;
 import dev.jaxydog.astral.register.IgnoreRegistration;
 import io.github.apace100.calio.SerializationHelper;

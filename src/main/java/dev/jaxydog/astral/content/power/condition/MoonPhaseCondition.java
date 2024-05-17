@@ -15,7 +15,7 @@
 package dev.jaxydog.astral.content.power.condition;
 
 import dev.jaxydog.astral.content.data.AstralData;
-import dev.jaxydog.astral.content.data.MoonPhase;
+import dev.jaxydog.astral.content.data.custom.MoonPhase;
 import dev.jaxydog.astral.content.power.AstralCondition;
 import dev.jaxydog.astral.content.power.AstralConditionFactory;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
