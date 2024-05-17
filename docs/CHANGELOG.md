@@ -65,6 +65,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Spray bottle block interactions now retain block state where able.
 - Challenge scaling distance calculations now ignore height differences.
 - Cobbled sandstone is now mineable with a pickaxe.
+- Add some custom models for lore.
 
 # Release 1.8.0
 
