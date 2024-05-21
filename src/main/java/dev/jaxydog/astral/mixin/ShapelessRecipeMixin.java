@@ -24,9 +24,24 @@ import net.minecraft.recipe.ShapelessRecipe;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
+/**
+ * Prevents un-crafted currency items from being automatically crafted.
+ *
+ * @author Jaxydog
+ * @since 1.2.0
+ */
 @Mixin(ShapelessRecipe.class)
 public abstract class ShapelessRecipeMixin {
 
+    /**
+     * Prevents currency items from being automatically crafted if they are received through a recipe.
+     *
+     * @param stack The resulting item stack.
+     *
+     * @return The resulting item stack with the {@value CurrencyHelper#EXCHANGE_KEY} NBT key.
+     *
+     * @since 1.2.0
+     */
     @ModifyReturnValue(
         method = "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;",
         at = @At("RETURN")

@@ -26,13 +26,31 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Attempts to automatically combine currency items within the player's inventory.
+ *
+ * @author Jaxydog
+ * @since 1.2.0
+ */
 @Mixin(PlayerInventory.class)
 public abstract class PlayerInventoryMixin implements Inventory, Nameable {
 
+    /**
+     * The player instance.
+     *
+     * @since 1.2.0
+     */
     @Shadow
     @Final
     public PlayerEntity player;
 
+    /**
+     * Automatically combines currency items within this inventory once per tick.
+     *
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.2.0
+     */
     @Inject(method = "updateItems", at = @At("TAIL"))
     private void updateItemsInject(CallbackInfo callbackInfo) {
         CurrencyHelper.tryExchange(this.player);

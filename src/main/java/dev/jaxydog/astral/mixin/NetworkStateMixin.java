@@ -34,9 +34,26 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * Registers custom packet types to allow for their usage in networking.
+ *
+ * @author Jaxydog
+ * @since 1.7.0
+ */
 @Mixin(NetworkState.class)
 public abstract class NetworkStateMixin implements PacketBundleHandler.BundlerGetter {
 
+    /**
+     * Registers a custom packet.
+     *
+     * @param handler The packet handler instance.
+     * @param type The packet type.
+     * @param factory The packet creation factory.
+     * @param <T> The type of the packet's listener.
+     * @param <P> The type of the packet.
+     *
+     * @since 1.7.0
+     */
     @SuppressWarnings("unchecked")
     @Unique
     private <T extends PacketListener, P extends Packet<T>> void register(
@@ -45,6 +62,17 @@ public abstract class NetworkStateMixin implements PacketBundleHandler.BundlerGe
         ((PacketHandler<T>) handler).register(type, factory);
     }
 
+    /**
+     * Registers custom packets during initialization.
+     *
+     * @param name The name of this variant.
+     * @param ordinal The ordinal integer for this variant.
+     * @param id The numeric identifier for this variant.
+     * @param initializer The packet handler initializer instance.
+     * @param ci The injection callback information.
+     *
+     * @since 1.7.0
+     */
     @Inject(
         method = "<init>", at = @At(
         value = "FIELD",
@@ -54,6 +82,7 @@ public abstract class NetworkStateMixin implements PacketBundleHandler.BundlerGe
     private void addPlayPackets(
         String name, int ordinal, int id, PacketHandlerInitializer initializer, CallbackInfo ci
     ) {
+        // Ensure we initialize within the correct enum variant.
         if (id != 0) return;
 
         final PacketHandlerInitializerAccess access = (PacketHandlerInitializerAccess) initializer;
@@ -63,9 +92,22 @@ public abstract class NetworkStateMixin implements PacketBundleHandler.BundlerGe
         this.register(handler, PlayUnboundedSoundFromEntityS2CPacket.class, PlayUnboundedSoundFromEntityS2CPacket::new);
     }
 
+    /**
+     * Allows access to a map of packet handlers.
+     *
+     * @author Jaxydog
+     * @since 1.7.0
+     */
     @Mixin(PacketHandlerInitializer.class)
     public interface PacketHandlerInitializerAccess {
 
+        /**
+         * Returns a map of network sides and packet handlers.
+         *
+         * @return A map of network sides and packet handlers.
+         *
+         * @since 1.7.0
+         */
         @Accessor("packetHandlers")
         Map<NetworkSide, PacketHandler<?>> getPacketHandlers();
 
