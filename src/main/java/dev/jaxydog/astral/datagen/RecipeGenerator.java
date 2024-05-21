@@ -14,7 +14,7 @@
 
 package dev.jaxydog.astral.datagen;
 
-import dev.jaxydog.astral.utility.IdentifierMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
@@ -23,6 +23,7 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 /**
@@ -34,7 +35,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
     private static @Nullable RecipeGenerator instance;
 
-    private final IdentifierMap<CraftingRecipeJsonBuilder> builders = new IdentifierMap<>();
+    private final Map<Identifier, CraftingRecipeJsonBuilder> builders = new Object2ObjectOpenHashMap<>();
 
     public RecipeGenerator(FabricDataOutput output) {
         super(output);

@@ -14,7 +14,7 @@
 
 package dev.jaxydog.astral.datagen;
 
-import dev.jaxydog.astral.utility.IdentifierMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancement.Advancement;
@@ -23,6 +23,7 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 /**
@@ -34,7 +35,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     private static @Nullable AdvancementGenerator instance;
 
-    private final IdentifierMap<Builder> advancements = new IdentifierMap<>();
+    private final Map<Identifier, Builder> advancements = new Object2ObjectOpenHashMap<>();
 
     public AdvancementGenerator(FabricDataOutput output) {
         super(output);

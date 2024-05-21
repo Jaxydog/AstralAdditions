@@ -17,7 +17,6 @@ package dev.jaxydog.astral.datagen;
 import com.google.common.hash.Hashing;
 import com.google.common.hash.HashingOutputStream;
 import dev.jaxydog.astral.Astral;
-import dev.jaxydog.astral.utility.IdentifierMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator.Pack;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -109,7 +108,7 @@ public class TextureGenerator implements DataProvider {
 
         private static final Map<String, BufferedImage> IMAGE_CACHE = new Object2ObjectOpenHashMap<>();
 
-        private final IdentifierMap<BufferedImage> images = new IdentifierMap<>();
+        private final Map<Identifier, BufferedImage> images = new Object2ObjectOpenHashMap<>();
 
         private final RegistryKey<? extends Registry<T>> registryKey;
         private final CompletableFuture<WrapperLookup> lookupFuture;

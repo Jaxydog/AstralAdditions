@@ -14,7 +14,6 @@
 
 package dev.jaxydog.astral.datagen;
 
-import dev.jaxydog.astral.utility.IdentifierMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator.Pack;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -86,7 +85,7 @@ public class LootTableGenerator implements DataProvider {
      */
     private static class Instance extends SimpleFabricLootTableProvider {
 
-        private final IdentifierMap<Builder> builders = new IdentifierMap<>();
+        private final Map<Identifier, Builder> builders = new Object2ObjectOpenHashMap<>();
 
         public Instance(FabricDataOutput output, LootContextType lootContextType) {
             super(output, lootContextType);
