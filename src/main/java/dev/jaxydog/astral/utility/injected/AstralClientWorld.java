@@ -26,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
  * Extends a {@link net.minecraft.client.world.ClientWorld}.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 @Environment(EnvType.CLIENT)
 public interface AstralClientWorld {
@@ -42,6 +43,8 @@ public interface AstralClientWorld {
      * @param pitch The sound pitch.
      * @param useDistance Whether to check distance in the sound engine.
      * @param seed The seed for the sound's randomness.
+     *
+     * @since 1.7.0
      */
     void astral$playUnboundedSound(
         double x,
@@ -65,6 +68,8 @@ public interface AstralClientWorld {
      * @param volume The sound volume.
      * @param pitch The sound pitch.
      * @param seed The seed for the sound's randomness.
+     *
+     * @since 1.7.0
      */
     void astral$playUnboundedSoundFromEntity(
         @Nullable PlayerEntity except,

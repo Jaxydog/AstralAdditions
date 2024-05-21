@@ -23,6 +23,7 @@ import java.util.Map;
  * Extends {@link net.minecraft.data.client.Model}.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public interface AstralModel {
 
@@ -31,6 +32,8 @@ public interface AstralModel {
      *
      * @param key The JSON key.
      * @param element The JSON value.
+     *
+     * @since 1.7.0
      */
     void astral$addCustomJson(String key, JsonElement element);
 
@@ -38,6 +41,8 @@ public interface AstralModel {
      * Adds a custom JSON entry to this model.
      *
      * @param map The JSON elements.
+     *
+     * @since 1.7.0
      */
     void astral$addCustomJson(Map<String, JsonElement> map);
 
@@ -45,6 +50,8 @@ public interface AstralModel {
      * Copies the model.
      *
      * @return A copy of this model.
+     *
+     * @since 1.7.0
      */
     Model astral$copy();
 

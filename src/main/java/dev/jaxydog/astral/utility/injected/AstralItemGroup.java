@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
  * Extends item groups.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public interface AstralItemGroup {
 
@@ -29,6 +30,8 @@ public interface AstralItemGroup {
      * @param delta The time passed since the last update.
      *
      * @return An item stack.
+     *
+     * @since 1.7.0
      */
     default ItemStack astral$getIcon(float delta) {
         return ItemStack.EMPTY;

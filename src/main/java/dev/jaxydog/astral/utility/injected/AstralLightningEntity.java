@@ -14,10 +14,30 @@
 
 package dev.jaxydog.astral.utility.injected;
 
+/**
+ * Extends the {@link net.minecraft.entity.LightningEntity} class.
+ *
+ * @author Jaxydog
+ * @since 1.4.0
+ */
 public interface AstralLightningEntity {
 
+    /**
+     * Returns whether this entity should preserve ground items.
+     *
+     * @return Whether this entity should preserve ground items.
+     *
+     * @since 1.4.0
+     */
     boolean astral$preservesItems();
 
+    /**
+     * Sets whether this entity should preserve ground items.
+     *
+     * @param preserve Whether to preserve ground items.
+     *
+     * @since 1.4.0
+     */
     void astral$setPreservesItems(boolean preserve);
 
 }
