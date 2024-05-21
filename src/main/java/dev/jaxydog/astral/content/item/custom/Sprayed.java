@@ -437,7 +437,7 @@ public interface Sprayed extends Client, Custom {
             final int duration = this.getDuration(source.stack());
 
             // Only spray on the server-side. This avoids weird behaviors when called on the client.
-            if (duration > 0 && !target.target().getWorld().isClient()) {
+            if (duration > 0 && sprayable.astral$canSpray() && !target.target().getWorld().isClient()) {
                 actions.add(() -> sprayable.astral$setSprayed(source.actor(), duration));
 
                 charges = Math.max(charges, sprayable.astral$getSprayCharges());
