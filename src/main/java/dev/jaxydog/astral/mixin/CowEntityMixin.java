@@ -50,7 +50,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(CowEntity.class)
 public abstract class CowEntityMixin extends PassiveEntityMixin {
 
-    // spiders 🕷️ 🕸️
+    // spiders 🕷 🕸
 
     /**
      * Creates a new instance of this mixin.
