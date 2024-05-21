@@ -21,6 +21,7 @@ import net.minecraft.entity.Shearable;
 import net.minecraft.entity.VariantHolder;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.passive.MooshroomEntity;
+import net.minecraft.entity.passive.MooshroomEntity.Type;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -64,6 +65,9 @@ public abstract class MooshroomEntityMixin extends PassiveEntity implements Shea
     @Shadow
     private int stewEffectDuration;
 
+    @Shadow
+    public abstract Type getVariant();
+
     /**
      * Creates a new instance of this mixin.
      *
@@ -90,6 +94,7 @@ public abstract class MooshroomEntityMixin extends PassiveEntity implements Shea
         final ItemStack stack = player.getStackInHand(hand);
 
         if (!stack.isOf(Items.GLASS_BOTTLE) || this.isBaby()) return;
+        if (!this.getVariant().equals(Type.BROWN)) return;
 
         final ItemStack result = AstralItems.CHOCOLATE_MILK.getDefaultStack();
         final SoundEvent soundEvent;

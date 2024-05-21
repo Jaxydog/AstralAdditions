@@ -66,6 +66,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Challenge scaling distance calculations now ignore height differences.
 - Cobbled sandstone is now mineable with a pickaxe.
 - Add some custom models for lore.
+- Fixed a bug that allowed players to receive chocolate milk from red mooshrooms.
 
 # Release 1.8.0
 
