@@ -30,16 +30,43 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Handles cow type NBT persistence.
+ *
+ * @author Icepenguin
+ * @since 1.7.0
+ */
 @Mixin(AnimalEntity.class)
 public abstract class AnimalEntityMixin extends PassiveEntity {
 
+    /**
+     * The NBT that determines a cow's type.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private static final String COW_TYPE_KEY = "CowType";
 
+    /**
+     * Creates a new instance of this mixin.
+     *
+     * @param entityType The entity type.
+     * @param world The entity world.
+     *
+     * @since 1.7.0
+     */
     protected AnimalEntityMixin(EntityType<? extends PassiveEntity> entityType, World world) {
         super(entityType, world);
     }
 
+    /**
+     * Reads the {@value #COW_TYPE_KEY} NBT key.
+     *
+     * @param nbt The NBT compound.
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.7.0
+     */
     @SuppressWarnings("UnreachableCode")
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
     private void readCowTypeInject(NbtCompound nbt, CallbackInfo callbackInfo) {
@@ -59,6 +86,14 @@ public abstract class AnimalEntityMixin extends PassiveEntity {
         this.getDataTracker().set(CowType.COW_TYPE, type);
     }
 
+    /**
+     * Writes the {@value #COW_TYPE_KEY} NBT key.
+     *
+     * @param nbt The NBT compound.
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.7.0
+     */
     @SuppressWarnings("UnreachableCode")
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
     private void writeCowTypeInject(NbtCompound nbt, CallbackInfo callbackInfo) {

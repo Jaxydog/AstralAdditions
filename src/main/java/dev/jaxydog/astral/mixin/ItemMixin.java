@@ -23,14 +23,33 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
-/** Provide an NBT tag to disable enchantment glint */
+/**
+ * Provides an NBT tag to force-toggle enchantment glint.
+ *
+ * @author Jaxydog
+ * @since 1.0.0
+ */
 @Mixin(Item.class)
 public abstract class ItemMixin {
 
-    /** The NBT key that corresponds to the modded-in enchantment glint disable tag */
+    /**
+     * The NBT key that determines whether an item should have enchantment glint.
+     *
+     * @since 1.0.0
+     */
     @Unique
     private static final String SET_GLINT_KEY = "SetGlint";
 
+    /**
+     * Applies the glint override.
+     *
+     * @param result The previous function result.
+     * @param stack The item stack.
+     *
+     * @return Whether glint should be enabled.
+     *
+     * @since 1.0.0
+     */
     @ModifyReturnValue(method = "hasGlint", at = @At("RETURN"))
     private boolean forceGlint(boolean result, @Local(argsOnly = true) ItemStack stack) {
         final NbtCompound compound = stack.getNbt();

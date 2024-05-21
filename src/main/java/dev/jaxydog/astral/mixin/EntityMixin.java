@@ -31,12 +31,34 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Prevents ground items from being destroyed by preserving lightning, and handles sprayed entity ticking.
+ *
+ * @author Jaxydog
+ * @since 1.4.0
+ */
 @Mixin(Entity.class)
 public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput, ComponentAccess {
 
+    /**
+     * Returns the current world.
+     *
+     * @return The current world.
+     *
+     * @since 1.4.0
+     */
     @Shadow
     public abstract World getWorld();
 
+    /**
+     * Prevents ground items from being destroyed by preserving lightning.
+     *
+     * @param world The current world.
+     * @param bolt The lightning bolt.
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.4.0
+     */
     @SuppressWarnings({ "RedundantCast", "UnreachableCode" })
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     private void onStruckByLightningInject(ServerWorld world, LightningEntity bolt, CallbackInfo callbackInfo) {
@@ -45,6 +67,13 @@ public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput
         }
     }
 
+    /**
+     * Updates an entity's spray status.
+     *
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.6.0
+     */
     @Inject(method = "tick", at = @At("HEAD"))
     private void tickInject(CallbackInfo callbackInfo) {
         if (this.getWorld().isClient()) return;

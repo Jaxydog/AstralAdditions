@@ -26,13 +26,36 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Prevents this from taking damage from lightning entities that preserve ground items.
+ *
+ * @author Jaxydog
+ * @since 1.4.0
+ */
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends Entity {
 
+    /**
+     * Creates a new instance of this mixin.
+     *
+     * @param type The entity type.
+     * @param world The current world.
+     *
+     * @since 1.4.0
+     */
     public ItemEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 
+    /**
+     * Prevent any damage from being done by preserving lightning.
+     *
+     * @param source The damage source.
+     * @param amount The amount of damage.
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.4.0
+     */
     @SuppressWarnings("RedundantCast")
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private void damageInject(DamageSource source, float amount, CallbackInfoReturnable<Boolean> callbackInfo) {

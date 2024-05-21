@@ -36,62 +36,136 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@SuppressWarnings("unused")
+/**
+ * Implements pink cows and strawberry milking.
+ *
+ * @author Icepenguin
+ * @since 1.7.0
+ */
 @Mixin(CowEntity.class)
 public abstract class CowEntityMixin extends PassiveEntityMixin {
 
+    /**
+     * Creates a new instance of this mixin.
+     *
+     * @param entityType The entity type.
+     * @param world The current world.
+     *
+     * @since 1.7.0
+     */
     // spiders 🕷️ 🕸️
     protected CowEntityMixin(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
     }
 
+    /**
+     * Returns whether a cow is of the given type.
+     *
+     * @param entity The entity.
+     * @param type The cow type.
+     *
+     * @return Whether a cow is of the given type.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private boolean isCowType(LivingEntity entity, CowType type) {
         return entity.getDataTracker().get(CowType.COW_TYPE).equals(type.asString());
     }
 
-    @SuppressWarnings("SameParameterValue") // in case.
+    /**
+     * Returns whether this cow is of the given type.
+     *
+     * @param type The cow type.
+     *
+     * @return Whether this cow is of the given type.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private boolean isCowType(CowType type) {
         return this.isCowType(this, type);
     }
 
+    /**
+     * Returns the entity's cow type.
+     *
+     * @param entity The entity.
+     *
+     * @return The entity's cow type.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private CowType getCowType(LivingEntity entity) {
         return CowType.fromName(entity.getDataTracker().get(CowType.COW_TYPE));
     }
 
+    /**
+     * Returns this entity's cow type.
+     *
+     * @return This entity's cow type.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private CowType getCowType() {
         return this.getCowType(this);
     }
 
+    /**
+     * Sets an entity's cow type.
+     *
+     * @param entity The entity.
+     * @param type The cow type.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private void setCowType(LivingEntity entity, CowType type) {
         entity.getDataTracker().set(CowType.COW_TYPE, type.asString());
     }
 
+    /**
+     * Sets this entity's cow type.
+     *
+     * @param type The cow type.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private void setCowType(CowType type) {
         this.setCowType(this, type);
     }
 
-    @Shadow
-    public abstract @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity);
-
+    /**
+     * Randomly determines whether this entity should be a pink cow.
+     *
+     * @param cow The cow entity.
+     *
+     * @since 1.7.0
+     */
     @Override
     protected void pinkCowRng(CowEntity cow) {
         if (this.getRandom().nextInt(124) == 0) {
-            this.dataTracker.set(CowType.COW_TYPE, CowType.PINK.asString());
+            this.setCowType(CowType.PINK);
         }
     }
 
+    /**
+     * Allows a pink cow to be milked for pink milk.
+     *
+     * @param player The player entity.
+     * @param hand The hand interacting with this entity.
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.7.0
+     */
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
     private void pinkMilk(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> callbackInfo) {
         final ItemStack stack = player.getStackInHand(hand);
@@ -107,9 +181,19 @@ public abstract class CowEntityMixin extends PassiveEntityMixin {
         callbackInfo.setReturnValue((ActionResult.success(player.getWorld().isClient())));
     }
 
+    /**
+     * Creates a possibly pink child.
+     *
+     * @param baby The baby entity.
+     * @param world The world.
+     * @param entity The entity.
+     *
+     * @return The baby entity.
+     *
+     * @since 1.7.0
+     */
     @ModifyReturnValue(
-        method = "createChild(Lnet/minecraft/server/world/ServerWorld;"
-            + "Lnet/minecraft/entity/passive/PassiveEntity;)Lnet/minecraft/entity/passive/CowEntity;",
+        method = "createChild(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/PassiveEntity;)Lnet/minecraft/entity/passive/CowEntity;",
         at = @At("RETURN")
     )
     private @Nullable CowEntity createVariedChild(

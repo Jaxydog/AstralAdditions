@@ -20,9 +20,22 @@ import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
+/**
+ * Implements the {@link AstralItemGroup} interface.
+ *
+ * @author Jaxydog
+ * @since 1.7.0
+ */
 @Mixin(ItemGroup.class)
 public abstract class ItemGroupMixin implements AstralItemGroup {
 
+    /**
+     * Returns the item group's icon.
+     *
+     * @return The item group's icon.
+     *
+     * @since 1.7.0
+     */
     @Shadow
     public abstract ItemStack getIcon();
 

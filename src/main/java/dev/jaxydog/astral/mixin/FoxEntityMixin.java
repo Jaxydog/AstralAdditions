@@ -35,23 +35,59 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Implements the {@link SprayableEntity} interface and adds on-spray behavior.
+ *
+ * @author Jaxydog
+ * @since 1.6.0
+ */
 @Mixin(FoxEntity.class)
 public abstract class FoxEntityMixin extends AnimalEntity implements SprayableEntity, VariantHolder<FoxEntity.Type> {
 
+    /**
+     * The fox's owner.
+     *
+     * @since 1.6.0
+     */
     @Shadow
     @Final
     private static TrackedData<Optional<UUID>> OWNER;
 
+    /**
+     * The entity that sprayed this fox.
+     *
+     * @since 1.6.0
+     */
     @Unique
     private @Nullable LivingEntity spraySource;
 
+    /**
+     * The remaining time that this entity is 'sprayed' for.
+     *
+     * @since 1.6.0
+     */
     @Unique
     private int sprayDuration = 0;
 
+    /**
+     * Creates a new instance of this mixin.
+     *
+     * @param entityType The entity type.
+     * @param world The current world.
+     *
+     * @since 1.6.0
+     */
     protected FoxEntityMixin(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 
+    /**
+     * Returns whether this fox is sitting.
+     *
+     * @return Whether this fox is sitting.
+     *
+     * @since 1.6.0
+     */
     @Shadow
     public abstract boolean isSitting();
 
@@ -84,6 +120,13 @@ public abstract class FoxEntityMixin extends AnimalEntity implements SprayableEn
         return !this.astral$isSprayed() && !(this.dataTracker.get(OWNER).isPresent() && this.isSitting());
     }
 
+    /**
+     * Initializes the escape-spray goal.
+     *
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.6.0
+     */
     @Inject(method = "initGoals", at = @At("HEAD"))
     private void initGoalsInject(CallbackInfo callbackInfo) {
         this.goalSelector.add(1, new EscapeSprayGoal<>(this, 1.5));

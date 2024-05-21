@@ -37,23 +37,53 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.EnumMap;
 import java.util.UUID;
 
-/** Implements knockback resistance for custom armor items */
+/**
+ * Implements knockback resistance for modded armor items.
+ *
+ * @author Jaxydog
+ * @since 1.0.0
+ */
 @Mixin(ArmorItem.class)
 public abstract class ArmorItemMixin {
 
+    /**
+     * The item class' attribute modifiers.
+     *
+     * @since 1.0.0
+     */
     @Shadow
     @Final
     private static EnumMap<Type, UUID> MODIFIERS;
 
+    /**
+     * The item's knockback resistance.
+     *
+     * @since 1.0.0
+     */
     @Shadow
     @Final
     protected float knockbackResistance;
 
+    /**
+     * The entity's attribute modifiers.
+     *
+     * @since 1.0.0
+     */
     @Shadow
     @Final
     @Mutable
     private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
+    /**
+     * Initializes the armor resistance attribute modifier.
+     *
+     * @param material The armor material.
+     * @param type The item's type.
+     * @param settings The item's settings.
+     * @param info The injection callback information.
+     *
+     * @since 1.0.0
+     */
     @Inject(method = "<init>", at = @At("RETURN"))
     private void constructor(ArmorMaterial material, Type type, Settings settings, CallbackInfo info) {
         if (!(material instanceof Material)) return;

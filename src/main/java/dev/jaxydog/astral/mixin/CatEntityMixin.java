@@ -30,19 +30,46 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Implements the {@link SprayableEntity} interface.
+ *
+ * @author Jaxydog
+ * @since 1.6.0
+ */
 @Mixin(CatEntity.class)
 public abstract class CatEntityMixin extends TameableEntity implements SprayableEntity, VariantHolder<CatVariant> {
 
+    /**
+     * The entity that sprayed this cat.
+     *
+     * @since 1.6.0
+     */
     @Unique
     private @Nullable LivingEntity spraySource;
 
+    /**
+     * The remaining spray duration.
+     *
+     * @since 1.6.0
+     */
     @Unique
     private int sprayDuration = 0;
 
+    /**
+     * Creates a new instance of this mixin.
+     *
+     * @param entityType The entity type.
+     * @param world The current world.
+     */
     protected CatEntityMixin(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
 
+    /**
+     * Causes this cat to hiss.
+     *
+     * @since 1.6.0
+     */
     @Shadow
     public abstract void hiss();
 
@@ -75,6 +102,13 @@ public abstract class CatEntityMixin extends TameableEntity implements Sprayable
         return !this.astral$isSprayed() && !(this.isTamed() && this.isSitting());
     }
 
+    /**
+     * Initializes the escape-spray goal.
+     *
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.6.0
+     */
     @Inject(method = "initGoals", at = @At("HEAD"))
     private void initGoalsInject(CallbackInfo callbackInfo) {
         this.goalSelector.add(1, new EscapeSprayGoal<>(this, 1.5));

@@ -35,25 +35,61 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Implements the {@link AstralModel} interface.
+ *
+ * @author Jaxydog
+ * @since 1.7.0
+ */
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 @Mixin(Model.class)
 public class ModelMixin implements AstralModel {
 
+    /**
+     * A map of custom JSON key-value pairs.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private final Map<String, JsonElement> customJson = new Object2ObjectOpenHashMap<>();
 
+    /**
+     * The parent model.
+     *
+     * @since 1.7.0
+     */
     @Shadow
     @Final
     private Optional<Identifier> parent;
 
+    /**
+     * The model variant.
+     *
+     * @since 1.7.0
+     */
     @Shadow
     @Final
     private Optional<String> variant;
 
+    /**
+     * The textures required by the model.
+     *
+     * @since 1.7.0
+     */
     @Shadow
     @Final
     private Set<TextureKey> requiredTextures;
 
+    /**
+     * Adds all custom JSON into the written JSON object.
+     *
+     * @param id The model's identifier.
+     * @param textures The model's textures.
+     * @param callbackInfo The injection callback information.
+     * @param jsonObject The JSON object being created.
+     *
+     * @since 1.7.0
+     */
     @Inject(method = "createJson", at = @At(value = "RETURN", shift = Shift.BEFORE))
     private void injectCustomJson(
         Identifier id,
