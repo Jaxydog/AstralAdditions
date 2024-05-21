@@ -27,16 +27,35 @@ import net.minecraft.sound.SoundEvent;
  * Only positive values are allowed, and any provided negative number will be clamped to {@code 0F}.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public class PlayUnboundedSoundFromEntityS2CPacket extends PlaySoundFromEntityS2CPacket {
 
-    @SuppressWarnings("unused")
+    /**
+     * Creates a new packet.
+     *
+     * @param sound The sound event.
+     * @param category The sound category.
+     * @param entity The entity source.
+     * @param volume The volume.
+     * @param pitch The pitch.
+     * @param seed The randomness seed.
+     *
+     * @since 1.7.0
+     */
     public PlayUnboundedSoundFromEntityS2CPacket(
         RegistryEntry<SoundEvent> sound, SoundCategory category, Entity entity, float volume, float pitch, long seed
     ) {
         super(sound, category, entity, volume, pitch, seed);
     }
 
+    /**
+     * Creates a new packet.
+     *
+     * @param buffer The packet buffer.
+     *
+     * @since 1.7.0
+     */
     public PlayUnboundedSoundFromEntityS2CPacket(PacketByteBuf buffer) {
         super(buffer);
     }

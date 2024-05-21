@@ -23,9 +23,24 @@ import net.minecraft.util.math.random.Random;
  * Simple extension class to provide type-level information to the sound engine.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public class PositionedUnboundedSoundInstance extends PositionedSoundInstance {
 
+    /**
+     * Creates a new {@link PositionedUnboundedSoundInstance}.
+     *
+     * @param sound The sound event.
+     * @param category The sound category.
+     * @param volume The volume.
+     * @param pitch The pitch.
+     * @param random The randomness instance.
+     * @param x The X position.
+     * @param y The Y position.
+     * @param z The Z position.
+     *
+     * @since 1.7.0
+     */
     public PositionedUnboundedSoundInstance(
         SoundEvent sound, SoundCategory category, float volume, float pitch, Random random, double x, double y, double z
     ) {

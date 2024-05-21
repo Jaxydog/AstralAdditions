@@ -23,9 +23,22 @@ import net.minecraft.sound.SoundEvent;
  * Simple extension class to provide type-level information to the sound engine.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public class EntityTrackingUnboundedSoundInstance extends EntityTrackingSoundInstance {
 
+    /**
+     * Creates a new {@link EntityTrackingUnboundedSoundInstance}.
+     *
+     * @param sound The sound event.
+     * @param category The sound category.
+     * @param volume The volume.
+     * @param pitch The pitch.
+     * @param entity The entity to track.
+     * @param seed The randomness seed.
+     *
+     * @since 1.7.0
+     */
     public EntityTrackingUnboundedSoundInstance(
         SoundEvent sound, SoundCategory category, float volume, float pitch, Entity entity, long seed
     ) {

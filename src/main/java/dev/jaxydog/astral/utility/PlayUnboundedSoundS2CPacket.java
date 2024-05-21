@@ -26,9 +26,24 @@ import net.minecraft.sound.SoundEvent;
  * Only positive values are allowed, and any provided negative number will be clamped to {@code 0F}.
  *
  * @author Jaxydog
+ * @since 1.7.0
  */
 public class PlayUnboundedSoundS2CPacket extends PlaySoundS2CPacket {
 
+    /**
+     * Creates a new packet.
+     *
+     * @param sound The sound event.
+     * @param category The sound category.
+     * @param x The X position.
+     * @param y The Y position.
+     * @param z The Z position.
+     * @param volume The volume.
+     * @param pitch The pitch.
+     * @param seed The randomness seed.
+     *
+     * @since 1.7.0
+     */
     public PlayUnboundedSoundS2CPacket(
         RegistryEntry<SoundEvent> sound,
         SoundCategory category,
@@ -42,6 +57,13 @@ public class PlayUnboundedSoundS2CPacket extends PlaySoundS2CPacket {
         super(sound, category, x, y, z, volume, pitch, seed);
     }
 
+    /**
+     * Creates a new packet.
+     *
+     * @param buffer The packet buffer.
+     *
+     * @since 1.7.0
+     */
     public PlayUnboundedSoundS2CPacket(PacketByteBuf buffer) {
         super(buffer);
     }
