@@ -391,12 +391,15 @@ public interface Sprayed extends Client, Custom {
         final List<Runnable> actions = new ObjectArrayList<>();
         int charges = 0;
 
-        final List<Behavior<EntityTarget>> behaviors = this.getBehaviors(EntityTarget.class);
-
         // Sort by behavior priority in descending order.
-        behaviors.sort(Comparator.comparingInt(Behavior<EntityTarget>::priority).reversed());
+        final List<Behavior<EntityTarget>> behaviors = this.getBehaviors(EntityTarget.class)
+            .stream()
+            .sorted(Comparator.comparingInt(Behavior<EntityTarget>::priority).reversed())
+            .toList();
 
-        for (final Behavior<EntityTarget> behavior : behaviors) {
+        for (final Behavior<EntityTarget> behavior : behaviors.stream()
+            .sorted(Comparator.comparingInt(Behavior<EntityTarget>::priority).reversed())
+            .toList()) {
             if (!behavior.predicate().test(source, target)) continue;
 
             actions.add(() -> behavior.action().accept(source, target));
@@ -405,12 +408,13 @@ public interface Sprayed extends Client, Custom {
             if (behavior.cancelling()) break;
         }
 
-        final List<ActionWhenSprayedPower> targetPowers = PowerHolderComponent.getPowers(target.target(),
-            ActionWhenSprayedPower.class
-        );
-
         // Sort by power priority in descending order.
-        targetPowers.sort(Comparator.comparingInt(ActionWhenSprayedPower::getPriority).reversed());
+        final List<ActionWhenSprayedPower> targetPowers = PowerHolderComponent.getPowers(target.target(),
+                ActionWhenSprayedPower.class
+            )
+            .stream()
+            .sorted(Comparator.comparingInt(ActionWhenSprayedPower::getPriority).reversed())
+            .toList();
 
         for (final ActionWhenSprayedPower power : targetPowers) {
             if (!power.canSpray(source.actor(), source.stack())) continue;
@@ -419,12 +423,13 @@ public interface Sprayed extends Client, Custom {
             charges = Math.max(charges, power.getCharges());
         }
 
-        final List<ActionOnSprayPower> actorPowers = PowerHolderComponent.getPowers(source.actor(),
-            ActionOnSprayPower.class
-        );
-
         // Sort by power priority in descending order.
-        actorPowers.sort(Comparator.comparingInt(ActionOnSprayPower::getPriority).reversed());
+        final List<ActionOnSprayPower> actorPowers = PowerHolderComponent.getPowers(source.actor(),
+                ActionOnSprayPower.class
+            )
+            .stream()
+            .sorted(Comparator.comparingInt(ActionOnSprayPower::getPriority).reversed())
+            .toList();
 
         for (final ActionOnSprayPower power : actorPowers) {
             if (!power.canSpray(target.target(), source.stack())) continue;
@@ -462,10 +467,11 @@ public interface Sprayed extends Client, Custom {
         final List<Runnable> actions = new ObjectArrayList<>();
         int charges = 0;
 
-        final List<Behavior<BlockTarget>> behaviors = this.getBehaviors(BlockTarget.class);
-
         // Sort by behavior priority in descending order.
-        behaviors.sort(Comparator.comparingInt(Behavior<BlockTarget>::priority).reversed());
+        final List<Behavior<BlockTarget>> behaviors = this.getBehaviors(BlockTarget.class)
+            .stream()
+            .sorted(Comparator.comparingInt(Behavior<BlockTarget>::priority).reversed())
+            .toList();
 
         for (final Behavior<BlockTarget> behavior : behaviors) {
             if (!behavior.predicate().test(source, target)) continue;
@@ -476,12 +482,11 @@ public interface Sprayed extends Client, Custom {
             if (behavior.cancelling()) break;
         }
 
-        final List<ActionOnSprayPower> powers = PowerHolderComponent.getPowers(source.actor(),
-            ActionOnSprayPower.class
-        );
-
         // Sort by power priority in descending order.
-        powers.sort(Comparator.comparingInt(ActionOnSprayPower::getPriority).reversed());
+        final List<ActionOnSprayPower> powers = PowerHolderComponent.getPowers(source.actor(), ActionOnSprayPower.class)
+            .stream()
+            .sorted(Comparator.comparingInt(ActionOnSprayPower::getPriority).reversed())
+            .toList();
 
         for (final ActionOnSprayPower power : powers) {
             if (!power.canSpray(target.world(), target.pos(), source.stack())) continue;
