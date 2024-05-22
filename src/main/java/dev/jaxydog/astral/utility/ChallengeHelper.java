@@ -216,4 +216,42 @@ public interface ChallengeHelper {
         return Math.sqrt(entity.getBlockPos().getSquaredDistance(adjusted));
     }
 
+    /**
+     * Returns the given entity's scaled attack damage.
+     *
+     * @param entity The source entity.
+     * @param attack The original attack damage.
+     *
+     * @return The scaled attack damage.
+     *
+     * @since 2.0.0
+     */
+    static float getScaledAttack(Entity entity, float attack) {
+        if (!shouldApplyScaling(entity)) return attack;
+
+        final double additive = getAttackAdditive(entity.getWorld());
+
+        return attack + (float) getScaledAdditive(entity, additive);
+    }
+
+    /**
+     * Returns the given entity's scaled explosion power.
+     *
+     * @param entity The source entity.
+     * @param max The maximum allowed power.
+     * @param power The original power.
+     *
+     * @return The scaled power.
+     *
+     * @since 2.0.0
+     */
+    static float getScaledExplosion(Entity entity, float max, float power) {
+        if (!shouldApplyScaling(entity)) return power;
+
+        final double additive = getAttackAdditive(entity.getWorld());
+        final double scaled = getScaledAdditive(entity, additive);
+
+        return Math.min(power + (float) (scaled / 10D), max);
+    }
+
 }

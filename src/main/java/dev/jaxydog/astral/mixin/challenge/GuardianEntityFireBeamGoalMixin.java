@@ -57,11 +57,7 @@ public abstract class GuardianEntityFireBeamGoalMixin extends Goal {
     ), index = 1
     )
     private float tickArgsInject(float damage) {
-        if (!ChallengeHelper.shouldApplyScaling(this.guardian)) return damage;
-
-        final double additive = ChallengeHelper.getAttackAdditive(this.guardian.getWorld());
-
-        return damage + (float) ChallengeHelper.getScaledAdditive(this.guardian, additive);
+        return ChallengeHelper.getScaledAttack(this.guardian, damage);
     }
 
 }

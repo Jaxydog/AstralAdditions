@@ -20,7 +20,6 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.PufferfishEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
@@ -46,24 +45,6 @@ public abstract class PufferfishEntityMixin extends FishEntity {
     }
 
     /**
-     * A basic scaling function.
-     *
-     * @param damage The original damage.
-     *
-     * @return The scaled damage.
-     *
-     * @since 1.1.1
-     */
-    @Unique
-    private float scale(float damage) {
-        if (!ChallengeHelper.shouldApplyScaling(this)) return damage;
-
-        final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
-
-        return damage + (float) ChallengeHelper.getScaledAdditive(this, additive);
-    }
-
-    /**
      * Scales the sting damage.
      *
      * @param damage The original damage.
@@ -79,7 +60,7 @@ public abstract class PufferfishEntityMixin extends FishEntity {
     )
     )
     private float scaleStringDamage(float damage) {
-        return this.scale(damage);
+        return ChallengeHelper.getScaledAttack(this, damage);
     }
 
     /**
@@ -98,7 +79,7 @@ public abstract class PufferfishEntityMixin extends FishEntity {
     )
     )
     private float scaleCollisionDamage(float damage) {
-        return this.scale(damage);
+        return ChallengeHelper.getScaledAttack(this, damage);
     }
 
 }

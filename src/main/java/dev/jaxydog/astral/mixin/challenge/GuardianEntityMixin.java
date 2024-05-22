@@ -60,11 +60,7 @@ public abstract class GuardianEntityMixin extends HostileEntity {
     ), index = 1
     )
     private float damageArgsInject(float damage) {
-        if (!ChallengeHelper.shouldApplyScaling(this)) return damage;
-
-        final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
-
-        return damage + (float) ChallengeHelper.getScaledAdditive(this, additive);
+        return ChallengeHelper.getScaledAttack(this, damage);
     }
 
 }

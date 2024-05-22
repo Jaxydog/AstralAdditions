@@ -40,7 +40,7 @@ public abstract class CreeperEntityMixin extends HostileEntity implements SkinOv
      * @since 1.1.1
      */
     @Unique
-    private static final double MAX_POWER = 50D;
+    private static final float MAX_POWER = 50F;
 
     /**
      * Creates a new instance of this mixin.
@@ -70,12 +70,7 @@ public abstract class CreeperEntityMixin extends HostileEntity implements SkinOv
     ), index = 4
     )
     private float powerVarInject(float power) {
-        if (!ChallengeHelper.shouldApplyScaling(this)) return power;
-
-        final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
-        final double scaled = ChallengeHelper.getScaledAdditive(this, additive);
-
-        return (float) Math.min(power + (scaled / 10D), MAX_POWER);
+        return ChallengeHelper.getScaledExplosion(this, MAX_POWER, power);
     }
 
 }

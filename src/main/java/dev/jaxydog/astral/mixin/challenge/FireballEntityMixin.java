@@ -81,12 +81,7 @@ public abstract class FireballEntityMixin extends AbstractFireballEntity {
     ), index = 4
     )
     private float onCollisionArgsInject(float power) {
-        if (this.getOwner() == null || !ChallengeHelper.shouldApplyScaling(this.getOwner())) return power;
-
-        final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
-        final double scaled = ChallengeHelper.getScaledAdditive(this, additive);
-
-        return Math.min(power + (float) (scaled / 10D), MAX_POWER);
+        return ChallengeHelper.getScaledExplosion(this.getOwner(), MAX_POWER, power);
     }
 
     /**
@@ -104,11 +99,7 @@ public abstract class FireballEntityMixin extends AbstractFireballEntity {
     ), index = 1
     )
     private float onEntityHitArgsInject(float damage) {
-        if (this.getOwner() == null || !ChallengeHelper.shouldApplyScaling(this.getOwner())) return damage;
-
-        final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
-
-        return damage + (float) ChallengeHelper.getScaledAdditive(this.getOwner(), additive);
+        return ChallengeHelper.getScaledAttack(this.getOwner(), damage);
     }
 
 }

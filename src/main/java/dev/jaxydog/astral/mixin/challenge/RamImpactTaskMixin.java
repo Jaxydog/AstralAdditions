@@ -69,11 +69,7 @@ public abstract class RamImpactTaskMixin extends MultiTickTask<GoatEntity> {
         )
     )
     private float keepRunningArgsInject(float damage, @Local(argsOnly = true) GoatEntity entity) {
-        if (!ChallengeHelper.shouldApplyScaling(entity)) return damage;
-
-        final double additive = ChallengeHelper.getAttackAdditive(entity.getWorld());
-
-        return damage + (float) ChallengeHelper.getScaledAdditive(entity, additive);
+        return ChallengeHelper.getScaledAttack(entity, damage);
     }
 
 }

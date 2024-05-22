@@ -48,11 +48,7 @@ public interface HoglinMixin {
     )
     )
     private static float tryAttackArgsInject(float damage, @Local(ordinal = 0, argsOnly = true) LivingEntity entity) {
-        if (!ChallengeHelper.shouldApplyScaling(entity)) return damage;
-
-        final double additive = ChallengeHelper.getAttackAdditive(entity.getWorld());
-
-        return damage + (float) ChallengeHelper.getScaledAdditive(entity, additive);
+        return ChallengeHelper.getScaledAttack(entity, damage);
     }
 
 }
