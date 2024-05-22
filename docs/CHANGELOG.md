@@ -72,6 +72,12 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Added recipes for multiple lore items.
 - Add Nix's ears.
 
+## Patch 2.0.1
+
+### Content changes
+
+- Made cobbled sandstone breakable.
+
 # Release 1.8.0
 
 ### Content changes

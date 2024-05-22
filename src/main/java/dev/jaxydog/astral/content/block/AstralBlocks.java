@@ -15,11 +15,8 @@
 
 package dev.jaxydog.astral.content.block;
 
-import dev.jaxydog.astral.content.block.custom.DyedAmethystBlock;
-import dev.jaxydog.astral.content.block.custom.DyedAmethystClusterBlock;
+import dev.jaxydog.astral.content.block.custom.*;
 import dev.jaxydog.astral.content.block.custom.DyedAmethystClusterBlock.Type;
-import dev.jaxydog.astral.content.block.custom.DyedBuddingAmethystBlock;
-import dev.jaxydog.astral.content.block.custom.RandomizerBlock;
 import dev.jaxydog.astral.datagen.TagGenerator;
 import dev.jaxydog.astral.register.ContentRegistrar;
 import dev.jaxydog.astral.register.DyeMap;
@@ -39,7 +36,7 @@ public final class AstralBlocks extends ContentRegistrar {
      *
      * @since 2.0.0
      */
-    public static final AstralBlock COBBLED_SANDSTONE = new AstralBlock("cobbled_sandstone",
+    public static final CobbledSandstoneBlock COBBLED_SANDSTONE = new CobbledSandstoneBlock("cobbled_sandstone",
         Settings.copy(Blocks.SANDSTONE)
     );
 
