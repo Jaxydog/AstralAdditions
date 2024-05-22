@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:lime_amethyst_block" },
+        "T": { "item": "astral:randomizer" },
+        "L": { "item": "astral:randomizer" },
+        "C": { "item": "minecraft:slime_ball" },
+        "R": { "item": "astral:randomizer" },
+        "B": { "item": "astral:randomizer" }
+    },
+    "result": { "item": "astral:blob_of_malintent" }
+}
