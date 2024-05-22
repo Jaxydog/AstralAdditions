@@ -33,7 +33,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
  * @since 1.7.0
  */
 @Mixin(value = PlaySoundCommand.class, priority = 0)
-public class PlaySoundCommandMixin {
+public abstract class PlaySoundCommandMixin {
 
     /**
      * Changes the maximum pitch of the {@code /playsound} command.

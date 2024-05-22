@@ -43,7 +43,7 @@ import java.util.Set;
  */
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 @Mixin(Model.class)
-public class ModelMixin implements AstralModel {
+public abstract class ModelMixin implements AstralModel {
 
     /**
      * A map of custom JSON key-value pairs.
