@@ -1,3 +1,17 @@
+/*
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ *
+ * Copyright © 2023–2024 Jaxydog
+ *
+ * This file is part of Astral.
+ *
+ * Astral is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * Astral is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Astral. If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package dev.jaxydog.astral.mixin.challenge;
 
 import dev.jaxydog.astral.utility.ChallengeHelper;
@@ -10,20 +24,47 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
+/**
+ * Implements mob scaling.
+ *
+ * @author Jaxydog
+ * @since 1.1.1
+ */
 @Mixin(SmallFireballEntity.class)
 public abstract class SmallFireballEntityMixin extends AbstractFireballEntity {
 
+    /**
+     * Creates a new instance of this mixin.
+     *
+     * @param entityType The entity type.
+     * @param livingEntity The source entity.
+     * @param x The X velocity.
+     * @param y The Y velocity.
+     * @param z The Z velocity.
+     * @param world The current world.
+     *
+     * @since 1.1.1
+     */
     public SmallFireballEntityMixin(
         EntityType<? extends AbstractFireballEntity> entityType,
         LivingEntity livingEntity,
-        double d,
-        double e,
-        double f,
+        double x,
+        double y,
+        double z,
         World world
     ) {
-        super(entityType, livingEntity, d, e, f, world);
+        super(entityType, livingEntity, x, y, z, world);
     }
 
+    /**
+     * Scales impact damage.
+     *
+     * @param damage The original damage.
+     *
+     * @return The scaled damage.
+     *
+     * @since 1.1.1
+     */
     @ModifyArg(
         method = "onEntityHit", at = @At(
         value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"
@@ -33,9 +74,8 @@ public abstract class SmallFireballEntityMixin extends AbstractFireballEntity {
         if (this.getOwner() != null && !ChallengeHelper.shouldApplyScaling(this.getOwner())) return damage;
 
         final double additive = ChallengeHelper.getAttackAdditive(this.getWorld());
-        final double scaled = ChallengeHelper.getScaledAdditive(this.getOwner(), additive);
 
-        return damage + (float) scaled;
+        return damage + (float) ChallengeHelper.getScaledAdditive(this.getOwner(), additive);
     }
 
 }
