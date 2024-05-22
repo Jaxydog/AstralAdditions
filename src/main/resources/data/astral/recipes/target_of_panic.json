@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:red_amethyst_block" },
+        "T": { "item": "minecraft:bow" },
+        "L": { "item": "minecraft:crossbow" },
+        "C": { "item": "minecraft:target" },
+        "R": { "item": "minecraft:crossbow" },
+        "B": { "item": "minecraft:bow" }
+    },
+    "result": { "item": "astral:target_of_panic" }
+}

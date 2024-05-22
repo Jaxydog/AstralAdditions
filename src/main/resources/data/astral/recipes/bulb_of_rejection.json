@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:white_amethyst_block" },
+        "T": { "item": "minecraft:glass_pane" },
+        "L": { "item": "minecraft:glass" },
+        "C": { "item": "minecraft:redstone_lamp" },
+        "R": { "item": "minecraft:glass_pane" },
+        "B": { "item": "minecraft:glass" }
+    },
+    "result": { "item": "astral:bulb_of_rejection" }
+}

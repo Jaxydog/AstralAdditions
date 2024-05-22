@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:black_amethyst_block" },
+        "T": { "item": "minecraft:skeleton_skull" },
+        "L": { "item": "minecraft:bone" },
+        "C": { "item": "minecraft:wither_skeleton_skull" },
+        "R": { "item": "minecraft:bone" },
+        "B": { "item": "minecraft:skeleton_skull" }
+    },
+    "result": { "item": "astral:skull_of_joy" }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:brown_amethyst_block" },
+        "T": { "item": "minecraft:diamond_sword" },
+        "L": { "item": "minecraft:diamond_axe" },
+        "C": { "item": "minecraft:cookie" },
+        "R": { "item": "minecraft:diamond_axe" },
+        "B": { "item": "minecraft:diamond_sword" }
+    },
+    "result": { "item": "astral:cookie_of_resentment" }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:purple_amethyst_block" },
+        "T": { "item": "minecraft:netherite_ingot" },
+        "L": { "item": "minecraft:diamond_block" },
+        "C": { "item": "minecraft:egg" },
+        "R": { "item": "minecraft:diamond_block" },
+        "B": { "item": "minecraft:netherite_ingot" }
+    },
+    "result": { "item": "astral:egg_of_greed" }
+}

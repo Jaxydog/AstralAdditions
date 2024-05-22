@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:light_blue_amethyst_block" },
+        "T": { "item": "minecraft:ghast_tear" },
+        "L": { "item": "minecraft:spider_eye" },
+        "C": { "item": "minecraft:glass_bottle" },
+        "R": { "item": "minecraft:spider_eye" },
+        "B": { "item": "minecraft:ghast_tear" }
+    },
+    "result": { "item": "astral:cup_of_grief" }
+}

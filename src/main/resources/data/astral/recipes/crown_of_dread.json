@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:yellow_amethyst_block" },
+        "T": { "item": "minecraft:emerald" },
+        "L": { "item": "minecraft:redstone" },
+        "C": { "item": "minecraft:golden_helmet" },
+        "R": { "item": "minecraft:redstone" },
+        "B": { "item": "minecraft:lapis_lazuli" }
+    },
+    "result": { "item": "astral:crown_of_dread" }
+}

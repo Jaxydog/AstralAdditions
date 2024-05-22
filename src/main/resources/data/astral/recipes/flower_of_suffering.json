@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:green_amethyst_block" },
+        "T": { "item": "minecraft:tnt" },
+        "L": { "item": "minecraft:flint_and_steel" },
+        "C": { "item": "minecraft:wither_rose" },
+        "R": { "item": "minecraft:flint_and_steel" },
+        "B": { "item": "minecraft:tnt" }
+    },
+    "result": { "item": "astral:flower_of_suffering" }
+}

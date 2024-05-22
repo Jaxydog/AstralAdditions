@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:gray_amethyst_block" },
+        "T": { "item": "minecraft:rotten_flesh" },
+        "L": { "item": "minecraft:gunpowder" },
+        "C": { "item": "minecraft:clock" },
+        "R": { "item": "minecraft:ender_pearl" },
+        "B": { "item": "minecraft:string" }
+    },
+    "result": { "item": "astral:clock_of_regret" }
+}

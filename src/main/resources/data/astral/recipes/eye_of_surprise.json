@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [ "ATA", "LCR", "ABA" ],
+    "key": {
+        "A": { "item": "astral:pink_amethyst_block" },
+        "T": { "item": "minecraft:feather" },
+        "L": { "item": "minecraft:fermented_spider_eye" },
+        "C": { "item": "minecraft:ender_eye" },
+        "R": { "item": "minecraft:anvil" },
+        "B": { "item": "minecraft:blaze_rod" }
+    },
+    "result": { "item": "astral:eye_of_surprise" }
+}
