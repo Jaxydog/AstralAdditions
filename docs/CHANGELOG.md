@@ -77,6 +77,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 ### Content changes
 
 - Made cobbled sandstone breakable.
+- Fixed the Berry Sword model.
 
 # Release 1.8.0
 
