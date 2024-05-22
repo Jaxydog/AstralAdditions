@@ -34,6 +34,10 @@
         {
             "predicate": { "custom_model_data": 8 },
             "model": "astral:item/placeholder/august_anti_death_protocol"
+        },
+        {
+            "predicate": { "custom_model_data": 9 },
+            "model": "astral:item/placeholder/nix_ears"
         }
     ]
 }

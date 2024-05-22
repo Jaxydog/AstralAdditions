@@ -70,6 +70,7 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Fixed a bug that allowed players to receive chocolate milk from red mooshrooms.
 - Fixed a bug that caused sugar cane to be bone-mealed into a cactus block.
 - Added recipes for multiple lore items.
+- Add Nix's ears.
 
 # Release 1.8.0
 
