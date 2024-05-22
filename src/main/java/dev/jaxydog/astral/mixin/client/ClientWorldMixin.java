@@ -39,13 +39,39 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import java.util.function.Supplier;
 
+/**
+ * Implements the {@link AstralClientWorld} interface.
+ *
+ * @author Jaxydog
+ * @since 1.7.0
+ */
 @Mixin(ClientWorld.class)
 public abstract class ClientWorldMixin extends World implements AstralClientWorld {
 
+    /**
+     * The client instance.
+     *
+     * @since 1.7.0
+     */
     @Shadow
     @Final
     private MinecraftClient client;
 
+    /**
+     * Creates a new instance of this mixin.
+     *
+     * @param properties The world properties.
+     * @param registryRef The world's registry reference.
+     * @param registryManager The registry manager.
+     * @param dimensionEntry The dimension registry entry.
+     * @param profiler The profiler supplier.
+     * @param isClient Whether this is on the client.
+     * @param debugWorld Whether this is a debug world.
+     * @param biomeAccess The world seed.
+     * @param maxChainedNeighborUpdates The maximum number of allowed chained neighbor updates.
+     *
+     * @since 1.7.0
+     */
     protected ClientWorldMixin(
         MutableWorldProperties properties,
         RegistryKey<World> registryRef,

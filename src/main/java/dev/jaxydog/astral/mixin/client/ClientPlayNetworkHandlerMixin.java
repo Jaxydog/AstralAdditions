@@ -39,14 +39,43 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
+/**
+ * Adds special handlers for un-clamped sound pitches.
+ *
+ * @author Jaxydog
+ * @since 1.7.0
+ */
 @Environment(EnvType.CLIENT)
 @Mixin(value = ClientPlayNetworkHandler.class, priority = 0)
 public abstract class ClientPlayNetworkHandlerMixin implements ClientPlayPacketListener, TickablePacketListener {
 
+    /**
+     * The client instance.
+     *
+     * @since 1.7.0
+     */
     @Shadow
     @Final
     private MinecraftClient client;
 
+    /**
+     * Un-clamps positioned sound pitches.
+     *
+     * @param self The client world.
+     * @param except Ignores the specified player.
+     * @param x The X position.
+     * @param y The Y position.
+     * @param z The Z position.
+     * @param sound The sound event.
+     * @param category The sound category.
+     * @param volume The volume.
+     * @param pitch The pitch.
+     * @param seed The randomness seed.
+     * @param original The original operation.
+     * @param packet The received packet.
+     *
+     * @since 1.7.0
+     */
     @SuppressWarnings("RedundantCast")
     @WrapOperation(
         method = "onPlaySound", at = @At(
@@ -84,6 +113,22 @@ public abstract class ClientPlayNetworkHandlerMixin implements ClientPlayPacketL
         }
     }
 
+    /**
+     * Un-clamps entity-tracking sound pitches.
+     *
+     * @param self The client world.
+     * @param except Ignores the specified player.
+     * @param entity The source entity.
+     * @param sound The sound event.
+     * @param category The sound category.
+     * @param volume The volume.
+     * @param pitch The pitch.
+     * @param seed The randomness seed.
+     * @param original The original operation.
+     * @param packet The received packet.
+     *
+     * @since 1.7.0
+     */
     @SuppressWarnings("RedundantCast")
     @WrapOperation(
         method = "onPlaySoundFromEntity", at = @At(

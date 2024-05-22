@@ -30,28 +30,79 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Allows for animated item group icons.
+ *
+ * @author Jaxydog
+ * @since 1.7.0
+ */
 @Mixin(CreativeInventoryScreen.class)
 public abstract class CreativeInventoryScreenMixin extends AbstractInventoryScreen<CreativeScreenHandler> {
 
+    /**
+     * The cached animation delta value.
+     *
+     * @since 1.7.0
+     */
     @Unique
     private float cachedDelta = 0F;
 
+    /**
+     * Creates a new instance of this mixin.
+     *
+     * @param screenHandler The screen handler instance.
+     * @param playerInventory The player's inventory.
+     * @param text The screen text.
+     *
+     * @since 1.7.0
+     */
     public CreativeInventoryScreenMixin(
         CreativeScreenHandler screenHandler, PlayerInventory playerInventory, Text text
     ) {
         super(screenHandler, playerInventory, text);
     }
 
+    /**
+     * Captures the animation delta.
+     *
+     * @param context The rendering context.
+     * @param delta The current delta.
+     * @param mouseX The mouse's X position.
+     * @param mouseY The mouse's Y position.
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.7.0
+     */
     @Inject(method = "drawBackground", at = @At("HEAD"))
     private void captureDelta(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo callbackInfo) {
         this.cachedDelta = delta;
     }
 
+    /**
+     * Reset the animation delta back to 0.
+     *
+     * @param context The rendering context.
+     * @param delta The current delta.
+     * @param mouseX The mouse's X position.
+     * @param mouseY The mouse's Y position.
+     * @param callbackInfo The injection callback information.
+     *
+     * @since 1.7.0
+     */
     @Inject(method = "drawBackground", at = @At("TAIL"))
     private void releaseDelta(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo callbackInfo) {
         this.cachedDelta = 0F;
     }
 
+    /**
+     * Prefer the injected {@link AstralItemGroup#astral$getIcon(float)} method over the original.
+     *
+     * @param instance The item group instance.
+     *
+     * @return The current icon.
+     *
+     * @since 1.7.0
+     */
     @SuppressWarnings("RedundantCast")
     @Redirect(
         method = "renderTabIcon", at = @At(
