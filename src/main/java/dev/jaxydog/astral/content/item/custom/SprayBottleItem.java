@@ -1,6 +1,19 @@
+/*
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ *
+ * Copyright © 2024 Jaxydog
+ *
+ * This file is part of Astral.
+ *
+ * Astral is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * Astral is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Astral. If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package dev.jaxydog.astral.content.item.custom;
 
-import dev.jaxydog.astral.Astral;
 import dev.jaxydog.astral.content.item.AstralItem;
 import dev.jaxydog.astral.content.sound.SoundContext;
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
@@ -38,7 +51,6 @@ import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.event.GameEvent.Emitter;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -236,6 +248,7 @@ public class SprayBottleItem extends AstralItem implements Sprayed {
         stack.setDamage(stack.getMaxDamage());
     }
 
+    @SuppressWarnings("resource")
     @Override
     public void registerCommon() {
         // Entity extinguishing.
@@ -256,11 +269,7 @@ public class SprayBottleItem extends AstralItem implements Sprayed {
             increased.ifPresent(value -> {
                 final BlockState state = value.getStateWithProperties(target.state());
 
-                try (final World world = target.world()) {
-                    world.setBlockState(target.pos(), state);
-                } catch (IOException exception) {
-                    Astral.LOGGER.warn("Unable to oxidize block state: {}", exception.getLocalizedMessage());
-                }
+                target.world().setBlockState(target.pos(), state);
             });
         }, 1, 100));
 
@@ -273,11 +282,7 @@ public class SprayBottleItem extends AstralItem implements Sprayed {
         }, (source, target) -> {
             final BlockState state = target.state();
 
-            try (final World world = target.world()) {
-                world.setBlockState(target.pos(), state.with(FarmlandBlock.MOISTURE, FarmlandBlock.MAX_MOISTURE));
-            } catch (IOException exception) {
-                Astral.LOGGER.warn("Unable to moisturize block state: {}", exception.getLocalizedMessage());
-            }
+            target.world().setBlockState(target.pos(), state.with(FarmlandBlock.MOISTURE, FarmlandBlock.MAX_MOISTURE));
         }, 4));
 
         // Fire extinguishing.
@@ -289,14 +294,10 @@ public class SprayBottleItem extends AstralItem implements Sprayed {
         }, (source, target) -> {
             final BlockState state = target.state();
 
-            try (final World world = target.world()) {
-                if (source.actor() == null) {
-                    world.breakBlock(target.pos(), false);
-                } else {
-                    world.breakBlock(target.pos(), false, source.actor());
-                }
-            } catch (IOException exception) {
-                Astral.LOGGER.warn("Unable to extinguish block state: {}", exception.getLocalizedMessage());
+            if (source.actor() == null) {
+                target.world().breakBlock(target.pos(), false);
+            } else {
+                target.world().breakBlock(target.pos(), false, source.actor());
             }
 
             EXTINGUISH_BLOCK_SOUND.play(target.world(), target.pos(), false);
@@ -311,11 +312,7 @@ public class SprayBottleItem extends AstralItem implements Sprayed {
         }, (source, target) -> {
             final BlockState state = target.state();
 
-            try (final World world = target.world()) {
-                world.setBlockState(target.pos(), state.with(CampfireBlock.LIT, false));
-            } catch (IOException exception) {
-                Astral.LOGGER.warn("Unable to extinguish campfire state: {}", exception.getLocalizedMessage());
-            }
+            target.world().setBlockState(target.pos(), state.with(CampfireBlock.LIT, false));
 
             EXTINGUISH_BLOCK_SOUND.play(target.world(), target.pos(), false);
         }, 2));
@@ -328,11 +325,7 @@ public class SprayBottleItem extends AstralItem implements Sprayed {
         }, (source, target) -> {
             final BlockState state = Blocks.WET_SPONGE.getStateWithProperties(target.state());
 
-            try (final World world = target.world()) {
-                world.setBlockState(target.pos(), state);
-            } catch (IOException exception) {
-                Astral.LOGGER.warn("Unable to dampen block state: {}", exception.getLocalizedMessage());
-            }
+            target.world().setBlockState(target.pos(), state);
 
             SPONGE_SQUISH_SOUND.play(target.world(), target.pos(), false);
         }, 4));
