@@ -1,3 +1,11 @@
+# Release 2.1.0
+
+Adds a custom model.
+
+### Content changes
+
++ Added the Crystal Curl item model.
+
 # Release 2.0.0
 
 Essentially a rewrite of v1.*, adding/updating heaps of documentation and refactoring the entire codebase.
