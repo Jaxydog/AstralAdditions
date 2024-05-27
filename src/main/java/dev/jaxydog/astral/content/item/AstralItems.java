@@ -183,6 +183,16 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The Ditty Dime item.
+     *
+     * @since 2.1.0
+     */
+    public static final AstralItem DITTY_DIME = new AstralItem("ditty_dime",
+        new Settings().rarity(Rarity.RARE),
+        AstralItemGroups.DEFAULT::getRegistryKey
+    );
+
+    /**
      * The dragon scale item.
      *
      * @since 2.0.0

@@ -5,6 +5,7 @@ Adds a custom model.
 ### Content changes
 
 + Added the Crystal Curl item model.
++ Added the Ditty Dime item.
 
 # Release 2.0.0
 
