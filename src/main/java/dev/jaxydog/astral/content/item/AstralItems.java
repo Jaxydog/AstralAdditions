@@ -229,6 +229,19 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The set of dyed amethyst shard items.
+     *
+     * @since 2.1.0
+     */
+    public static final DyeMap<DyedAmethystShardItem> DYED_AMETHYST_SHARDS = new DyeMap<>("amethyst_shard",
+        (path, color) -> new DyedAmethystShardItem(path,
+            new Settings(),
+            color,
+            AstralItemGroups.DYED_AMETHYST::getRegistryKey
+        )
+    );
+
+    /**
      * The set of dyed budding amethyst block items.
      *
      * @since 2.0.0
@@ -479,6 +492,7 @@ public final class AstralItems extends ContentRegistrar {
         tag.generate(DyedAmethystClusterBlock.LARGE_AMETHYST_BUD_ITEMS, b -> b.add(Items.LARGE_AMETHYST_BUD));
         tag.generate(DyedAmethystClusterBlock.MEDIUM_AMETHYST_BUD_ITEMS, b -> b.add(Items.MEDIUM_AMETHYST_BUD));
         tag.generate(DyedAmethystClusterBlock.SMALL_AMETHYST_BUD_ITEMS, b -> b.add(Items.SMALL_AMETHYST_BUD));
+        tag.generate(DyedAmethystShardItem.AMETHYST_SHARDS, b -> b.add(Items.AMETHYST_SHARD));
     }
 
     /**

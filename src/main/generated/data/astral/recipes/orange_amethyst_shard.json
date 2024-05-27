@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_amethyst_shards",
+  "ingredients": [
+    {
+      "tag": "astral:amethyst_shards"
+    },
+    {
+      "item": "minecraft:orange_dye"
+    }
+  ],
+  "result": {
+    "item": "astral:orange_amethyst_shard"
+  }
+}

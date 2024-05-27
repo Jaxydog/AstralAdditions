@@ -6,6 +6,9 @@ Adds a custom model.
 
 + Added the Crystal Curl item model.
 + Added the Ditty Dime item.
++ Added dyed amethyst shards.
++ All dyed amethyst clusters and buds must be harvested with silk touch.
++ Dyed amethyst clusters broken without silk touch now drop shards.
 
 # Release 2.0.0
 

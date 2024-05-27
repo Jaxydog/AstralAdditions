@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "astral:white_amethyst_shard",
+    "astral:light_gray_amethyst_shard",
+    "astral:gray_amethyst_shard",
+    "astral:black_amethyst_shard",
+    "astral:brown_amethyst_shard",
+    "astral:red_amethyst_shard",
+    "astral:orange_amethyst_shard",
+    "astral:yellow_amethyst_shard",
+    "astral:lime_amethyst_shard",
+    "astral:green_amethyst_shard",
+    "astral:cyan_amethyst_shard",
+    "astral:light_blue_amethyst_shard",
+    "astral:blue_amethyst_shard",
+    "astral:purple_amethyst_shard",
+    "astral:magenta_amethyst_shard",
+    "astral:pink_amethyst_shard",
+    "minecraft:amethyst_shard"
+  ]
+}

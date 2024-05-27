@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "dyed_amethyst_shards_to_blocks",
+  "ingredients": [
+    {
+      "item": "astral:pink_amethyst_shard"
+    },
+    {
+      "item": "astral:pink_amethyst_shard"
+    },
+    {
+      "item": "astral:pink_amethyst_shard"
+    },
+    {
+      "item": "astral:pink_amethyst_shard"
+    }
+  ],
+  "result": {
+    "item": "astral:pink_amethyst_block"
+  }
+}

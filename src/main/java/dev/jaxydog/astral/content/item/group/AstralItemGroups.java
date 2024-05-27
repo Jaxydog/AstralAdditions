@@ -43,13 +43,13 @@ public final class AstralItemGroups extends ContentRegistrar {
      * @since 2.0.0
      */
     public static final AstralCycledItemGroup DYED_AMETHYST = AstralCycledItemGroup.builder("dyed_amethyst")
-        .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.RED).orElseThrow().getDefaultStack())
-        .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.ORANGE).orElseThrow().getDefaultStack())
-        .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.YELLOW).orElseThrow().getDefaultStack())
-        .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.LIME).orElseThrow().getDefaultStack())
-        .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.LIGHT_BLUE).orElseThrow().getDefaultStack())
-        .icon(() -> AstralItems.DYED_AMETHYST_CLUSTERS.get(DyeColor.PURPLE).orElseThrow().getDefaultStack())
-        .cycleInterval(60)
+        .icon(() -> AstralItems.DYED_AMETHYST_SHARDS.get(DyeColor.RED).orElseThrow().getDefaultStack())
+        .icon(() -> AstralItems.DYED_AMETHYST_SHARDS.get(DyeColor.ORANGE).orElseThrow().getDefaultStack())
+        .icon(() -> AstralItems.DYED_AMETHYST_SHARDS.get(DyeColor.YELLOW).orElseThrow().getDefaultStack())
+        .icon(() -> AstralItems.DYED_AMETHYST_SHARDS.get(DyeColor.LIME).orElseThrow().getDefaultStack())
+        .icon(() -> AstralItems.DYED_AMETHYST_SHARDS.get(DyeColor.LIGHT_BLUE).orElseThrow().getDefaultStack())
+        .icon(() -> AstralItems.DYED_AMETHYST_SHARDS.get(DyeColor.PURPLE).orElseThrow().getDefaultStack())
+        .cycleInterval(20)
         .buildGroup();
 
     /**

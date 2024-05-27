@@ -18,6 +18,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import dev.jaxydog.astral.Astral;
 import dev.jaxydog.astral.content.item.AstralBlockItem;
+import dev.jaxydog.astral.content.item.AstralItems;
 import dev.jaxydog.astral.datagen.*;
 import dev.jaxydog.astral.register.Registered.Client;
 import dev.jaxydog.astral.utility.injected.AstralModel;
@@ -34,6 +35,7 @@ import net.minecraft.data.client.ModelIds;
 import net.minecraft.data.client.Models;
 import net.minecraft.data.client.TextureMap;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.DyeItem;
@@ -41,13 +43,21 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
 import net.minecraft.loot.context.LootContextTypes;
+import net.minecraft.loot.entry.AlternativeEntry;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
+import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.predicate.NumberRange.IntRange;
+import net.minecraft.predicate.item.EnchantmentPredicate;
+import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.state.StateManager.Builder;
 import net.minecraft.state.property.BooleanProperty;
@@ -313,14 +323,44 @@ public class DyedAmethystClusterBlock extends DyedAmethystBlock implements Clien
             }
         });
 
-        LootTableGenerator.getInstance().generate(LootContextTypes.BLOCK,
-            this.getLootTableId(),
-            new LootTable.Builder().pool(LootPool.builder()
-                .rolls(ConstantLootNumberProvider.create(1F))
-                .with(ItemEntry.builder(this))
-                .conditionally(SurvivesExplosionLootCondition.builder().build())
-                .build())
-        );
+        if (this.getType().equals(Type.CLUSTER)) {
+            final Item shard = AstralItems.DYED_AMETHYST_SHARDS.getComputed(this.getColor());
+
+            LootTableGenerator.getInstance().generate(LootContextTypes.BLOCK,
+                this.getLootTableId(),
+                new LootTable.Builder().pool(LootPool.builder()
+                    .rolls(ConstantLootNumberProvider.create(1F))
+                    .bonusRolls(ConstantLootNumberProvider.create(0F))
+                    .with(AlternativeEntry.builder(
+                        // Drop with silk touch.
+                        ItemEntry.builder(this)
+                            .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create()
+                                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, IntRange.atLeast(1))))),
+                        AlternativeEntry.builder(
+                            // Drop 4 if harvested with a good tool, affected by fortune.
+                            ItemEntry.builder(shard)
+                                .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create()
+                                    .tag(ItemTags.CLUSTER_MAX_HARVESTABLES)))
+                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4F), false))
+                                .apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE)),
+                            // Drop 2 otherwise.
+                            ItemEntry.builder(shard)
+                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2F), false))
+                        )
+                    ))).randomSequenceId(Astral.getId("blocks/amethyst_cluster"))
+            );
+        } else {
+            LootTableGenerator.getInstance().generate(LootContextTypes.BLOCK,
+                this.getLootTableId(),
+                new LootTable.Builder().pool(LootPool.builder()
+                    .rolls(ConstantLootNumberProvider.create(1F))
+                    .with(ItemEntry.builder(this)
+                        .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create()
+                            .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, IntRange.atLeast(1))))))
+                    .conditionally(SurvivesExplosionLootCondition.builder().build())
+                    .build())
+            );
+        }
 
         RecipeGenerator.getInstance().generate(((AstralBlockItem) this.asItem()).getRegistryId(),
             ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this)
