@@ -42,8 +42,6 @@
     "gamerule.challengeUseWorldspawn": "Scaling uses worldspawn",
     "gamerule.currencyRewardChance": "Currency reward chance",
 
-    "item.astral.appy_sauce.lore_0": "So far past its expiration date.",
-    "item.astral.appy_sauce": "Appy Sauce",
     "item.astral.chocolate_milk": "Chocolate Milk",
     "item.astral.ditty_dime.lore_0": "The inscription reads: 'In Miku we Trust'",
     "item.astral.ditty_dime.lore_1": "Awarded for participation in Fae & Nihila's Big Summer Blowout",
@@ -110,6 +108,9 @@
     "item.astral.placeholder.7": "Luma's Antennae",
     "item.astral.placeholder.8": "August's Anti-death Protocol",
     "item.astral.placeholder.9": "Nix's Ears",
+    "item.astral.placeholder.10.lore_0": "A large shard of amethyst dotted with glowing stars.",
+    "item.astral.placeholder.10.lore_1": "The Gemini constellation glows brightest of all.",
+    "item.astral.placeholder.10": "Amethyst Star Map",
     "item.astral.rotten_chorus_fruit": "Rotten Chorus Fruit",
     "item.astral.slime_card.lore_0": "Hmph.",
     "item.astral.slime_card": "Slime Card",

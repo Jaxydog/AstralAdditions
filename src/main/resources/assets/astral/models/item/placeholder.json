@@ -38,6 +38,10 @@
         {
             "predicate": { "custom_model_data": 9 },
             "model": "astral:item/placeholder/nix_ears"
+        },
+        {
+            "predicate": { "custom_model_data": 10 },
+            "model": "astral:item/placeholder/amethyst_star_map"
         }
     ]
 }
