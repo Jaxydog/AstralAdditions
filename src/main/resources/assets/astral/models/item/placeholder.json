@@ -46,6 +46,10 @@
         {
             "predicate": { "custom_model_data": 11 },
             "model": "astral:item/placeholder/parkson_hard_hat"
+        },
+        {
+            "predicate": { "custom_model_data": 12 },
+            "model": "astral:item/placeholder/blowout_microphone"
         }
     ]
 }
