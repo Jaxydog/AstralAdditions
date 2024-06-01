@@ -50,6 +50,18 @@
         {
             "predicate": { "custom_model_data": 12 },
             "model": "astral:item/placeholder/blowout_microphone"
+        },
+        {
+            "predicate": { "custom_model_data": 13 },
+            "model": "astral:item/placeholder/blowout_solo_trophy"
+        },
+        {
+            "predicate": { "custom_model_data": 14 },
+            "model": "astral:item/placeholder/blowout_duo_trophy"
+        },
+        {
+            "predicate": { "custom_model_data": 15 },
+            "model": "astral:item/placeholder/pet_rock"
         }
     ]
 }

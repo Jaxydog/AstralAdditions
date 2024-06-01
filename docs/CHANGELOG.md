@@ -11,6 +11,8 @@ Adds a custom model.
 + Dyed amethyst clusters broken without silk touch now drop shards.
 + Added Parkson Inc. Company-Issued Hard hat.
 + Added Blowout Microphone model.
++ Added Blowout Trophies.
++ Added Pet Rock.
 
 ---
 
