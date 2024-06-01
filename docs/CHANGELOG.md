@@ -9,6 +9,7 @@ Adds a custom model.
 + Added dyed amethyst shards.
 + All dyed amethyst clusters and buds must be harvested with silk touch.
 + Dyed amethyst clusters broken without silk touch now drop shards.
++ Added Parkson Inc. Company-Issued Hard hat.
 
 # Release 2.0.0
 

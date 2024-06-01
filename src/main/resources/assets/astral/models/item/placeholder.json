@@ -42,6 +42,10 @@
         {
             "predicate": { "custom_model_data": 10 },
             "model": "astral:item/placeholder/amethyst_star_map"
+        },
+        {
+            "predicate": { "custom_model_data": 11 },
+            "model": "astral:item/placeholder/parkson_hard_hat"
         }
     ]
 }
