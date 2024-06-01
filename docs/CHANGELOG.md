@@ -12,6 +12,8 @@ Adds a custom model.
 + Added Parkson Inc. Company-Issued Hard hat.
 + Added Blowout Microphone model.
 
+---
+
 # Release 2.0.0
 
 Essentially a rewrite of v1.*, adding/updating heaps of documentation and refactoring the entire codebase.
@@ -93,6 +95,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Made cobbled sandstone breakable.
 - Fixed the Berry Sword model.
 
+---
+
 # Release 1.8.0
 
 ### Content changes
@@ -125,6 +129,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 ### Content changes
 
 - *Actually* fixed the animation of Luma's lantern.
+
+---
 
 # Release 1.7.0
 
@@ -182,6 +188,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Prevent spray potion activation if all effects are already added.
 - Remove deprecation log (sorry lol).
 
+---
+
 # Release 1.6.0
 
 ### Internal changes
@@ -221,6 +229,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Supports a `bientity_action` and `bientity_condition`
     - Supports a `block_action` and `block_condition`
 
+---
+
 # Release 1.5.0
 
 ### Internal changes
@@ -249,6 +259,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Added `astral:pig_card`
     - Added `astral:appy_sauce`
     - Added `astral:void_essence`
+
+---
 
 # Release 1.4.0
 
@@ -332,6 +344,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Fixes a potential memory leak caused by the goat's ram impact task mixin.
 - Stop scaling tamed entities.
 
+---
+
 # Release 1.3.0
 
 ### Internal Changes
@@ -356,6 +370,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - `RegisterableMap` has been updated.
     - Implementations must specify an `Identifier` generation `BiFunction` within their super constructor.
     - Implementations must specify a `Comparator` function to determine registration ordering.
+
+---
 
 # Release 1.2.0
 
@@ -404,6 +420,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
     - Added crafting recipes.
     - Added recipe advancements.
 
+---
+
 # Release 1.1.0
 
 ### Internal Changes
@@ -440,6 +458,8 @@ Essentially a rewrite of v1.*, adding/updating heaps of documentation and refact
 - Updated cloudy armor.
     - Add model textures.
     - Apply jump boost if the average storminess is <50%, otherwise apply slowness.
+
+---
 
 # Release 1.0.0
 
