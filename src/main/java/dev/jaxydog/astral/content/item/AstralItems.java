@@ -430,6 +430,16 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The smooth stone stairs block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem SMOOTH_STONE_STAIRS = new AstralBlockItem("smooth_stone_stairs",
+        AstralBlocks.SMOOTH_STONE_STAIRS,
+        new Settings()
+    );
+
+    /**
      * The spray bottle item.
      *
      * @since 2.0.0

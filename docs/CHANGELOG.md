@@ -1,3 +1,13 @@
+# Release 2.2.0
+
+Adds new blocks.
+
+### Content changes
+
++ Add smooth stone stairs.
+
+---
+
 # Release 2.1.0
 
 Adds a custom model.

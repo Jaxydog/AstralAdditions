@@ -127,6 +127,16 @@ public final class AstralBlocks extends ContentRegistrar {
         Settings.copy(Blocks.IRON_BLOCK)
     );
 
+    /**
+     * The smooth stone stairs block.
+     *
+     * @since 2.2.0
+     */
+    public static final SmoothStoneStairsBlock SMOOTH_STONE_STAIRS = new SmoothStoneStairsBlock("smooth_stone_stairs",
+        Blocks.SMOOTH_STONE.getDefaultState(),
+        Settings.copy(Blocks.SMOOTH_STONE)
+    );
+
     @Override
     public void generate() {
         super.generate();
