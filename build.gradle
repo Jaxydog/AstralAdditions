@@ -99,8 +99,8 @@ java {
 }
 
 jar {
-    from("LICENSE") { rename { "${it}_${project.archivesBaseName}" } }
-    exclude '.cache'
+    from("LICENSE") { rename { "${it}_${archives_base_name}" } }
+    exclude '.cache', 'dev/jaxydog/astral/datagen', 'dev/jaxydog/astral/AstralDataGenerator'
 }
 
 publishing {

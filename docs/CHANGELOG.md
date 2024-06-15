@@ -9,6 +9,7 @@ Adds new blocks, improve data generation.
 ### Internal changes
 
 + Ensure that the texture generator cache works properly.
++ Removed data generation classes from final builds.
 
 ---
 
