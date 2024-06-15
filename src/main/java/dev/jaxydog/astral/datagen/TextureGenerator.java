@@ -194,17 +194,18 @@ public class TextureGenerator implements DataProvider {
                     // Images are typically ~250-350 bytes, so overshooting prevents repeated reallocation.
                     // 512 bytes should be enough that most images never exceed the buffer size, with a few exceptions.
                     final ByteArrayOutputStream output = new ByteArrayOutputStream(512);
-                    // For hashing, we don't need anything cryptographic or even consistent between runs.
-                    // For this case, `goodFastHash` works perfectly fine, as it's fast and stupid.
-                    final HashingOutputStream hasher = new HashingOutputStream(Hashing.goodFastHash(Long.SIZE), output);
+                    // For hashing, we don't need anything cryptographic, just consistent between runs.
+                    // For this case, `sha1` works perfectly fine, as it's fast and stupid.
+                    @SuppressWarnings("deprecation")
+                    final HashingOutputStream hash = new HashingOutputStream(Hashing.sha1(), output);
                     final Path path = this.pathResolver.resolve(entry.getKey(), "png");
 
-                    try (final ImageOutputStream stream = ImageIO.createImageOutputStream(hasher)) {
+                    try (final ImageOutputStream stream = ImageIO.createImageOutputStream(hash)) {
                         ImageIO.write(entry.getValue(), "png", stream);
 
                         // Ensure that all bytes are written to the stream before writing the file.
                         stream.flush();
-                        writer.write(path, output.toByteArray(), hasher.hash());
+                        writer.write(path, output.toByteArray(), hash.hash());
                     } catch (IOException exception) {
                         Astral.LOGGER.error("Failed to save file to {}", path);
                         Astral.LOGGER.error(exception.getLocalizedMessage());

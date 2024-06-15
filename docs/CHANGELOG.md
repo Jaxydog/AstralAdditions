@@ -1,10 +1,14 @@
 # Release 2.2.0
 
-Adds new blocks.
+Adds new blocks, improve data generation.
 
 ### Content changes
 
 + Add smooth stone stairs.
+
+### Internal changes
+
++ Ensure that the texture generator cache works properly.
 
 ---
 
