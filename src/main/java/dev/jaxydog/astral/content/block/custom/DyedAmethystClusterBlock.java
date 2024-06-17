@@ -553,6 +553,7 @@ public class DyedAmethystClusterBlock extends DyedAmethystBlock implements Clien
         public VoxelShape getShape(Direction direction) {
             return this.shapes.get(direction);
         }
+
     }
 
 }
