@@ -68,20 +68,20 @@ public class SmoothStoneStairsBlock extends AstralStairsBlock implements Generat
 
         RecipeGenerator.getInstance().generate(
             this.getRegistryId(),
-            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this)
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this, 4)
                 .pattern("X  ")
                 .pattern("XX ")
                 .pattern("XXX")
-                .input('X', this)
+                .input('X', Blocks.SMOOTH_STONE)
                 .criterion("block", FabricRecipeProvider.conditionsFromItem(Blocks.SMOOTH_STONE))
         );
         RecipeGenerator.getInstance().generate(
             this.getRegistryId().withSuffixedPath("_reversed"),
-            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this)
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this, 4)
                 .pattern("  X")
                 .pattern(" XX")
                 .pattern("XXX")
-                .input('X', this)
+                .input('X', Blocks.SMOOTH_STONE)
                 .criterion("block", FabricRecipeProvider.conditionsFromItem(Blocks.SMOOTH_STONE))
         );
     }
