@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "X": {
-      "item": "astral:smooth_stone_stairs"
+      "item": "minecraft:smooth_stone"
     }
   },
   "pattern": [
@@ -12,6 +12,7 @@
     "XXX"
   ],
   "result": {
+    "count": 4,
     "item": "astral:smooth_stone_stairs"
   },
   "show_notification": true
