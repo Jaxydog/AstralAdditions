@@ -57,7 +57,7 @@ public class MirrorItem extends AstralItem implements Client {
      *
      * @since 2.0.0
      */
-    public static final Identifier BROKEN_MODEL_ID = Astral.getId("broken");
+    public static final Identifier BROKEN_MODEL_ID = Astral.getId(BROKEN_KEY.toLowerCase());
 
     /**
      * Creates a new item using the given settings.

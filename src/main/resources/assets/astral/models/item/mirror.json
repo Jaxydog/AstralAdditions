@@ -3,7 +3,7 @@
     "textures": { "layer0": "astral:item/mirror" },
     "overrides": [
         {
-            "predicate": { "broken": 1 },
+            "predicate": { "astral:broken": 1 },
             "model": "astral:item/mirror_broken"
         }
     ]

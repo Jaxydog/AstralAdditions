@@ -5,6 +5,7 @@ Adds new blocks, improve data generation.
 ### Content changes
 
 + Add smooth stone stairs.
++ Fixed the mirror's broken model.
 
 ### Internal changes
 
