@@ -90,6 +90,7 @@ public final class JarAccess {
         if (access.file == null || access.closed) {
             try {
                 access.file = new JarFile(access.path) {
+
                     @Override
                     public void close() throws IOException {
                         // Track when the Jar is closed, so that we know when we need to re-open it.
@@ -157,6 +158,8 @@ public final class JarAccess {
         }
 
         return Optional.ofNullable(entry);
+
+        // scary method
     }
 
     /**
