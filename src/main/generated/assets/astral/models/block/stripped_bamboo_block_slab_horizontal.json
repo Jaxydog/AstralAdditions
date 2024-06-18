@@ -1,0 +1,9 @@
+{
+  "parent": "astral:block/directional_horizontal_slab",
+  "textures": {
+    "bottom": "minecraft:block/stripped_bamboo_block",
+    "side_0": "minecraft:block/stripped_bamboo_block_top",
+    "side_1": "minecraft:block/stripped_bamboo_block",
+    "top": "astral:block/stripped_bamboo_block_inner"
+  }
+}

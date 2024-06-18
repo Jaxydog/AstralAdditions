@@ -6,11 +6,25 @@ Adds new blocks, improve data generation.
 
 + Add smooth stone stairs.
 + Fixed the mirror's broken model.
++ Added log slabs.
++ Adjusted item groups for some items.
 
 ### Internal changes
 
 + Ensure that the texture generator cache works properly.
 + Removed data generation classes from final builds.
++ Scary method.
++ Fixed language file merging during data generation.
++ Properly copy images during the texture generation process.
+
+## Patch 2.2.1
+
+Fixes minor bugs.
+
+### Content changes
+
++ Make log slabs usable as a fuel in a furnace.
++ Fixed log slab loot tables.
 
 ---
 

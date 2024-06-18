@@ -2,6 +2,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
  * Copyright © 2024 IcePenguin
+ * Copyright © 2024 Jaxydog
  *
  * This file is part of Astral.
  *
@@ -57,8 +58,8 @@ public class AstralSlabBlock extends SlabBlock implements Custom {
      *
      * @since 2.2.0
      */
-    protected static final Model DIRECTIONAL_MODEL = new Model(
-        Optional.ofNullable(Astral.getId("block/directional_slab")),
+    protected static final Model VERTICAL_MODEL = new Model(
+        Optional.ofNullable(Astral.getId("block/directional_vertical_slab")),
         Optional.empty(),
         TextureKey.TOP,
         TextureKey.BOTTOM,
@@ -71,8 +72,36 @@ public class AstralSlabBlock extends SlabBlock implements Custom {
      *
      * @since 2.2.0
      */
-    protected static final Model DIRECTIONAL_MODEL_TOP = new Model(
-        Optional.ofNullable(Astral.getId("block/directional_slab_top")),
+    protected static final Model VERTICAL_MODEL_TOP = new Model(
+        Optional.ofNullable(Astral.getId("block/directional_vertical_slab_top")),
+        Optional.empty(),
+        TextureKey.TOP,
+        TextureKey.BOTTOM,
+        SIDE_0,
+        SIDE_1
+    );
+
+    /**
+     * The base directional slab model.
+     *
+     * @since 2.2.0
+     */
+    protected static final Model HORIZONTAL_MODEL = new Model(
+        Optional.ofNullable(Astral.getId("block/directional_horizontal_slab")),
+        Optional.empty(),
+        TextureKey.TOP,
+        TextureKey.BOTTOM,
+        SIDE_0,
+        SIDE_1
+    );
+
+    /**
+     * The base directional slab model.
+     *
+     * @since 2.2.0
+     */
+    protected static final Model HORIZONTAL_MODEL_TOP = new Model(
+        Optional.ofNullable(Astral.getId("block/directional_horizontal_slab_top")),
         Optional.empty(),
         TextureKey.TOP,
         TextureKey.BOTTOM,

@@ -14,10 +14,17 @@
 
 package dev.jaxydog.astral;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import dev.jaxydog.astral.content.CustomContent;
 import dev.jaxydog.astral.datagen.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
 
 /**
  * The mod's data generation entrypoint.
@@ -50,9 +57,26 @@ public final class AstralDataGenerator implements DataGeneratorEntrypoint {
 
         if (JarAccess.canLoad()) new TextureGenerator(pack);
 
-        generator.getModContainer()
-            .findPath("assets/%s/lang/en_us.json".formatted(Astral.MOD_ID))
-            .ifPresent(path -> LanguageGenerator.getInstance().combine(path));
+        final String langPath = "assets/%s/lang/en_us.unmerged.json".formatted(Astral.MOD_ID);
+
+        generator.getModContainer().findPath(langPath).ifPresent(path -> {
+            try (final Reader reader = Files.newBufferedReader(path)) {
+                final JsonObject translations = JsonParser.parseReader(reader).getAsJsonObject();
+                final LanguageGenerator languageGenerator = LanguageGenerator.getInstance();
+
+                for (final String key : translations.keySet()) {
+                    final String value = translations.get(key).getAsString();
+
+                    try {
+                        languageGenerator.generate(g -> g.add(key, value));
+                    } catch (RuntimeException exception) {
+                        Astral.LOGGER.warn(exception.getLocalizedMessage());
+                    }
+                }
+            } catch (final IllegalStateException | IOException | JsonParseException exception) {
+                Astral.LOGGER.error("Failed to merge language file: {}", exception.getLocalizedMessage());
+            }
+        });
 
         CustomContent.INSTANCE.generate();
     }

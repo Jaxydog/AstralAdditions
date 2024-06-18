@@ -2,20 +2,26 @@
   "replace": false,
   "values": [
     "astral:acacia_log_slab",
+    "astral:bamboo_block_slab",
     "astral:birch_log_slab",
     "astral:cherry_log_slab",
+    "astral:crimson_stem_slab",
     "astral:dark_oak_log_slab",
     "astral:jungle_log_slab",
     "astral:mangrove_log_slab",
     "astral:oak_log_slab",
     "astral:spruce_log_slab",
     "astral:stripped_acacia_log_slab",
+    "astral:stripped_bamboo_block_slab",
     "astral:stripped_birch_log_slab",
     "astral:stripped_cherry_log_slab",
+    "astral:stripped_crimson_stem_slab",
     "astral:stripped_dark_oak_log_slab",
     "astral:stripped_jungle_log_slab",
     "astral:stripped_mangrove_log_slab",
     "astral:stripped_oak_log_slab",
-    "astral:stripped_spruce_log_slab"
+    "astral:stripped_spruce_log_slab",
+    "astral:stripped_warped_stem_slab",
+    "astral:warped_stem_slab"
   ]
 }

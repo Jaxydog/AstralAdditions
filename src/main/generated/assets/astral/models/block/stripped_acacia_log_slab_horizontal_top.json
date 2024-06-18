@@ -1,5 +1,5 @@
 {
-  "parent": "astral:block/directional_slab_top",
+  "parent": "astral:block/directional_horizontal_slab_top",
   "textures": {
     "bottom": "astral:block/stripped_acacia_log_inner",
     "side_0": "minecraft:block/stripped_acacia_log_top",

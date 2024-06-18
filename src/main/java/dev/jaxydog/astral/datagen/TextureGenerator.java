@@ -35,6 +35,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
+import java.awt.image.IndexColorModel;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -134,12 +135,15 @@ public class TextureGenerator implements DataProvider {
          * @return A copy of the given image.
          */
         private static @NotNull BufferedImage copyImage(@NotNull BufferedImage image) {
-            final BufferedImage copy = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
+            final BufferedImage copy;
 
-            // FIXME: This currently doesn't actually seem to copy the image.
-            //   Rather, it appears to return a mutable reference to the original image, which is bad.
-            //   For now, the returned image should not be modified directly.
-            copy.setData(image.getData());
+            if (image.getColorModel() instanceof IndexColorModel model) {
+                copy = new BufferedImage(image.getWidth(), image.getHeight(), image.getType(), model);
+            } else {
+                copy = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
+            }
+
+            image.copyData(copy.getRaster());
 
             return image;
         }

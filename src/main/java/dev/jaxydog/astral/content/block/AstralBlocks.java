@@ -3,6 +3,7 @@
  *
  * Copyright © 2023–2024 Jaxydog
  * Copyright © 2024 FunsulYT
+ * Copyright © 2024 IcePenguin
  *
  * This file is part of Astral.
  *
@@ -42,6 +43,16 @@ public final class AstralBlocks extends ContentRegistrar {
     );
 
     /**
+     * The bamboo block slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock BAMBOO_BLOCK_SLAB = new LogSlabBlock("bamboo_block_slab",
+        Blocks.BAMBOO_BLOCK,
+        Settings.copy(Blocks.BAMBOO_BLOCK)
+    );
+
+    /**
      * The birch log slab block.
      *
      * @since 2.2.0
@@ -59,6 +70,16 @@ public final class AstralBlocks extends ContentRegistrar {
     public static final LogSlabBlock CHERRY_LOG_SLAB = new LogSlabBlock("cherry_log_slab",
         Blocks.CHERRY_LOG,
         Settings.copy(Blocks.CHERRY_LOG)
+    );
+
+    /**
+     * The crimson stem slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock CRIMSON_STEM_SLAB = new LogSlabBlock("crimson_stem_slab",
+        Blocks.CRIMSON_STEM,
+        Settings.copy(Blocks.CRIMSON_STEM)
     );
 
     /**
@@ -228,6 +249,16 @@ public final class AstralBlocks extends ContentRegistrar {
     );
 
     /**
+     * The stripped bamboo block slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_BAMBOO_BLOCK_SLAB = new LogSlabBlock("stripped_bamboo_block_slab",
+        Blocks.STRIPPED_BAMBOO_BLOCK,
+        Settings.copy(Blocks.STRIPPED_BAMBOO_BLOCK)
+    );
+
+    /**
      * The stripped birch log slab block.
      *
      * @since 2.2.0
@@ -245,6 +276,16 @@ public final class AstralBlocks extends ContentRegistrar {
     public static final LogSlabBlock STRIPPED_CHERRY_LOG_SLAB = new LogSlabBlock("stripped_cherry_log_slab",
         Blocks.STRIPPED_CHERRY_LOG,
         Settings.copy(Blocks.STRIPPED_CHERRY_LOG)
+    );
+
+    /**
+     * The stripped crimson stem slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_CRIMSON_STEM_SLAB = new LogSlabBlock("stripped_crimson_stem_slab",
+        Blocks.STRIPPED_CRIMSON_STEM,
+        Settings.copy(Blocks.STRIPPED_CRIMSON_STEM)
     );
 
     /**
@@ -295,6 +336,26 @@ public final class AstralBlocks extends ContentRegistrar {
     public static final LogSlabBlock STRIPPED_SPRUCE_LOG_SLAB = new LogSlabBlock("stripped_spruce_log_slab",
         Blocks.STRIPPED_SPRUCE_LOG,
         Settings.copy(Blocks.STRIPPED_SPRUCE_LOG)
+    );
+
+    /**
+     * The stripped warped stem slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_WARPED_STEM_SLAB = new LogSlabBlock("stripped_warped_stem_slab",
+        Blocks.STRIPPED_WARPED_STEM,
+        Settings.copy(Blocks.STRIPPED_WARPED_STEM)
+    );
+
+    /**
+     * The warped stem slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock WARPED_STEM_SLAB = new LogSlabBlock("warped_stem_slab",
+        Blocks.WARPED_STEM,
+        Settings.copy(Blocks.WARPED_STEM)
     );
 
     @Override

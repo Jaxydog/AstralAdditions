@@ -1,0 +1,9 @@
+{
+  "parent": "astral:block/directional_horizontal_slab",
+  "textures": {
+    "bottom": "minecraft:block/warped_stem",
+    "side_0": "minecraft:block/warped_stem_top",
+    "side_1": "minecraft:block/warped_stem",
+    "top": "astral:block/warped_stem_inner"
+  }
+}

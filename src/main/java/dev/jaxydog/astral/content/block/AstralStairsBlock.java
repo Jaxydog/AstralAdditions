@@ -19,11 +19,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.StairsBlock;
 
 /**
- * An extension of an {@link Block} that provides commonly used functionality.
+ * An extension of an {@link StairsBlock} that provides commonly used functionality.
  * <p>
  * This is one of the various instances of already-provided wrapper classes for commonly used types.
  * <p>
- * In future code, you should prefer to extend this class over {@link Block} if at all possible.
+ * In future code, you should prefer to extend this class over {@link StairsBlock} if at all possible.
  * <p>
  * This type is automatically registered.
  *

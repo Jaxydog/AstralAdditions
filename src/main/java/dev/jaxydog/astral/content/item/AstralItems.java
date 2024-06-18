@@ -28,6 +28,7 @@ import dev.jaxydog.astral.datagen.TagGenerator;
 import dev.jaxydog.astral.register.ArmorMap;
 import dev.jaxydog.astral.register.ContentRegistrar;
 import dev.jaxydog.astral.register.DyeMap;
+import dev.jaxydog.astral.register.RegistrationPriority;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
@@ -53,6 +54,17 @@ public final class AstralItems extends ContentRegistrar {
      */
     public static final AstralBlockItem ACACIA_LOG_SLAB = new AstralBlockItem("acacia_log_slab",
         AstralBlocks.ACACIA_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The bamboo block slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem BAMBOO_BLOCK_SLAB = new AstralBlockItem("bamboo_block_slab",
+        AstralBlocks.BAMBOO_BLOCK_SLAB,
         new Settings(),
         () -> ItemGroups.BUILDING_BLOCKS
     );
@@ -169,9 +181,11 @@ public final class AstralItems extends ContentRegistrar {
      *
      * @since 2.0.0
      */
+    @RegistrationPriority(1)
     public static final AstralBlockItem COBBLED_SANDSTONE_BLOCK = new AstralBlockItem("cobbled_sandstone",
         AstralBlocks.COBBLED_SANDSTONE,
-        new Settings()
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     /**
@@ -186,6 +200,17 @@ public final class AstralItems extends ContentRegistrar {
         AstralItemGroups.STARMONEY_PLAZA::getRegistryKey,
         0.0005F,
         StatusEffects.STRENGTH
+    );
+
+    /**
+     * The crimson stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem CRIMSON_STEM_SLAB = new AstralBlockItem("crimson_stem_slab",
+        AstralBlocks.CRIMSON_STEM_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     /**
@@ -460,7 +485,8 @@ public final class AstralItems extends ContentRegistrar {
      * @since 2.0.0
      */
     public static final PlaceholderItem PLACEHOLDER = new PlaceholderItem("placeholder",
-        new Settings().fireproof().maxCount(1).rarity(Rarity.UNCOMMON)
+        new Settings().fireproof().maxCount(1).rarity(Rarity.UNCOMMON),
+        null
     );
 
     /**
@@ -468,9 +494,10 @@ public final class AstralItems extends ContentRegistrar {
      *
      * @since 2.0.0
      */
-    public static final AstralBlockItem RANDOMIZER_BLOCK = new AstralBlockItem("randomizer",
+    public static final AstralBlockItem RANDOMIZER = new AstralBlockItem("randomizer",
         AstralBlocks.RANDOMIZER,
-        new Settings().rarity(Rarity.UNCOMMON)
+        new Settings().rarity(Rarity.UNCOMMON),
+        () -> ItemGroups.REDSTONE
     );
 
     /**
@@ -512,9 +539,11 @@ public final class AstralItems extends ContentRegistrar {
      *
      * @since 2.2.0
      */
+    @RegistrationPriority(1)
     public static final AstralBlockItem SMOOTH_STONE_STAIRS = new AstralBlockItem("smooth_stone_stairs",
         AstralBlocks.SMOOTH_STONE_STAIRS,
-        new Settings()
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     /**
@@ -567,6 +596,17 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The stripped bamboo block slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_BAMBOO_BLOCK_SLAB = new AstralBlockItem("stripped_bamboo_block_slab",
+        AstralBlocks.STRIPPED_BAMBOO_BLOCK_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
      * The stripped birch log slab block item.
      *
      * @since 2.2.0
@@ -584,6 +624,17 @@ public final class AstralItems extends ContentRegistrar {
      */
     public static final AstralBlockItem STRIPPED_CHERRY_LOG_SLAB = new AstralBlockItem("stripped_cherry_log_slab",
         AstralBlocks.STRIPPED_CHERRY_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped crimson stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_CRIMSON_STEM_SLAB = new AstralBlockItem("stripped_crimson_stem_slab",
+        AstralBlocks.STRIPPED_CRIMSON_STEM_SLAB,
         new Settings(),
         () -> ItemGroups.BUILDING_BLOCKS
     );
@@ -639,6 +690,28 @@ public final class AstralItems extends ContentRegistrar {
      */
     public static final AstralBlockItem STRIPPED_SPRUCE_LOG_SLAB = new AstralBlockItem("stripped_spruce_log_slab",
         AstralBlocks.STRIPPED_SPRUCE_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped warped stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_WARPED_STEM_SLAB = new AstralBlockItem("stripped_warped_stem_slab",
+        AstralBlocks.STRIPPED_WARPED_STEM_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The warped stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem WARPED_STEM_SLAB = new AstralBlockItem("warped_stem_slab",
+        AstralBlocks.WARPED_STEM_SLAB,
         new Settings(),
         () -> ItemGroups.BUILDING_BLOCKS
     );
