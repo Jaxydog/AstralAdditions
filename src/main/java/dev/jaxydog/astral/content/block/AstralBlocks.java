@@ -3,6 +3,7 @@
  *
  * Copyright © 2023–2024 Jaxydog
  * Copyright © 2024 FunsulYT
+ * Copyright © 2024 IcePenguin
  *
  * This file is part of Astral.
  *

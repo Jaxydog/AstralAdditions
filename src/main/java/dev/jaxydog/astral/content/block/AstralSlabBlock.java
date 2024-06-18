@@ -2,6 +2,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
  * Copyright © 2024 IcePenguin
+ * Copyright © 2024 Jaxydog
  *
  * This file is part of Astral.
  *

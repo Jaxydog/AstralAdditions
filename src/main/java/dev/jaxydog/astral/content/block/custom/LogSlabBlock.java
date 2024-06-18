@@ -1,6 +1,7 @@
 /*
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
+ * Copyright © 2024 IcePenguin
  * Copyright © 2024 Jaxydog
  *
  * This file is part of Astral.
@@ -84,28 +85,6 @@ public class LogSlabBlock extends AstralSlabBlock implements Generated {
         this.base = base;
 
         this.setDefaultState(this.getDefaultState().with(AXIS, Direction.Axis.Y));
-    }
-
-    /**
-     * Returns the block's bottom model.
-     *
-     * @return The block's bottom model.
-     *
-     * @since 2.2.0
-     */
-    protected Model getBottomModel() {
-        return VERTICAL_MODEL;
-    }
-
-    /**
-     * Returns the block's top model.
-     *
-     * @return The block's top model.
-     *
-     * @since 2.2.0
-     */
-    protected Model getTopModel() {
-        return VERTICAL_MODEL_TOP;
     }
 
     /**
