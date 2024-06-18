@@ -62,6 +62,16 @@ public final class AstralBlocks extends ContentRegistrar {
     );
 
     /**
+     * The crimson stem slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock CRIMSON_STEM_SLAB = new LogSlabBlock("crimson_stem_slab",
+        Blocks.CRIMSON_STEM,
+        Settings.copy(Blocks.CRIMSON_STEM)
+    );
+
+    /**
      * The cobbled sandstone block.
      *
      * @since 2.0.0
@@ -248,6 +258,16 @@ public final class AstralBlocks extends ContentRegistrar {
     );
 
     /**
+     * The stripped crimson stem slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_CRIMSON_STEM_SLAB = new LogSlabBlock("stripped_crimson_stem_slab",
+        Blocks.STRIPPED_CRIMSON_STEM,
+        Settings.copy(Blocks.STRIPPED_CRIMSON_STEM)
+    );
+
+    /**
      * The stripped dark oak log slab block.
      *
      * @since 2.2.0
@@ -295,6 +315,26 @@ public final class AstralBlocks extends ContentRegistrar {
     public static final LogSlabBlock STRIPPED_SPRUCE_LOG_SLAB = new LogSlabBlock("stripped_spruce_log_slab",
         Blocks.STRIPPED_SPRUCE_LOG,
         Settings.copy(Blocks.STRIPPED_SPRUCE_LOG)
+    );
+
+    /**
+     * The stripped warped stem slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_WARPED_STEM_SLAB = new LogSlabBlock("stripped_warped_stem_slab",
+        Blocks.STRIPPED_WARPED_STEM,
+        Settings.copy(Blocks.STRIPPED_WARPED_STEM)
+    );
+
+    /**
+     * The warped stem slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock WARPED_STEM_SLAB = new LogSlabBlock("warped_stem_slab",
+        Blocks.WARPED_STEM,
+        Settings.copy(Blocks.WARPED_STEM)
     );
 
     @Override

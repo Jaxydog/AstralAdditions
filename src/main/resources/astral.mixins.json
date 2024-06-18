@@ -5,6 +5,7 @@
     "mixins": [
         "AnimalEntityMixin",
         "ArmorItemMixin",
+        "AxeItemMixin",
         "CatEntityMixin",
         "CowEntityMixin",
         "EntityMixin",

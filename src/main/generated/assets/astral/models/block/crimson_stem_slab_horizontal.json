@@ -1,0 +1,9 @@
+{
+  "parent": "astral:block/directional_slab",
+  "textures": {
+    "bottom": "minecraft:block/crimson_stem",
+    "side_0": "minecraft:block/crimson_stem_top",
+    "side_1": "minecraft:block/crimson_stem",
+    "top": "astral:block/crimson_stem_inner"
+  }
+}

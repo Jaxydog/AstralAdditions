@@ -189,6 +189,17 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The crimson stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem CRIMSON_STEM_SLAB = new AstralBlockItem("crimson_stem_slab",
+        AstralBlocks.CRIMSON_STEM_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
      * The crown of dread effect item.
      * <p>
      * Randomly provides the holder with the darkness effect.
@@ -589,6 +600,17 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The stripped crimson stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_CRIMSON_STEM_SLAB = new AstralBlockItem("stripped_crimson_stem_slab",
+        AstralBlocks.STRIPPED_CRIMSON_STEM_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
      * The stripped dark oak log slab block item.
      *
      * @since 2.2.0
@@ -639,6 +661,28 @@ public final class AstralItems extends ContentRegistrar {
      */
     public static final AstralBlockItem STRIPPED_SPRUCE_LOG_SLAB = new AstralBlockItem("stripped_spruce_log_slab",
         AstralBlocks.STRIPPED_SPRUCE_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped warped stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_WARPED_STEM_SLAB = new AstralBlockItem("stripped_warped_stem_slab",
+        AstralBlocks.STRIPPED_WARPED_STEM_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The warped stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem WARPED_STEM_SLAB = new AstralBlockItem("warped_stem_slab",
+        AstralBlocks.WARPED_STEM_SLAB,
         new Settings(),
         () -> ItemGroups.BUILDING_BLOCKS
     );
