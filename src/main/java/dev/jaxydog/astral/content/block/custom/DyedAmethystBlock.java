@@ -110,7 +110,7 @@ public class DyedAmethystBlock extends AstralBlock implements Generated {
             final float saturation = color.saturation();
             final float brightness = color.brightness();
 
-            return (switch (dye) {
+            return switch (dye) {
                 // Grayscale colors get special treatment.
                 case WHITE -> color.withSaturation(0F);
                 case LIGHT_GRAY -> color.withSaturation(0F).withBrightness(brightness - 0.225F);
@@ -133,7 +133,7 @@ public class DyedAmethystBlock extends AstralBlock implements Generated {
                         default -> rotated.withSaturation(saturation + 0.25F);
                     };
                 }
-            });
+            };
         },
         // Some colors look wrong without this filter.
         (image, dye) -> {
