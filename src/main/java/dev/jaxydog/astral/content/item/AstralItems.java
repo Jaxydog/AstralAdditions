@@ -28,6 +28,7 @@ import dev.jaxydog.astral.datagen.TagGenerator;
 import dev.jaxydog.astral.register.ArmorMap;
 import dev.jaxydog.astral.register.ContentRegistrar;
 import dev.jaxydog.astral.register.DyeMap;
+import dev.jaxydog.astral.register.RegistrationPriority;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
@@ -180,9 +181,11 @@ public final class AstralItems extends ContentRegistrar {
      *
      * @since 2.0.0
      */
+    @RegistrationPriority(1)
     public static final AstralBlockItem COBBLED_SANDSTONE_BLOCK = new AstralBlockItem("cobbled_sandstone",
         AstralBlocks.COBBLED_SANDSTONE,
-        new Settings()
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     /**
@@ -482,7 +485,8 @@ public final class AstralItems extends ContentRegistrar {
      * @since 2.0.0
      */
     public static final PlaceholderItem PLACEHOLDER = new PlaceholderItem("placeholder",
-        new Settings().fireproof().maxCount(1).rarity(Rarity.UNCOMMON)
+        new Settings().fireproof().maxCount(1).rarity(Rarity.UNCOMMON),
+        null
     );
 
     /**
@@ -490,9 +494,10 @@ public final class AstralItems extends ContentRegistrar {
      *
      * @since 2.0.0
      */
-    public static final AstralBlockItem RANDOMIZER_BLOCK = new AstralBlockItem("randomizer",
+    public static final AstralBlockItem RANDOMIZER = new AstralBlockItem("randomizer",
         AstralBlocks.RANDOMIZER,
-        new Settings().rarity(Rarity.UNCOMMON)
+        new Settings().rarity(Rarity.UNCOMMON),
+        () -> ItemGroups.REDSTONE
     );
 
     /**
@@ -534,9 +539,11 @@ public final class AstralItems extends ContentRegistrar {
      *
      * @since 2.2.0
      */
+    @RegistrationPriority(1)
     public static final AstralBlockItem SMOOTH_STONE_STAIRS = new AstralBlockItem("smooth_stone_stairs",
         AstralBlocks.SMOOTH_STONE_STAIRS,
-        new Settings()
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     /**

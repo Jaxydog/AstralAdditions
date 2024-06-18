@@ -7,6 +7,7 @@ Adds new blocks, improve data generation.
 + Add smooth stone stairs.
 + Fixed the mirror's broken model.
 + Added log slabs.
++ Adjusted item groups for some items.
 
 ### Internal changes
 
