@@ -1,0 +1,9 @@
+{
+  "parent": "astral:block/directional_slab_top",
+  "textures": {
+    "bottom": "astral:block/stripped_birch_log_inner",
+    "side_0": "minecraft:block/stripped_birch_log_top",
+    "side_1": "minecraft:block/stripped_birch_log",
+    "top": "minecraft:block/stripped_birch_log"
+  }
+}

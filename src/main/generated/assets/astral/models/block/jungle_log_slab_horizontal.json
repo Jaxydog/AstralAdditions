@@ -1,0 +1,9 @@
+{
+  "parent": "astral:block/directional_slab",
+  "textures": {
+    "bottom": "minecraft:block/jungle_log",
+    "side_0": "minecraft:block/jungle_log_top",
+    "side_1": "minecraft:block/jungle_log",
+    "top": "astral:block/jungle_log_inner"
+  }
+}

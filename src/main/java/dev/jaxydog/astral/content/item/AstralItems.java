@@ -32,6 +32,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item.Settings;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
@@ -44,6 +45,28 @@ import net.minecraft.util.Rarity;
  * @since 2.0.0
  */
 public final class AstralItems extends ContentRegistrar {
+
+    /**
+     * The acacia log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem ACACIA_LOG_SLAB = new AstralBlockItem("acacia_log_slab",
+        AstralBlocks.ACACIA_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The birch log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem BIRCH_LOG_SLAB = new AstralBlockItem("birch_log_slab",
+        AstralBlocks.BIRCH_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
 
     /**
      * The blob of malintent effect item.
@@ -71,6 +94,17 @@ public final class AstralItems extends ContentRegistrar {
         AstralItemGroups.STARMONEY_PLAZA::getRegistryKey,
         0.0005F,
         StatusEffects.INVISIBILITY
+    );
+
+    /**
+     * The cherry log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem CHERRY_LOG_SLAB = new AstralBlockItem("cherry_log_slab",
+        AstralBlocks.CHERRY_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     /**
@@ -180,6 +214,17 @@ public final class AstralItems extends ContentRegistrar {
         AstralItemGroups.STARMONEY_PLAZA::getRegistryKey,
         0.0005F,
         StatusEffects.SLOWNESS
+    );
+
+    /**
+     * The dark oak log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem DARK_OAK_LOG_SLAB = new AstralBlockItem("dark_oak_log_slab",
+        AstralBlocks.DARK_OAK_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     /**
@@ -336,6 +381,17 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The jungle log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem JUNGLE_LOG_SLAB = new AstralBlockItem("jungle_log_slab",
+        AstralBlocks.JUNGLE_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
      * The living sculk item.
      *
      * @since 2.0.0
@@ -346,11 +402,33 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The mangrove log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem MANGROVE_LOG_SLAB = new AstralBlockItem("mangrove_log_slab",
+        AstralBlocks.MANGROVE_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
      * The Fluxling's mirror item.
      *
      * @since 2.0.0
      */
     public static final MirrorItem MIRROR = new MirrorItem("mirror", new Settings().maxCount(1).rarity(Rarity.RARE));
+
+    /**
+     * The oak log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem OAK_LOG_SLAB = new AstralBlockItem("oak_log_slab",
+        AstralBlocks.OAK_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
 
     /**
      * The photo of hope effect item.
@@ -458,12 +536,111 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The spruce log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem SPRUCE_LOG_SLAB = new AstralBlockItem("spruce_log_slab",
+        AstralBlocks.SPRUCE_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
      * The strawberry milk food item.
      *
      * @since 2.0.0
      */
     public static final BottleItem STRAWBERRY_MILK = new BottleItem("strawberry_milk",
         new Settings().food(FoodComponents.STRAWBERRY_MILK).maxCount(16)
+    );
+
+    /**
+     * The stripped acacia log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_ACACIA_LOG_SLAB = new AstralBlockItem("stripped_acacia_log_slab",
+        AstralBlocks.STRIPPED_ACACIA_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped birch log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_BIRCH_LOG_SLAB = new AstralBlockItem("stripped_birch_log_slab",
+        AstralBlocks.STRIPPED_BIRCH_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped cherry log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_CHERRY_LOG_SLAB = new AstralBlockItem("stripped_cherry_log_slab",
+        AstralBlocks.STRIPPED_CHERRY_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped dark oak log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_DARK_OAK_LOG_SLAB = new AstralBlockItem("stripped_dark_oak_log_slab",
+        AstralBlocks.STRIPPED_DARK_OAK_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped jungle log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_JUNGLE_LOG_SLAB = new AstralBlockItem("stripped_jungle_log_slab",
+        AstralBlocks.STRIPPED_JUNGLE_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped mangrove log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_MANGROVE_LOG_SLAB = new AstralBlockItem("stripped_mangrove_log_slab",
+        AstralBlocks.STRIPPED_MANGROVE_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped oak log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_OAK_LOG_SLAB = new AstralBlockItem("stripped_oak_log_slab",
+        AstralBlocks.STRIPPED_OAK_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped spruce log slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_SPRUCE_LOG_SLAB = new AstralBlockItem("stripped_spruce_log_slab",
+        AstralBlocks.STRIPPED_SPRUCE_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     /**

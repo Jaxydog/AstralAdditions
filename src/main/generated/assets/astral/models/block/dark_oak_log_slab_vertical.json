@@ -1,0 +1,9 @@
+{
+  "parent": "astral:block/directional_slab",
+  "textures": {
+    "bottom": "minecraft:block/dark_oak_log_top",
+    "side_0": "minecraft:block/dark_oak_log",
+    "side_1": "minecraft:block/dark_oak_log",
+    "top": "minecraft:block/dark_oak_log_top"
+  }
+}

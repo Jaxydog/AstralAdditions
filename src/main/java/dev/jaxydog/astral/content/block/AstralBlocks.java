@@ -32,12 +32,52 @@ import net.minecraft.block.Blocks;
 public final class AstralBlocks extends ContentRegistrar {
 
     /**
+     * The acacia log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock ACACIA_LOG_SLAB = new LogSlabBlock("acacia_log_slab",
+        Blocks.ACACIA_LOG,
+        Settings.copy(Blocks.ACACIA_LOG)
+    );
+
+    /**
+     * The birch log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock BIRCH_LOG_SLAB = new LogSlabBlock("birch_log_slab",
+        Blocks.BIRCH_LOG,
+        Settings.copy(Blocks.BIRCH_LOG)
+    );
+
+    /**
+     * The cherry log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock CHERRY_LOG_SLAB = new LogSlabBlock("cherry_log_slab",
+        Blocks.CHERRY_LOG,
+        Settings.copy(Blocks.CHERRY_LOG)
+    );
+
+    /**
      * The cobbled sandstone block.
      *
      * @since 2.0.0
      */
     public static final CobbledSandstoneBlock COBBLED_SANDSTONE = new CobbledSandstoneBlock("cobbled_sandstone",
         Settings.copy(Blocks.SANDSTONE)
+    );
+
+    /**
+     * The dark oak log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock DARK_OAK_LOG_SLAB = new LogSlabBlock("dark_oak_log_slab",
+        Blocks.DARK_OAK_LOG,
+        Settings.copy(Blocks.DARK_OAK_LOG)
     );
 
     /**
@@ -119,6 +159,36 @@ public final class AstralBlocks extends ContentRegistrar {
     );
 
     /**
+     * The jungle log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock JUNGLE_LOG_SLAB = new LogSlabBlock("jungle_log_slab",
+        Blocks.JUNGLE_LOG,
+        Settings.copy(Blocks.JUNGLE_LOG)
+    );
+
+    /**
+     * The mangrove log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock MANGROVE_LOG_SLAB = new LogSlabBlock("mangrove_log_slab",
+        Blocks.MANGROVE_LOG,
+        Settings.copy(Blocks.MANGROVE_LOG)
+    );
+
+    /**
+     * The oak  log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock OAK_LOG_SLAB = new LogSlabBlock("oak_log_slab",
+        Blocks.OAK_LOG,
+        Settings.copy(Blocks.OAK_LOG)
+    );
+
+    /**
      * The randomizer block.
      *
      * @since 2.0.0
@@ -135,6 +205,96 @@ public final class AstralBlocks extends ContentRegistrar {
     public static final SmoothStoneStairsBlock SMOOTH_STONE_STAIRS = new SmoothStoneStairsBlock("smooth_stone_stairs",
         Blocks.SMOOTH_STONE.getDefaultState(),
         Settings.copy(Blocks.SMOOTH_STONE)
+    );
+
+    /**
+     * The spruce log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock SPRUCE_LOG_SLAB = new LogSlabBlock("spruce_log_slab",
+        Blocks.SPRUCE_LOG,
+        Settings.copy(Blocks.SPRUCE_LOG)
+    );
+
+    /**
+     * The stripped acacia log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_ACACIA_LOG_SLAB = new LogSlabBlock("stripped_acacia_log_slab",
+        Blocks.STRIPPED_ACACIA_LOG,
+        Settings.copy(Blocks.STRIPPED_ACACIA_LOG)
+    );
+
+    /**
+     * The stripped birch log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_BIRCH_LOG_SLAB = new LogSlabBlock("stripped_birch_log_slab",
+        Blocks.STRIPPED_BIRCH_LOG,
+        Settings.copy(Blocks.STRIPPED_BIRCH_LOG)
+    );
+
+    /**
+     * The stripped cherry log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_CHERRY_LOG_SLAB = new LogSlabBlock("stripped_cherry_log_slab",
+        Blocks.STRIPPED_CHERRY_LOG,
+        Settings.copy(Blocks.STRIPPED_CHERRY_LOG)
+    );
+
+    /**
+     * The stripped dark oak log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_DARK_OAK_LOG_SLAB = new LogSlabBlock("stripped_dark_oak_log_slab",
+        Blocks.STRIPPED_DARK_OAK_LOG,
+        Settings.copy(Blocks.STRIPPED_DARK_OAK_LOG)
+    );
+
+    /**
+     * The stripped jungle log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_JUNGLE_LOG_SLAB = new LogSlabBlock("stripped_jungle_log_slab",
+        Blocks.STRIPPED_JUNGLE_LOG,
+        Settings.copy(Blocks.STRIPPED_JUNGLE_LOG)
+    );
+
+    /**
+     * The stripped mangrove log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_MANGROVE_LOG_SLAB = new LogSlabBlock("stripped_mangrove_log_slab",
+        Blocks.STRIPPED_MANGROVE_LOG,
+        Settings.copy(Blocks.STRIPPED_MANGROVE_LOG)
+    );
+
+    /**
+     * The stripped oak log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_OAK_LOG_SLAB = new LogSlabBlock("stripped_oak_log_slab",
+        Blocks.STRIPPED_OAK_LOG,
+        Settings.copy(Blocks.STRIPPED_OAK_LOG)
+    );
+
+    /**
+     * The stripped spruce log slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_SPRUCE_LOG_SLAB = new LogSlabBlock("stripped_spruce_log_slab",
+        Blocks.STRIPPED_SPRUCE_LOG,
+        Settings.copy(Blocks.STRIPPED_SPRUCE_LOG)
     );
 
     @Override

@@ -1,0 +1,9 @@
+{
+  "parent": "astral:block/directional_slab",
+  "textures": {
+    "bottom": "minecraft:block/acacia_log",
+    "side_0": "minecraft:block/acacia_log_top",
+    "side_1": "minecraft:block/acacia_log",
+    "top": "astral:block/acacia_log_inner"
+  }
+}
