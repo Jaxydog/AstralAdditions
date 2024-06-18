@@ -706,17 +706,6 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
-     * The warped stem slab block item.
-     *
-     * @since 2.2.0
-     */
-    public static final AstralBlockItem WARPED_STEM_SLAB = new AstralBlockItem("warped_stem_slab",
-        AstralBlocks.WARPED_STEM_SLAB,
-        new Settings(),
-        () -> ItemGroups.BUILDING_BLOCKS
-    );
-
-    /**
      * The target of panic effect item.
      * <p>
      * Randomly provides the holder with the speed effect.
@@ -738,6 +727,17 @@ public final class AstralItems extends ContentRegistrar {
     public static final AstralItem VOID_ESSENCE = new AstralItem("void_essence",
         new Settings().rarity(Rarity.EPIC),
         AstralItemGroups.STARMONEY_PLAZA::getRegistryKey
+    );
+
+    /**
+     * The warped stem slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem WARPED_STEM_SLAB = new AstralBlockItem("warped_stem_slab",
+        AstralBlocks.WARPED_STEM_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
     );
 
     @Override
