@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "axis=x,type=bottom": {
+      "model": "astral:block/stripped_birch_log_slab_horizontal",
+      "y": 90
+    },
+    "axis=x,type=double": {
+      "model": "minecraft:block/stripped_birch_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,type=top": {
+      "model": "astral:block/stripped_birch_log_slab_horizontal_top",
+      "y": 90
+    },
+    "axis=y,type=bottom": {
+      "model": "astral:block/stripped_birch_log_slab_vertical"
+    },
+    "axis=y,type=double": {
+      "model": "minecraft:block/stripped_birch_log"
+    },
+    "axis=y,type=top": {
+      "model": "astral:block/stripped_birch_log_slab_vertical_top"
+    },
+    "axis=z,type=bottom": {
+      "model": "astral:block/stripped_birch_log_slab_horizontal"
+    },
+    "axis=z,type=double": {
+      "model": "minecraft:block/stripped_birch_log",
+      "x": 90
+    },
+    "axis=z,type=top": {
+      "model": "astral:block/stripped_birch_log_slab_horizontal_top"
+    }
+  }
+}

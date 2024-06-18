@@ -14,8 +14,14 @@
 
 package dev.jaxydog.astral.content.block;
 
+import dev.jaxydog.astral.Astral;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.data.client.Model;
+import net.minecraft.data.client.TextureKey;
+
+import java.util.Optional;
 
 /**
  * An extension of an {@link SlabBlock} that provides commonly used functionality.
@@ -33,6 +39,48 @@ import net.minecraft.block.SlabBlock;
 public class AstralSlabBlock extends SlabBlock implements Custom {
 
     /**
+     * The texture key for side 0.
+     *
+     * @since 2.2.0
+     */
+    protected static final TextureKey SIDE_0 = TextureKey.of("side_0");
+
+    /**
+     * The texture key for side 1.
+     *
+     * @since 2.2.0
+     */
+    protected static final TextureKey SIDE_1 = TextureKey.of("side_1");
+
+    /**
+     * The base directional slab model.
+     *
+     * @since 2.2.0
+     */
+    protected static final Model DIRECTIONAL_MODEL = new Model(
+        Optional.ofNullable(Astral.getId("block/directional_slab")),
+        Optional.empty(),
+        TextureKey.TOP,
+        TextureKey.BOTTOM,
+        SIDE_0,
+        SIDE_1
+    );
+
+    /**
+     * The base directional slab model.
+     *
+     * @since 2.2.0
+     */
+    protected static final Model DIRECTIONAL_MODEL_TOP = new Model(
+        Optional.ofNullable(Astral.getId("block/directional_slab_top")),
+        Optional.empty(),
+        TextureKey.TOP,
+        TextureKey.BOTTOM,
+        SIDE_0,
+        SIDE_1
+    );
+
+    /**
      * The slab block's identifier path used within the registration system.
      *
      * @since 2.2.0
@@ -44,6 +92,7 @@ public class AstralSlabBlock extends SlabBlock implements Custom {
      *
      * @param path The slab block's identifier path.
      * @param settings the slab block's settings.
+     *
      * @since 2.2.0
      */
     public AstralSlabBlock(String path, Settings settings) {
@@ -61,4 +110,10 @@ public class AstralSlabBlock extends SlabBlock implements Custom {
     public String getRegistryPath() {
         return this.path;
     }
+
+    @Override
+    public boolean hasSidedTransparency(BlockState state) {
+        return state.contains(TYPE) && super.hasSidedTransparency(state);
+    }
+
 }

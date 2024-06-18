@@ -1,0 +1,9 @@
+{
+  "parent": "astral:block/directional_slab",
+  "textures": {
+    "bottom": "minecraft:block/cherry_log",
+    "side_0": "minecraft:block/cherry_log_top",
+    "side_1": "minecraft:block/cherry_log",
+    "top": "astral:block/cherry_log_inner"
+  }
+}
