@@ -15,42 +15,40 @@
 package dev.jaxydog.astral.content.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.StairsBlock;
+import net.minecraft.block.WallBlock;
 
 /**
- * An extension of an {@link StairsBlock} that provides commonly used functionality.
+ * An extension of a {@link WallBlock} that provides commonly used functionality.
  * <p>
  * This is one of the various instances of already-provided wrapper classes for commonly used types.
  * <p>
- * In future code, you should prefer to extend this class over {@link StairsBlock} if at all possible.
+ * In future code, you should prefer to extend this class over {@link WallBlock} if at all possible.
  * <p>
  * This type is automatically registered.
  *
  * @author Jaxydog
  * @see Custom
- * @since 2.2.0
+ * @since 2.3.0
  */
-public class AstralStairsBlock extends StairsBlock implements Custom {
+public class AstralWallBlock extends WallBlock implements Custom {
 
     /**
      * The block's identifier path used within the registration system.
      *
-     * @since 2.2.0
+     * @since 2.3.0
      */
     private final String path;
 
     /**
-     * Creates a new stair block using the given settings.
+     * Creates a new wall block using the given settings.
      *
      * @param path The block's identifier path.
-     * @param baseBlockState The base block state.
      * @param settings The block's settings.
      *
-     * @since 2.2.0
+     * @since 2.3.0
      */
-    public AstralStairsBlock(String path, BlockState baseBlockState, Settings settings) {
-        super(baseBlockState, settings);
+    public AstralWallBlock(String path, Settings settings) {
+        super(settings);
 
         this.path = path;
     }
