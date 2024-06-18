@@ -24,6 +24,7 @@ Fixes minor bugs.
 ### Content changes
 
 + Make log slabs usable as a fuel in a furnace.
++ Fixed log slab loot tables.
 
 ---
 

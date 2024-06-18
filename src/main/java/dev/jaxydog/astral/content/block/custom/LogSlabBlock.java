@@ -29,10 +29,13 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable.Builder;
-import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.ExplosionDecayLootFunction;
+import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.state.StateManager;
@@ -220,9 +223,11 @@ public class LogSlabBlock extends AstralSlabBlock implements Generated {
             this.getLootTableId(),
             new Builder().pool(LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1F))
-                .with(ItemEntry.builder(this))
-                .conditionally(SurvivesExplosionLootCondition.builder().build())
-                .build())
+                .with(ItemEntry.builder(this)
+                    .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2F), false)
+                        .conditionally(BlockStatePropertyLootCondition.builder(this)
+                            .properties(StatePredicate.Builder.create().exactMatch(TYPE, SlabType.DOUBLE))))
+                    .apply(ExplosionDecayLootFunction.builder()))).randomSequenceId(this.getLootTableId())
         );
 
         RecipeGenerator.getInstance().generate(
