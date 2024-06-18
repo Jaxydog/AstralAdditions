@@ -15,6 +15,7 @@ Adds new blocks, improve data generation.
 + Removed data generation classes from final builds.
 + Scary method.
 + Fixed language file merging during data generation.
++ Properly copy images during the texture generation process.
 
 ---
 
