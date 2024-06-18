@@ -1,0 +1,6 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": { "item": "minecraft:smooth_stone" },
+    "result": "astral:smooth_stone_stairs",
+    "count": 1
+}
