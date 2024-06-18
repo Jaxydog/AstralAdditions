@@ -1,5 +1,5 @@
 {
-  "parent": "astral:block/directional_slab",
+  "parent": "astral:block/directional_horizontal_slab",
   "textures": {
     "bottom": "minecraft:block/warped_stem",
     "side_0": "minecraft:block/warped_stem_top",

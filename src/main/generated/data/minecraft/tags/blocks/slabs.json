@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "astral:acacia_log_slab",
+    "astral:bamboo_block_slab",
     "astral:birch_log_slab",
     "astral:cherry_log_slab",
     "astral:crimson_stem_slab",
@@ -11,6 +12,7 @@
     "astral:oak_log_slab",
     "astral:spruce_log_slab",
     "astral:stripped_acacia_log_slab",
+    "astral:stripped_bamboo_block_slab",
     "astral:stripped_birch_log_slab",
     "astral:stripped_cherry_log_slab",
     "astral:stripped_crimson_stem_slab",

@@ -58,6 +58,17 @@ public final class AstralItems extends ContentRegistrar {
     );
 
     /**
+     * The bamboo block slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem BAMBOO_BLOCK_SLAB = new AstralBlockItem("bamboo_block_slab",
+        AstralBlocks.BAMBOO_BLOCK_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
      * The birch log slab block item.
      *
      * @since 2.2.0
@@ -573,6 +584,17 @@ public final class AstralItems extends ContentRegistrar {
      */
     public static final AstralBlockItem STRIPPED_ACACIA_LOG_SLAB = new AstralBlockItem("stripped_acacia_log_slab",
         AstralBlocks.STRIPPED_ACACIA_LOG_SLAB,
+        new Settings(),
+        () -> ItemGroups.BUILDING_BLOCKS
+    );
+
+    /**
+     * The stripped bamboo block slab block item.
+     *
+     * @since 2.2.0
+     */
+    public static final AstralBlockItem STRIPPED_BAMBOO_BLOCK_SLAB = new AstralBlockItem("stripped_bamboo_block_slab",
+        AstralBlocks.STRIPPED_BAMBOO_BLOCK_SLAB,
         new Settings(),
         () -> ItemGroups.BUILDING_BLOCKS
     );

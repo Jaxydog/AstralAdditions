@@ -79,6 +79,7 @@ public abstract class AxeItemMixin extends MiningToolItem {
         Builder<Block, Block> instance, Operation<ImmutableMap<Block, Block>> original
     ) {
         return original.call(instance.put(AstralBlocks.ACACIA_LOG_SLAB, AstralBlocks.STRIPPED_ACACIA_LOG_SLAB)
+            .put(AstralBlocks.BAMBOO_BLOCK_SLAB, AstralBlocks.STRIPPED_BAMBOO_BLOCK_SLAB)
             .put(AstralBlocks.BIRCH_LOG_SLAB, AstralBlocks.STRIPPED_BIRCH_LOG_SLAB)
             .put(AstralBlocks.CHERRY_LOG_SLAB, AstralBlocks.STRIPPED_CHERRY_LOG_SLAB)
             .put(AstralBlocks.CRIMSON_STEM_SLAB, AstralBlocks.STRIPPED_CRIMSON_STEM_SLAB)

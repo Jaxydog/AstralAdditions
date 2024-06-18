@@ -42,6 +42,16 @@ public final class AstralBlocks extends ContentRegistrar {
     );
 
     /**
+     * The bamboo block slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock BAMBOO_BLOCK_SLAB = new LogSlabBlock("bamboo_block_slab",
+        Blocks.BAMBOO_BLOCK,
+        Settings.copy(Blocks.BAMBOO_BLOCK)
+    );
+
+    /**
      * The birch log slab block.
      *
      * @since 2.2.0
@@ -235,6 +245,16 @@ public final class AstralBlocks extends ContentRegistrar {
     public static final LogSlabBlock STRIPPED_ACACIA_LOG_SLAB = new LogSlabBlock("stripped_acacia_log_slab",
         Blocks.STRIPPED_ACACIA_LOG,
         Settings.copy(Blocks.STRIPPED_ACACIA_LOG)
+    );
+
+    /**
+     * The stripped bamboo block slab block.
+     *
+     * @since 2.2.0
+     */
+    public static final LogSlabBlock STRIPPED_BAMBOO_BLOCK_SLAB = new LogSlabBlock("stripped_bamboo_block_slab",
+        Blocks.STRIPPED_BAMBOO_BLOCK,
+        Settings.copy(Blocks.STRIPPED_BAMBOO_BLOCK)
     );
 
     /**

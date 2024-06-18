@@ -1,3 +1,17 @@
+/*
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ *
+ * Copyright © 2024 Jaxydog
+ *
+ * This file is part of Astral.
+ *
+ * Astral is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * Astral is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with Astral. If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package dev.jaxydog.astral.content.block.custom;
 
 import dev.jaxydog.astral.Astral;
@@ -73,9 +87,31 @@ public class LogSlabBlock extends AstralSlabBlock implements Generated {
     }
 
     /**
+     * Returns the block's bottom model.
+     *
+     * @return The block's bottom model.
+     *
+     * @since 2.2.0
+     */
+    protected Model getBottomModel() {
+        return VERTICAL_MODEL;
+    }
+
+    /**
+     * Returns the block's top model.
+     *
+     * @return The block's top model.
+     *
+     * @since 2.2.0
+     */
+    protected Model getTopModel() {
+        return VERTICAL_MODEL_TOP;
+    }
+
+    /**
      * Returns this slab block's base block.
      *
-     * @return This slab block;s base block.
+     * @return This slab block's base block.
      *
      * @since 2.2.0
      */
@@ -113,10 +149,9 @@ public class LogSlabBlock extends AstralSlabBlock implements Generated {
     public void generate() {
         ModelGenerator.getInstance().generateItem(g -> {
             final Identifier identifier = ModelIds.getItemModelId(this.asItem());
+            final Identifier modelIdentifier = ModelIds.getBlockModelId(this).withSuffixedPath("_horizontal");
 
-            new Model(Optional.of(ModelIds.getBlockModelId(this).withSuffixedPath("_horizontal")),
-                Optional.empty()
-            ).upload(identifier, new TextureMap(), g.writer);
+            new Model(Optional.of(modelIdentifier), Optional.empty()).upload(identifier, new TextureMap(), g.writer);
         });
         ModelGenerator.getInstance().generateBlock(g -> {
             final Identifier side = ModelIds.getBlockModelId(this.getBaseBlock());
@@ -124,28 +159,32 @@ public class LogSlabBlock extends AstralSlabBlock implements Generated {
             final Identifier inner = Astral.getId(side.getPath() + "_inner");
             final Identifier identifier = ModelIds.getBlockModelId(this);
 
-            DIRECTIONAL_MODEL.upload(identifier.withSuffixedPath("_vertical"),
+            VERTICAL_MODEL.upload(
+                identifier.withSuffixedPath("_vertical"),
                 new TextureMap().put(TextureKey.TOP, top)
                     .put(TextureKey.BOTTOM, top)
                     .put(SIDE_0, side)
                     .put(SIDE_1, side),
                 g.modelCollector
             );
-            DIRECTIONAL_MODEL_TOP.upload(identifier.withSuffixedPath("_vertical_top"),
+            VERTICAL_MODEL_TOP.upload(
+                identifier.withSuffixedPath("_vertical_top"),
                 new TextureMap().put(TextureKey.TOP, top)
                     .put(TextureKey.BOTTOM, top)
                     .put(SIDE_0, side)
                     .put(SIDE_1, side),
                 g.modelCollector
             );
-            DIRECTIONAL_MODEL.upload(identifier.withSuffixedPath("_horizontal"),
+            HORIZONTAL_MODEL.upload(
+                identifier.withSuffixedPath("_horizontal"),
                 new TextureMap().put(TextureKey.TOP, inner)
                     .put(TextureKey.BOTTOM, side)
                     .put(SIDE_0, top)
                     .put(SIDE_1, side),
                 g.modelCollector
             );
-            DIRECTIONAL_MODEL_TOP.upload(identifier.withSuffixedPath("_horizontal_top"),
+            HORIZONTAL_MODEL_TOP.upload(
+                identifier.withSuffixedPath("_horizontal_top"),
                 new TextureMap().put(TextureKey.TOP, side)
                     .put(TextureKey.BOTTOM, inner)
                     .put(SIDE_0, top)
@@ -197,7 +236,8 @@ public class LogSlabBlock extends AstralSlabBlock implements Generated {
         TagGenerator.getInstance().generate(BlockTags.AXE_MINEABLE, g -> g.add(this));
         TagGenerator.getInstance().generate(BlockTags.SLABS, g -> g.add(this));
 
-        LootTableGenerator.getInstance().generate(LootContextTypes.BLOCK,
+        LootTableGenerator.getInstance().generate(
+            LootContextTypes.BLOCK,
             this.getLootTableId(),
             new Builder().pool(LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1F))
@@ -206,7 +246,8 @@ public class LogSlabBlock extends AstralSlabBlock implements Generated {
                 .build())
         );
 
-        RecipeGenerator.getInstance().generate(this.getRegistryId(),
+        RecipeGenerator.getInstance().generate(
+            this.getRegistryId(),
             ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, this, 6)
                 .pattern("XXX")
                 .input('X', this.getBaseBlock())
