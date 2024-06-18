@@ -17,6 +17,14 @@ Adds new blocks, improve data generation.
 + Fixed language file merging during data generation.
 + Properly copy images during the texture generation process.
 
+## Patch 2.2.1
+
+Fixes minor bugs.
+
+### Content changes
+
++ Make log slabs usable as a fuel in a furnace.
+
 ---
 
 # Release 2.1.0
