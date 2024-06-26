@@ -26,6 +26,14 @@ Fixes minor bugs.
 + Make log slabs usable as a fuel in a furnace.
 + Fixed log slab loot tables.
 
+## Patch 2.2.2
+
+Fixes more bugs.
+
+### Content changes
+
++ Fixed the bottom texture of horizontal log slabs being improperly rendered.
+
 ---
 
 # Release 2.1.0
