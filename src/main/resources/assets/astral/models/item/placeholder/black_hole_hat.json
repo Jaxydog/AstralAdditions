@@ -1,0 +1,101 @@
+{
+    "credit": "Made with Blockbench",
+    "texture_size": [ 64, 64 ],
+    "textures": {
+        "0": "astral:item/placeholder/black_hole_hat",
+        "particle": "astral:item/placeholder/black_hole_hat"
+    },
+    "elements": [
+        {
+            "from": [ 1.5, 7.01, 1.5 ],
+            "to": [ 14.5, 13, 14.5 ],
+            "rotation": { "angle": 0, "axis": "y", "origin": [ 7, 0, 7 ] },
+            "faces": {
+                "north": { "uv": [ 9, 0, 12.25, 1.5 ], "texture": "#0" },
+                "east": { "uv": [ 9, 1.5, 12.25, 3 ], "texture": "#0" },
+                "south": { "uv": [ 9, 3, 12.25, 4.5 ], "texture": "#0" },
+                "west": { "uv": [ 9, 4.5, 12.25, 6 ], "texture": "#0" },
+                "up": { "uv": [ 9, 3.25, 5.75, 0 ], "texture": "#0" },
+                "down": { "uv": [ 9, 3.25, 5.75, 6.5 ], "texture": "#0" }
+            }
+        },
+        {
+            "from": [ -0.5, 7, 8 ],
+            "to": [ 16.5, 15, 8 ],
+            "rotation": { "angle": 0, "axis": "y", "origin": [ 7, 0, 7 ] },
+            "faces": {
+                "north": { "uv": [ 0, 11.5, 4.25, 13.5 ], "texture": "#0" },
+                "east": { "uv": [ 0, 0, 0, 2 ], "texture": "#0" },
+                "south": { "uv": [ 0, 11.5, 4.25, 13.5 ], "texture": "#0" },
+                "west": { "uv": [ 0, 0, 0, 2 ], "texture": "#0" },
+                "up": { "uv": [ 4.25, 0, 0, 0 ], "texture": "#0" },
+                "down": { "uv": [ 4.25, 0, 0, 0 ], "texture": "#0" }
+            }
+        },
+        {
+            "from": [ -0.5, 15, 8 ],
+            "to": [ 16.5, 23, 8 ],
+            "rotation": { "angle": 0, "axis": "y", "origin": [ 7, 8, 7 ] },
+            "faces": {
+                "north": { "uv": [ 4.5, 11.5, 8.75, 13.5 ], "texture": "#0" },
+                "east": { "uv": [ 0, 0, 0, 2 ], "texture": "#0" },
+                "south": { "uv": [ 4.5, 11.5, 8.75, 13.5 ], "texture": "#0" },
+                "west": { "uv": [ 0, 0, 0, 2 ], "texture": "#0" },
+                "up": { "uv": [ 4.25, 0, 0, 0 ], "texture": "#0" },
+                "down": { "uv": [ 4.25, 0, 0, 0 ], "texture": "#0" }
+            }
+        },
+        {
+            "from": [ -5.5, 7, -5.5 ],
+            "to": [ 21.5, 7, 21.5 ],
+            "rotation": { "angle": 0, "axis": "y", "origin": [ 7, 0, 7 ] },
+            "faces": {
+                "north": { "uv": [ 0, 0, 5.75, 0 ], "texture": "#0" },
+                "east": { "uv": [ 0, 0, 5.75, 0 ], "texture": "#0" },
+                "south": { "uv": [ 0, 0, 5.75, 0 ], "texture": "#0" },
+                "west": { "uv": [ 0, 0, 5.75, 0 ], "texture": "#0" },
+                "up": { "uv": [ 15.75, 14.5, 9, 7.75 ], "texture": "#0" },
+                "down": { "uv": [ 15.75, 7.75, 9, 14.5 ], "texture": "#0" }
+            }
+        }
+    ],
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [ 62, 0, 0 ],
+            "translation": [ 0, -1, -1.75 ],
+            "scale": [ 0.5, 0.5, 0.5 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ 62, 0, 0 ],
+            "translation": [ 0, -1, -1.75 ],
+            "scale": [ 0.5, 0.5, 0.5 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ -3, -43, 0 ],
+            "translation": [ 1.75, 0.75, -0.75 ],
+            "scale": [ 0.8, 0.8, 0.8 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ -3, -43, 0 ],
+            "translation": [ 1.75, 0.75, -0.75 ],
+            "scale": [ 0.8, 0.8, 0.8 ]
+        },
+        "ground": {
+            "translation": [ 0, -1.25, 0 ],
+            "scale": [ 0.8, 0.8, 0.8 ]
+        },
+        "gui": {
+            "rotation": [ 15, 0, 0 ],
+            "translation": [ 0, -1.75, 0 ],
+            "scale": [ 0.7, 0.7, 0.7 ]
+        },
+        "head": {
+            "translation": [ 0, 2.5, 0 ],
+            "scale": [ 1.09, 1.09, 1.09 ]
+        },
+        "fixed": {
+            "rotation": [ -90, 0, 0 ],
+            "translation": [ 0, 0, -0.5 ]
+        }
+    }
+}

@@ -1,3 +1,12 @@
+# Release 2.3.0
+
+Adds more models, fixes the log slab model.
+
+### Content changes
+
++ Fixed the bottom texture of horizontal log slabs being improperly rendered.
++ Added the Black Hole Hat and Ravin Skull Mask models.
+
 # Release 2.2.0
 
 Adds new blocks, improve data generation.
@@ -25,14 +34,6 @@ Fixes minor bugs.
 
 + Make log slabs usable as a fuel in a furnace.
 + Fixed log slab loot tables.
-
-## Patch 2.2.2
-
-Fixes more bugs.
-
-### Content changes
-
-+ Fixed the bottom texture of horizontal log slabs being improperly rendered.
 
 ---
 

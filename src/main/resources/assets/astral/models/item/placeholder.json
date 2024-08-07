@@ -62,6 +62,14 @@
         {
             "predicate": { "custom_model_data": 15 },
             "model": "astral:item/placeholder/pet_rock"
+        },
+        {
+            "predicate": { "custom_model_data": 16 },
+            "model": "astral:item/placeholder/black_hole_hat"
+        },
+        {
+            "predicate": { "custom_model_data": 17 },
+            "model": "astral:item/placeholder/ravin_skull_mask"
         }
     ]
 }
