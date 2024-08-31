@@ -1,3 +1,11 @@
+# Release 2.4.0
+
+Added a custom model.
+
+### Content changes
+
++ Added the chainsaw model.
+
 # Release 2.3.0
 
 Adds more models, fixes the log slab model.
