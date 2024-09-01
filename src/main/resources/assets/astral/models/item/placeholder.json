@@ -70,6 +70,10 @@
         {
             "predicate": { "custom_model_data": 17 },
             "model": "astral:item/placeholder/ravin_skull_mask"
+        },
+        {
+            "predicate": { "custom_model_data": 18 },
+            "model": "astral:item/placeholder/glass_horns"
         }
     ]
 }
