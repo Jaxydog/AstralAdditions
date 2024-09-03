@@ -1,10 +1,12 @@
 # Release 2.5.0
 
-Added a custom model.
+Added glass horns, updated the Ravin mask model, and updated the black hole hat.
 
 ### Content changes
 
 + Added the glass horns model.
++ Updated the Ravin's Mask model.
++ Updated the positioning of the black hole hat.
 
 # Release 2.4.0
 
