@@ -135,7 +135,7 @@ public class DyedBuddingAmethystBlock extends DyedAmethystBlock {
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (random.nextInt(BuddingAmethystBlock.GROW_CHANCE) != 0) return;
 
-        final Direction direction = DIRECTIONS[0];
+        final Direction direction = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
         final BlockPos blockPos = pos.offset(direction);
         final BlockState blockState = world.getBlockState(blockPos);
         final Block block;

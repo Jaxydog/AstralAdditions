@@ -1,3 +1,11 @@
+# Release 2.5.1
+
+Fixes a bug related to budding amethyst.
+
+### Content changes
+
++ Budding amethyst blocks now grow clusters in directions other than west.
+
 # Release 2.5.0
 
 Added glass horns, updated the Ravin mask model, and updated the black hole hat.
