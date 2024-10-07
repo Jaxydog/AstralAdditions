@@ -29,7 +29,7 @@ import java.nio.file.Files;
 /**
  * The mod's data generation entrypoint.
  * <p>
- * This class is initialized during the `runDatagen` Gradle process.
+ * This class is initialized during the {@code runDatagen} Gradle process.
  * <p>
  * It should be assumed that prior to the invocation of {@link #onInitializeDataGenerator(FabricDataGenerator)}, nothing
  * has been properly loaded.
