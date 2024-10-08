@@ -1,11 +1,3 @@
-# Release 2.5.1
-
-Fixes a bug related to budding amethyst.
-
-### Content changes
-
-+ Budding amethyst blocks now grow clusters in directions other than west.
-
 # Release 2.5.0
 
 Added glass horns, updated the Ravin mask model, and updated the black hole hat.
@@ -16,6 +8,16 @@ Added glass horns, updated the Ravin mask model, and updated the black hole hat.
 + Updated the Ravin's Mask model.
 + Updated the positioning of the black hole hat.
 
+## Patch 2.5.1
+
+Fixes a bug related to budding amethyst.
+
+### Content changes
+
++ Budding amethyst blocks now grow clusters in directions other than west.
+
+---
+
 # Release 2.4.0
 
 Added a custom model.
@@ -23,6 +25,8 @@ Added a custom model.
 ### Content changes
 
 + Added the chainsaw model.
+
+---
 
 # Release 2.3.0
 
@@ -32,6 +36,8 @@ Adds more models, fixes the log slab model.
 
 + Fixed the bottom texture of horizontal log slabs being improperly rendered.
 + Added the Black Hole Hat and Ravin Skull Mask models.
+
+---
 
 # Release 2.2.0
 
