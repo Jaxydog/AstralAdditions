@@ -1,3 +1,14 @@
+# Release 2.6.0
+
+Updated build dependency versions.
+
+### Internal changes
+
++ Update Gradle version to 8.9.
++ Update Fabric-loom version to 1.7-SNAPSHOT.
+
+---
+
 # Release 2.5.0
 
 Added glass horns, updated the Ravin mask model, and updated the black hole hat.
